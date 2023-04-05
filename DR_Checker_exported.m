@@ -3,9 +3,9 @@ classdef DR_Checker_exported < matlab.apps.AppBase
     % Properties that correspond to app components
     properties (Access = public)
         DynamicRangeCheckerUIFigure     matlab.ui.Figure
+        Image                           matlab.ui.control.Image
         AbsorptionspectrumYaxisfittingCheckBox  matlab.ui.control.CheckBox
         PoweredbyTerahertzApplicationsGroupUniversityofCambridgeLabel  matlab.ui.control.Label
-        Image                           matlab.ui.control.Image
         SampleIDEditField               matlab.ui.control.EditField
         SampleIDEditFieldLabel          matlab.ui.control.Label
         MeasurementTypeButtonGroup      matlab.ui.container.ButtonGroup
@@ -54,7 +54,7 @@ classdef DR_Checker_exported < matlab.apps.AppBase
         % findNF defines the noise floor as the reference amplitude
         % at the first frequency greater than the specified cutoff
         % frequency, and then runs the functions plotAx1 and plotAx2
-        function findNF(app
+        function findNF(app)
             % find the noise floor for the given reference data
             
             % extract reference frequency, reference frequency domain amplitude and
@@ -521,11 +521,6 @@ classdef DR_Checker_exported < matlab.apps.AppBase
             app.SampleIDEditField = uieditfield(app.DynamicRangeCheckerUIFigure, 'text');
             app.SampleIDEditField.Position = [103 617 163 22];
 
-            % Create Image
-            app.Image = uiimage(app.DynamicRangeCheckerUIFigure);
-            app.Image.Position = [15 644 56 62];
-            app.Image.ImageSource = fullfile(pathToMLAPP, 'dotTHz_logo.png');
-
             % Create PoweredbyTerahertzApplicationsGroupUniversityofCambridgeLabel
             app.PoweredbyTerahertzApplicationsGroupUniversityofCambridgeLabel = uilabel(app.DynamicRangeCheckerUIFigure);
             app.PoweredbyTerahertzApplicationsGroupUniversityofCambridgeLabel.FontSize = 11;
@@ -537,6 +532,11 @@ classdef DR_Checker_exported < matlab.apps.AppBase
             app.AbsorptionspectrumYaxisfittingCheckBox.ValueChangedFcn = createCallbackFcn(app, @AbsorptionspectrumYaxisfittingCheckBoxValueChanged, true);
             app.AbsorptionspectrumYaxisfittingCheckBox.Text = 'Absorption spectrum Y-axis fitting';
             app.AbsorptionspectrumYaxisfittingCheckBox.Position = [66 166 200 22];
+
+            % Create Image
+            app.Image = uiimage(app.DynamicRangeCheckerUIFigure);
+            app.Image.Position = [8 645 63 56];
+            app.Image.ImageSource = fullfile(pathToMLAPP, 'dotTHz_logo.png');
 
             % Show the figure after all components are created
             app.DynamicRangeCheckerUIFigure.Visible = 'on';
