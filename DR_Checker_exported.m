@@ -204,7 +204,6 @@ classdef DR_Checker_exported < matlab.apps.AppBase
             app.refF = refF;
             app.refE = refE;
             app.samA = samA;
-            assignin("base","samA",samA);
             app.n_eff = n_eff;
             cutoffF = app.CutoffFrequencySlider.Value;
             limitFreq = app.UpperlimitFrequencySlider.Value;
