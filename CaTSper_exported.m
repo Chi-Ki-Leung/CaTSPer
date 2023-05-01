@@ -2681,6 +2681,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             ax.Title.String = app.MeasurementEditField.Value;
             ax.XTickLabel = labels;
             ax.XTickLabelRotation= 45;
+            ax.TickLabelInterpreter = 'none';
             legend(ax,lgd,'Interpreter','none');
             hold(ax,"off")
         end
@@ -4145,7 +4146,6 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % Create UIAxes10
             app.UIAxes10 = uiaxes(app.DataManipulationDMTab);
             title(app.UIAxes10, 'PLOT 2')
-            app.UIAxes10.PlotBoxAspectRatio = [2.16 1 1];
             app.UIAxes10.FontWeight = 'bold';
             app.UIAxes10.XTickLabelRotation = 0;
             app.UIAxes10.YTickLabelRotation = 0;
@@ -4163,7 +4163,6 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.UIAxes9 = uiaxes(app.STEP1Panel);
             title(app.UIAxes9, 'PLOT 1')
             xlabel(app.UIAxes9, 'Frequency (THz)')
-            app.UIAxes9.PlotBoxAspectRatio = [2.16 1 1];
             app.UIAxes9.FontWeight = 'bold';
             app.UIAxes9.XLim = [0 4];
             app.UIAxes9.XTickLabelRotation = 0;
