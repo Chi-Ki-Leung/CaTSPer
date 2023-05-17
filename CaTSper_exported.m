@@ -3394,7 +3394,6 @@ classdef CaTSper_exported < matlab.apps.AppBase
             title(app.UIAxes2, 'PLOT 2')
             xlabel(app.UIAxes2, 'Time (ps)')
             ylabel(app.UIAxes2, 'E_{field intensity} (a.u.)')
-            app.UIAxes2.PlotBoxAspectRatio = [2.08059701492537 1 1];
             app.UIAxes2.FontWeight = 'bold';
             app.UIAxes2.XLim = [-5 15];
             app.UIAxes2.XTickLabelRotation = 0;
@@ -3409,7 +3408,6 @@ classdef CaTSper_exported < matlab.apps.AppBase
             title(app.UIAxes1, 'PLOT 1')
             xlabel(app.UIAxes1, 'Time (ps)')
             ylabel(app.UIAxes1, 'E_{field intensity} (a.u.)')
-            app.UIAxes1.PlotBoxAspectRatio = [2.08059701492537 1 1];
             app.UIAxes1.FontWeight = 'bold';
             app.UIAxes1.XLim = [-5 15];
             app.UIAxes1.XTickLabelRotation = 0;
@@ -3809,7 +3807,6 @@ classdef CaTSper_exported < matlab.apps.AppBase
             title(app.UIAxes3, 'PLOT 1')
             xlabel(app.UIAxes3, 'Frequency (THz)')
             ylabel(app.UIAxes3, 'E_{field intensity} (a.u.)')
-            app.UIAxes3.PlotBoxAspectRatio = [2.04477611940298 1 1];
             app.UIAxes3.FontWeight = 'bold';
             app.UIAxes3.XTickLabelRotation = 0;
             app.UIAxes3.YTickLabelRotation = 0;
@@ -3825,7 +3822,6 @@ classdef CaTSper_exported < matlab.apps.AppBase
             title(app.UIAxes4, 'PLOT 2')
             xlabel(app.UIAxes4, 'Frequency (THz)')
             ylabel(app.UIAxes4, 'E_{field intensity} (a.u.)')
-            app.UIAxes4.PlotBoxAspectRatio = [2.04477611940298 1 1];
             app.UIAxes4.FontWeight = 'bold';
             app.UIAxes4.XTickLabelRotation = 0;
             app.UIAxes4.YTickLabelRotation = 0;
