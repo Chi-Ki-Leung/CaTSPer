@@ -6,7 +6,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
         DEPLOYButton                    matlab.ui.control.Button
         Image                           matlab.ui.control.Image
         ProjectsEditField               matlab.ui.control.EditField
-        ImportTHzButton                 matlab.ui.control.Button
+        ImportTHzFilesButton            matlab.ui.control.Button
         PoweredbyTerahertzApplicationsGroupUniversityofCambridgeLabel  matlab.ui.control.Label
         CambridgeTerahertzSpectrumAnalyserLabel  matlab.ui.control.Label
         CaTSperLabel                    matlab.ui.control.Label
@@ -3189,8 +3189,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             hold(ax,"off");
         end
 
-        % Button pushed function: ImportTHzButton
-        function ImportTHzButtonPushed(app, event)
+        % Button pushed function: ImportTHzFilesButton
+        function ImportTHzFilesButtonPushed(app, event)
             % ImportthzFileButtonPushed imports a *.thz file, reads its data
             % and assigns the data to corresponding fields in the app
 
@@ -3765,7 +3765,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.LoadData_TD.FontWeight = 'bold';
             app.LoadData_TD.Tooltip = {'Assign data to variable in the base workspace'};
             app.LoadData_TD.Position = [27 14 140 30];
-            app.LoadData_TD.Text = 'LOAD TD DATA';
+            app.LoadData_TD.Text = 'LOAD TD_DATA';
 
             % Create SaveData_TD
             app.SaveData_TD = uibutton(app.TimeDomainTDTab, 'push');
@@ -3774,7 +3774,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.SaveData_TD.FontWeight = 'bold';
             app.SaveData_TD.Tooltip = {'Assign data to variable in the base workspace'};
             app.SaveData_TD.Position = [175 14 140 30];
-            app.SaveData_TD.Text = 'SAVE TD DATA';
+            app.SaveData_TD.Text = 'SAVE TD_DATA';
 
             % Create ASSIGNButtonTD
             app.ASSIGNButtonTD = uibutton(app.TimeDomainTDTab, 'push');
@@ -3783,7 +3783,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.ASSIGNButtonTD.FontWeight = 'bold';
             app.ASSIGNButtonTD.Tooltip = {'Assign data to variable in the base workspace'};
             app.ASSIGNButtonTD.Position = [333 14 220 30];
-            app.ASSIGNButtonTD.Text = 'ASSIGN TD DATA IN WORKSPACE';
+            app.ASSIGNButtonTD.Text = 'ASSIGN TD_DATA IN WORKSPACE';
 
             % Create CHECKDYNAMICRANGEButton
             app.CHECKDYNAMICRANGEButton = uibutton(app.TimeDomainTDTab, 'push');
@@ -3881,7 +3881,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % Create FDSelectionListBox
             app.FDSelectionListBox = uilistbox(app.FrequencyDomainFDTab);
             app.FDSelectionListBox.Items = {};
-            app.FDSelectionListBox.Position = [386 445 116 353];
+            app.FDSelectionListBox.Position = [386 434 116 364];
             app.FDSelectionListBox.Value = {};
 
             % Create ButtonGroupFD
@@ -4209,7 +4209,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.PLOTFORCUSTOMISATIONButton_FD1 = uibutton(app.FrequencyDomainFDTab, 'push');
             app.PLOTFORCUSTOMISATIONButton_FD1.ButtonPushedFcn = createCallbackFcn(app, @PLOTFORCUSTOMISATIONButton_FD1Pushed, true);
             app.PLOTFORCUSTOMISATIONButton_FD1.FontSize = 11;
-            app.PLOTFORCUSTOMISATIONButton_FD1.Position = [515 445 100 30];
+            app.PLOTFORCUSTOMISATIONButton_FD1.Position = [515 434 100 41];
             app.PLOTFORCUSTOMISATIONButton_FD1.Text = {'PLOT FOR'; 'CUSTOMISATION'};
 
             % Create DataManipulationDMTab
@@ -4651,35 +4651,36 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.CaTSperLabel.FontSize = 37;
             app.CaTSperLabel.FontWeight = 'bold';
             app.CaTSperLabel.FontAngle = 'italic';
-            app.CaTSperLabel.Position = [89 909 158 48];
+            app.CaTSperLabel.Position = [89 910 158 48];
             app.CaTSperLabel.Text = 'CaTSper';
 
             % Create CambridgeTerahertzSpectrumAnalyserLabel
             app.CambridgeTerahertzSpectrumAnalyserLabel = uilabel(app.CatsperUIFigure);
+            app.CambridgeTerahertzSpectrumAnalyserLabel.FontSize = 10;
             app.CambridgeTerahertzSpectrumAnalyserLabel.FontWeight = 'bold';
-            app.CambridgeTerahertzSpectrumAnalyserLabel.Position = [247 909 241 22];
+            app.CambridgeTerahertzSpectrumAnalyserLabel.Position = [263 937 241 22];
             app.CambridgeTerahertzSpectrumAnalyserLabel.Text = 'Cambridge Terahertz Spectrum Analyser';
 
             % Create PoweredbyTerahertzApplicationsGroupUniversityofCambridgeLabel
             app.PoweredbyTerahertzApplicationsGroupUniversityofCambridgeLabel = uilabel(app.CatsperUIFigure);
             app.PoweredbyTerahertzApplicationsGroupUniversityofCambridgeLabel.FontSize = 11;
-            app.PoweredbyTerahertzApplicationsGroupUniversityofCambridgeLabel.Position = [1090 9 336 22];
+            app.PoweredbyTerahertzApplicationsGroupUniversityofCambridgeLabel.Position = [1106 9 336 22];
             app.PoweredbyTerahertzApplicationsGroupUniversityofCambridgeLabel.Text = 'Powered by Terahertz Applications Group, University of Cambridge';
 
-            % Create ImportTHzButton
-            app.ImportTHzButton = uibutton(app.CatsperUIFigure, 'push');
-            app.ImportTHzButton.ButtonPushedFcn = createCallbackFcn(app, @ImportTHzButtonPushed, true);
-            app.ImportTHzButton.BackgroundColor = [1 1 1];
-            app.ImportTHzButton.FontSize = 13;
-            app.ImportTHzButton.FontWeight = 'bold';
-            app.ImportTHzButton.Position = [493 909 113 29];
-            app.ImportTHzButton.Text = 'Import THz';
+            % Create ImportTHzFilesButton
+            app.ImportTHzFilesButton = uibutton(app.CatsperUIFigure, 'push');
+            app.ImportTHzFilesButton.ButtonPushedFcn = createCallbackFcn(app, @ImportTHzFilesButtonPushed, true);
+            app.ImportTHzFilesButton.BackgroundColor = [1 1 1];
+            app.ImportTHzFilesButton.FontSize = 13;
+            app.ImportTHzFilesButton.FontWeight = 'bold';
+            app.ImportTHzFilesButton.Position = [262 909 137 29];
+            app.ImportTHzFilesButton.Text = 'Import THz Files';
 
             % Create ProjectsEditField
             app.ProjectsEditField = uieditfield(app.CatsperUIFigure, 'text');
             app.ProjectsEditField.FontWeight = 'bold';
             app.ProjectsEditField.BackgroundColor = [0.9412 0.9412 0.9412];
-            app.ProjectsEditField.Position = [616 911 453 25];
+            app.ProjectsEditField.Position = [412 911 655 25];
 
             % Create Image
             app.Image = uiimage(app.CatsperUIFigure);
