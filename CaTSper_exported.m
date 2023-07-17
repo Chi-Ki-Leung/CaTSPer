@@ -840,7 +840,6 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % grouping all phase values into one single vector
             pData = [pData3 pData1];
             
-            %CKL46 13Jul23 edited epol_srtFreq from 0.05 to 0.2 THz
             % correction for lower frequency region(0 to 0.1THz) with extrapolation
             epol_srtFreq = 0.05 * 1e12;
             epol_endFreq = 0.4 * 1e12;
