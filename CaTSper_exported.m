@@ -840,6 +840,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % grouping all phase values into one single vector
             pData = [pData3 pData1];
             
+            %CKL46 13Jul23 edited epol_srtFreq from 0.05 to 0.2 THz
             % correction for lower frequency region(0 to 0.1THz) with extrapolation
             epol_srtFreq = 0.05 * 1e12;
             epol_endFreq = 0.4 * 1e12;
@@ -3000,7 +3001,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % SAVETDFDDMButtonPushed saves selected or all time domain data,
             % all frequency domain and data manipulation data
 
-            % TD_data save
+            % preparing to save TD_data
             % creates a dialouge box asking if user would like to save all
             % data (time domain, frequency domain and data manipulation),
             % and provides three options for response
@@ -3023,7 +3024,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             
             % if all data are to be saved, assign the time domain data to parameters
             if isequal(answer,'Yes')
-                ListItems = app.MeasurementListBox.Items;
+                TD_ListItems = app.MeasurementListBox.Items;
                 TD_data = app.TD_data;
             else
                 % if no time domain data are selected, display warning message and do
@@ -3035,7 +3036,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
                 
                 % if only selected data are to be saved, assign the
                 % selected time domain data to parameters
-                ListItems = app.SelectionListBox.Items;
+                TD_ListItems = app.SelectionListBox.Items;
                 ListIdx = app.TD_select;
                 cnt = 1
                 
@@ -3054,24 +3055,22 @@ classdef CaTSper_exported < matlab.apps.AppBase
                 TD_data.totalMeasNum = length(ListIdx);
 
             end
-            
-            % save the time domain data
-            save(fullfile,'TD_data','TD_ListItems');
-            
-            % FD_data save
+                      
+            % preparing to save FD_data
             % extract the frequency domain data and assign them to
             % parameters
             FD_ListItems = app.FDListListBox.Items;
             FD_ListItems2 = app.FDSelectionListBox_2.Items;
             % save the frequency domain data
             FD_data = app.FD_data;
-            save(fullfile,'FD_data','FD_ListItems','FD_ListItems2');
             
-            % DM_data save
+            % preparing to save DM_data
             % extract the data manipulation data and assign them to parameters
             DM_ListItems = app.SourceDataSetEditField.Value;
             DM_data = app.DM_data;
-            save(fullfile,'DM_data','DM_ListItems');
+
+            % save all TD, FD and DM data
+            save(fullfile,'TD_data','TD_ListItems','FD_data','FD_ListItems','FD_ListItems2','DM_data','DM_ListItems');
                   
         end
 
@@ -3530,7 +3529,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
 
             % Create ApodizationFunctionDropDown
             app.ApodizationFunctionDropDown = uidropdown(app.FFTSettingsPanel);
-            app.ApodizationFunctionDropDown.Items = {'Boxcar', 'Hamming', 'Bartlett', 'Blackman', 'Hann', 'Taylor', 'Triang'};
+            app.ApodizationFunctionDropDown.Items = {'Boxcar', 'Hamming', 'Bartlett', 'Blackman', 'Rectangular window', 'Hann', 'Taylor', 'Triang'};
             app.ApodizationFunctionDropDown.ItemsData = {'Boxcar', 'hamming', 'bartlett', 'blackman', 'rectwin', 'hann', 'taylorwin', 'triang'};
             app.ApodizationFunctionDropDown.Position = [141 83 144 22];
             app.ApodizationFunctionDropDown.Value = 'Boxcar';
@@ -4636,14 +4635,14 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.CLEARMEMORYButton = uibutton(app.CatsperUIFigure, 'push');
             app.CLEARMEMORYButton.ButtonPushedFcn = createCallbackFcn(app, @CLEARMEMORYButtonPushed, true);
             app.CLEARMEMORYButton.FontWeight = 'bold';
-            app.CLEARMEMORYButton.Position = [1194 909 112 29];
+            app.CLEARMEMORYButton.Position = [1196 916 112 29];
             app.CLEARMEMORYButton.Text = 'CLEAR MEMORY';
 
             % Create SAVETDFDDMButton
             app.SAVETDFDDMButton = uibutton(app.CatsperUIFigure, 'push');
             app.SAVETDFDDMButton.ButtonPushedFcn = createCallbackFcn(app, @SAVETDFDDMButtonPushed, true);
             app.SAVETDFDDMButton.FontWeight = 'bold';
-            app.SAVETDFDDMButton.Position = [1312 909 109 29];
+            app.SAVETDFDDMButton.Position = [1314 916 109 29];
             app.SAVETDFDDMButton.Text = 'SAVE TD/FD/DM';
 
             % Create CaTSperLabel
@@ -4651,14 +4650,14 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.CaTSperLabel.FontSize = 37;
             app.CaTSperLabel.FontWeight = 'bold';
             app.CaTSperLabel.FontAngle = 'italic';
-            app.CaTSperLabel.Position = [89 910 158 48];
+            app.CaTSperLabel.Position = [84 914 158 48];
             app.CaTSperLabel.Text = 'CaTSper';
 
             % Create CambridgeTerahertzSpectrumAnalyserLabel
             app.CambridgeTerahertzSpectrumAnalyserLabel = uilabel(app.CatsperUIFigure);
             app.CambridgeTerahertzSpectrumAnalyserLabel.FontSize = 10;
             app.CambridgeTerahertzSpectrumAnalyserLabel.FontWeight = 'bold';
-            app.CambridgeTerahertzSpectrumAnalyserLabel.Position = [263 937 241 22];
+            app.CambridgeTerahertzSpectrumAnalyserLabel.Position = [72 898 197 22];
             app.CambridgeTerahertzSpectrumAnalyserLabel.Text = 'Cambridge Terahertz Spectrum Analyser';
 
             % Create PoweredbyTerahertzApplicationsGroupUniversityofCambridgeLabel
@@ -4673,18 +4672,18 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.ImportTHzFilesButton.BackgroundColor = [1 1 1];
             app.ImportTHzFilesButton.FontSize = 13;
             app.ImportTHzFilesButton.FontWeight = 'bold';
-            app.ImportTHzFilesButton.Position = [262 909 137 29];
+            app.ImportTHzFilesButton.Position = [272 916 135 29];
             app.ImportTHzFilesButton.Text = 'Import THz Files';
 
             % Create ProjectsEditField
             app.ProjectsEditField = uieditfield(app.CatsperUIFigure, 'text');
             app.ProjectsEditField.FontWeight = 'bold';
             app.ProjectsEditField.BackgroundColor = [0.9412 0.9412 0.9412];
-            app.ProjectsEditField.Position = [412 911 655 25];
+            app.ProjectsEditField.Position = [414 918 655 25];
 
             % Create Image
             app.Image = uiimage(app.CatsperUIFigure);
-            app.Image.Position = [32 909 58 58];
+            app.Image.Position = [24 906 58 58];
             app.Image.ImageSource = fullfile(pathToMLAPP, 'dotTHz_logo.png');
 
             % Create DEPLOYButton
@@ -4693,7 +4692,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.DEPLOYButton.BackgroundColor = [1 1 1];
             app.DEPLOYButton.FontSize = 13;
             app.DEPLOYButton.FontWeight = 'bold';
-            app.DEPLOYButton.Position = [1079 909 107 29];
+            app.DEPLOYButton.Position = [1081 916 107 29];
             app.DEPLOYButton.Text = 'DEPLOY';
 
             % Show the figure after all components are created
