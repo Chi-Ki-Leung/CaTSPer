@@ -4,30 +4,27 @@ classdef DR_Checker_exported < matlab.apps.AppBase
     properties (Access = public)
         DynamicRangeCheckerUIFigure     matlab.ui.Figure
         Image                           matlab.ui.control.Image
-        AbsorptionspectrumYaxisfittingCheckBox  matlab.ui.control.CheckBox
-        PoweredbyTerahertzApplicationsGroupUniversityofCambridgeLabel  matlab.ui.control.Label
         SampleIDEditField               matlab.ui.control.EditField
         SampleIDEditFieldLabel          matlab.ui.control.Label
         MeasurementTypeButtonGroup      matlab.ui.container.ButtonGroup
         ReflectionButton                matlab.ui.control.RadioButton
         TransmissionButton              matlab.ui.control.RadioButton
-        APPLYALLButton                  matlab.ui.control.Button
-        APPLYButton                     matlab.ui.control.Button
-        SAMPLEINFORMATIONPanel          matlab.ui.container.Panel
+        SampleInformationPanel          matlab.ui.container.Panel
+        AbsorptionYaxisfittingCheckBox  matlab.ui.control.CheckBox
         UpperlimitFrequencySlider       matlab.ui.control.Slider
         UpperlimitFrequencySliderLabel  matlab.ui.control.Label
         FrequencyLimitTHzEditField      matlab.ui.control.NumericEditField
         FrequencyLimitTHzEditFieldLabel  matlab.ui.control.Label
         ThicknessmmEditField            matlab.ui.control.NumericEditField
         ThicknessmmEditFieldLabel       matlab.ui.control.Label
-        CUTOFFSETTINGPanel              matlab.ui.container.Panel
+        CutoffSettingPanel              matlab.ui.container.Panel
         CutoffFrequencySlider           matlab.ui.control.Slider
         CutoffFrequencyLabel_2          matlab.ui.control.Label
         NoiseFloorEditField             matlab.ui.control.NumericEditField
         NoiseFloorEditFieldLabel        matlab.ui.control.Label
         CutoffFrequencyEditField        matlab.ui.control.NumericEditField
         CutoffFrequencyLabel            matlab.ui.control.Label
-        DynamicrangecheckerLabel        matlab.ui.control.Label
+        DynamicRangeCheckerLabel        matlab.ui.control.Label
         UIAxes2                         matlab.ui.control.UIAxes
         UIAxes1                         matlab.ui.control.UIAxes
     end
@@ -168,7 +165,7 @@ classdef DR_Checker_exported < matlab.apps.AppBase
             
             % if the box for the absorption spectrum y-axis fitting
             % is checked, use auto generated y-axis limits
-            if app.AbsorptionspectrumYaxisfittingCheckBox.Value
+            if app.AbsorptionYaxisfittingCheckBox.Value
                 ylim(ax,"auto");
             % if the box for the absorption spectrum y-axis fitting
             % is unchecked, use the default y-axis limits
@@ -226,8 +223,8 @@ classdef DR_Checker_exported < matlab.apps.AppBase
 
         end
 
-        % Button pushed function: APPLYButton
-        function APPLYButtonPushed(app, event)
+        % Callback function: not associated with a component
+        function ApplyButtonPushed(app, event)
             % APPLYButtonPushed updates the upper limit frequency value as
             % specified by the user on the edit field, runs the updateFreqRange function from the
            % CaTSper app and deletes the dialog box
@@ -245,7 +242,7 @@ classdef DR_Checker_exported < matlab.apps.AppBase
             delete(app)
         end
 
-        % Button pushed function: APPLYALLButton
+        % Callback function: not associated with a component
         function APPLYALLButtonPushed(app, event)
             % APPLYALLButtonPushed updates the upper limit frequency value as
             % specified by the user on the edit field, runs the updateFreqRange function from the
@@ -326,13 +323,13 @@ classdef DR_Checker_exported < matlab.apps.AppBase
             plotAx2(app);            
         end
 
-        % Value changed function: AbsorptionspectrumYaxisfittingCheckBox
-        function AbsorptionspectrumYaxisfittingCheckBoxValueChanged(app, event)
+        % Value changed function: AbsorptionYaxisfittingCheckBox
+        function AbsorptionYaxisfittingCheckBoxValueChanged(app, event)
             % AbsorptionspectrumYaxisfittingCheckBoxValueChanged extracts the updated 
             % value from the absorption spectrum y-axis fitting box and runs the plotAx2 function
 
             % extract the updated value from the absorption spectrum y-axis fitting box 
-            value = app.AbsorptionspectrumYaxisfittingCheckBox.Value;
+            value = app.AbsorptionYaxisfittingCheckBox.Value;
             % run the plotAx2 function
             plotAx2(app);
         end
@@ -349,7 +346,7 @@ classdef DR_Checker_exported < matlab.apps.AppBase
 
             % Create DynamicRangeCheckerUIFigure and hide until all components are created
             app.DynamicRangeCheckerUIFigure = uifigure('Visible', 'off');
-            app.DynamicRangeCheckerUIFigure.Position = [100 100 884 710];
+            app.DynamicRangeCheckerUIFigure.Position = [100 100 843 693];
             app.DynamicRangeCheckerUIFigure.Name = 'Dynamic Range Checker';
             app.DynamicRangeCheckerUIFigure.Icon = fullfile(pathToMLAPP, 'CaT_logo.png');
 
@@ -369,7 +366,7 @@ classdef DR_Checker_exported < matlab.apps.AppBase
             app.UIAxes1.ZTickLabelRotation = 0;
             app.UIAxes1.LineWidth = 1;
             app.UIAxes1.Box = 'on';
-            app.UIAxes1.Position = [306 364 550 330];
+            app.UIAxes1.Position = [279 347 550 330];
 
             % Create UIAxes2
             app.UIAxes2 = uiaxes(app.DynamicRangeCheckerUIFigure);
@@ -385,118 +382,110 @@ classdef DR_Checker_exported < matlab.apps.AppBase
             app.UIAxes2.ZTickLabelRotation = 0;
             app.UIAxes2.LineWidth = 1;
             app.UIAxes2.Box = 'on';
-            app.UIAxes2.Position = [307 25 550 330];
+            app.UIAxes2.Position = [279 11 550 330];
 
-            % Create DynamicrangecheckerLabel
-            app.DynamicrangecheckerLabel = uilabel(app.DynamicRangeCheckerUIFigure);
-            app.DynamicrangecheckerLabel.FontSize = 18;
-            app.DynamicrangecheckerLabel.FontWeight = 'bold';
-            app.DynamicrangecheckerLabel.Tooltip = {'Jepsen et al. 2005: Dynamic range in terahertz time-domain transmission and reflection spectroscopy'};
-            app.DynamicrangecheckerLabel.Position = [71 655 209 23];
-            app.DynamicrangecheckerLabel.Text = 'Dynamic range checker';
+            % Create DynamicRangeCheckerLabel
+            app.DynamicRangeCheckerLabel = uilabel(app.DynamicRangeCheckerUIFigure);
+            app.DynamicRangeCheckerLabel.FontSize = 18;
+            app.DynamicRangeCheckerLabel.FontWeight = 'bold';
+            app.DynamicRangeCheckerLabel.Tooltip = {'Jepsen et al. 2005: Dynamic range in terahertz time-domain transmission and reflection spectroscopy'};
+            app.DynamicRangeCheckerLabel.Position = [63 638 217 23];
+            app.DynamicRangeCheckerLabel.Text = 'Dynamic Range Checker';
 
-            % Create CUTOFFSETTINGPanel
-            app.CUTOFFSETTINGPanel = uipanel(app.DynamicRangeCheckerUIFigure);
-            app.CUTOFFSETTINGPanel.Title = 'CUTOFF SETTING';
-            app.CUTOFFSETTINGPanel.Position = [31 375 234 167];
+            % Create CutoffSettingPanel
+            app.CutoffSettingPanel = uipanel(app.DynamicRangeCheckerUIFigure);
+            app.CutoffSettingPanel.Title = 'Cutoff Setting';
+            app.CutoffSettingPanel.Position = [23 358 234 167];
 
             % Create CutoffFrequencyLabel
-            app.CutoffFrequencyLabel = uilabel(app.CUTOFFSETTINGPanel);
+            app.CutoffFrequencyLabel = uilabel(app.CutoffSettingPanel);
             app.CutoffFrequencyLabel.HorizontalAlignment = 'right';
             app.CutoffFrequencyLabel.Position = [11 39 101 22];
             app.CutoffFrequencyLabel.Text = 'Cutoff Frequency';
 
             % Create CutoffFrequencyEditField
-            app.CutoffFrequencyEditField = uieditfield(app.CUTOFFSETTINGPanel, 'numeric');
+            app.CutoffFrequencyEditField = uieditfield(app.CutoffSettingPanel, 'numeric');
             app.CutoffFrequencyEditField.Limits = [0 5];
             app.CutoffFrequencyEditField.ValueDisplayFormat = '%.2f';
             app.CutoffFrequencyEditField.ValueChangedFcn = createCallbackFcn(app, @CutoffFrequencyEditFieldValueChanged, true);
             app.CutoffFrequencyEditField.Position = [132 39 90 22];
 
             % Create NoiseFloorEditFieldLabel
-            app.NoiseFloorEditFieldLabel = uilabel(app.CUTOFFSETTINGPanel);
+            app.NoiseFloorEditFieldLabel = uilabel(app.CutoffSettingPanel);
             app.NoiseFloorEditFieldLabel.HorizontalAlignment = 'right';
             app.NoiseFloorEditFieldLabel.Position = [45 9 67 22];
             app.NoiseFloorEditFieldLabel.Text = 'Noise Floor';
 
             % Create NoiseFloorEditField
-            app.NoiseFloorEditField = uieditfield(app.CUTOFFSETTINGPanel, 'numeric');
+            app.NoiseFloorEditField = uieditfield(app.CutoffSettingPanel, 'numeric');
             app.NoiseFloorEditField.Editable = 'off';
             app.NoiseFloorEditField.Position = [132 9 90 22];
 
             % Create CutoffFrequencyLabel_2
-            app.CutoffFrequencyLabel_2 = uilabel(app.CUTOFFSETTINGPanel);
+            app.CutoffFrequencyLabel_2 = uilabel(app.CutoffSettingPanel);
             app.CutoffFrequencyLabel_2.HorizontalAlignment = 'right';
             app.CutoffFrequencyLabel_2.Position = [5 116 101 22];
             app.CutoffFrequencyLabel_2.Text = 'Cutoff Frequency';
 
             % Create CutoffFrequencySlider
-            app.CutoffFrequencySlider = uislider(app.CUTOFFSETTINGPanel);
+            app.CutoffFrequencySlider = uislider(app.CutoffSettingPanel);
             app.CutoffFrequencySlider.Limits = [1 5];
             app.CutoffFrequencySlider.ValueChangedFcn = createCallbackFcn(app, @CutoffFrequencySliderValueChanged, true);
             app.CutoffFrequencySlider.Position = [24 103 195 3];
             app.CutoffFrequencySlider.Value = 3.5;
 
-            % Create SAMPLEINFORMATIONPanel
-            app.SAMPLEINFORMATIONPanel = uipanel(app.DynamicRangeCheckerUIFigure);
-            app.SAMPLEINFORMATIONPanel.Title = 'SAMPLE INFORMATION';
-            app.SAMPLEINFORMATIONPanel.Position = [31 196 234 166];
+            % Create SampleInformationPanel
+            app.SampleInformationPanel = uipanel(app.DynamicRangeCheckerUIFigure);
+            app.SampleInformationPanel.Title = 'Sample Information';
+            app.SampleInformationPanel.Position = [24 153 234 195];
 
             % Create ThicknessmmEditFieldLabel
-            app.ThicknessmmEditFieldLabel = uilabel(app.SAMPLEINFORMATIONPanel);
+            app.ThicknessmmEditFieldLabel = uilabel(app.SampleInformationPanel);
             app.ThicknessmmEditFieldLabel.HorizontalAlignment = 'right';
-            app.ThicknessmmEditFieldLabel.Position = [33 41 90 22];
+            app.ThicknessmmEditFieldLabel.Position = [33 70 90 22];
             app.ThicknessmmEditFieldLabel.Text = 'Thickness (mm)';
 
             % Create ThicknessmmEditField
-            app.ThicknessmmEditField = uieditfield(app.SAMPLEINFORMATIONPanel, 'numeric');
+            app.ThicknessmmEditField = uieditfield(app.SampleInformationPanel, 'numeric');
             app.ThicknessmmEditField.ValueDisplayFormat = '%.3f';
-            app.ThicknessmmEditField.Position = [135 41 90 22];
+            app.ThicknessmmEditField.Position = [135 70 90 22];
 
             % Create FrequencyLimitTHzEditFieldLabel
-            app.FrequencyLimitTHzEditFieldLabel = uilabel(app.SAMPLEINFORMATIONPanel);
+            app.FrequencyLimitTHzEditFieldLabel = uilabel(app.SampleInformationPanel);
             app.FrequencyLimitTHzEditFieldLabel.HorizontalAlignment = 'right';
-            app.FrequencyLimitTHzEditFieldLabel.Position = [3 10 124 22];
+            app.FrequencyLimitTHzEditFieldLabel.Position = [3 39 124 22];
             app.FrequencyLimitTHzEditFieldLabel.Text = 'Frequency Limit (THz)';
 
             % Create FrequencyLimitTHzEditField
-            app.FrequencyLimitTHzEditField = uieditfield(app.SAMPLEINFORMATIONPanel, 'numeric');
+            app.FrequencyLimitTHzEditField = uieditfield(app.SampleInformationPanel, 'numeric');
             app.FrequencyLimitTHzEditField.Limits = [0 4];
             app.FrequencyLimitTHzEditField.ValueDisplayFormat = '%.3f';
             app.FrequencyLimitTHzEditField.ValueChangedFcn = createCallbackFcn(app, @FrequencyLimitTHzEditFieldValueChanged, true);
-            app.FrequencyLimitTHzEditField.Position = [136 10 90 22];
+            app.FrequencyLimitTHzEditField.Position = [136 39 90 22];
 
             % Create UpperlimitFrequencySliderLabel
-            app.UpperlimitFrequencySliderLabel = uilabel(app.SAMPLEINFORMATIONPanel);
+            app.UpperlimitFrequencySliderLabel = uilabel(app.SampleInformationPanel);
             app.UpperlimitFrequencySliderLabel.HorizontalAlignment = 'right';
-            app.UpperlimitFrequencySliderLabel.Position = [6 120 124 22];
+            app.UpperlimitFrequencySliderLabel.Position = [6 149 124 22];
             app.UpperlimitFrequencySliderLabel.Text = 'Upper-limit Frequency';
 
             % Create UpperlimitFrequencySlider
-            app.UpperlimitFrequencySlider = uislider(app.SAMPLEINFORMATIONPanel);
+            app.UpperlimitFrequencySlider = uislider(app.SampleInformationPanel);
             app.UpperlimitFrequencySlider.Limits = [1 5];
             app.UpperlimitFrequencySlider.ValueChangedFcn = createCallbackFcn(app, @UpperlimitFrequencySliderValueChanged, true);
-            app.UpperlimitFrequencySlider.Position = [24 107 195 3];
+            app.UpperlimitFrequencySlider.Position = [24 136 195 3];
             app.UpperlimitFrequencySlider.Value = 3.5;
 
-            % Create APPLYButton
-            app.APPLYButton = uibutton(app.DynamicRangeCheckerUIFigure, 'push');
-            app.APPLYButton.ButtonPushedFcn = createCallbackFcn(app, @APPLYButtonPushed, true);
-            app.APPLYButton.FontWeight = 'bold';
-            app.APPLYButton.Position = [32 102 234 37];
-            app.APPLYButton.Text = 'APPLY';
-
-            % Create APPLYALLButton
-            app.APPLYALLButton = uibutton(app.DynamicRangeCheckerUIFigure, 'push');
-            app.APPLYALLButton.ButtonPushedFcn = createCallbackFcn(app, @APPLYALLButtonPushed, true);
-            app.APPLYALLButton.FontWeight = 'bold';
-            app.APPLYALLButton.Position = [34 51 234 37];
-            app.APPLYALLButton.Text = 'APPLY ALL';
+            % Create AbsorptionYaxisfittingCheckBox
+            app.AbsorptionYaxisfittingCheckBox = uicheckbox(app.SampleInformationPanel);
+            app.AbsorptionYaxisfittingCheckBox.ValueChangedFcn = createCallbackFcn(app, @AbsorptionYaxisfittingCheckBoxValueChanged, true);
+            app.AbsorptionYaxisfittingCheckBox.Text = 'Absorption Y-axis fitting';
+            app.AbsorptionYaxisfittingCheckBox.Position = [81 12 147 22];
 
             % Create MeasurementTypeButtonGroup
             app.MeasurementTypeButtonGroup = uibuttongroup(app.DynamicRangeCheckerUIFigure);
             app.MeasurementTypeButtonGroup.Title = 'Measurement Type';
-            app.MeasurementTypeButtonGroup.Position = [31 554 234 52];
+            app.MeasurementTypeButtonGroup.Position = [23 537 234 52];
 
             % Create TransmissionButton
             app.TransmissionButton = uiradiobutton(app.MeasurementTypeButtonGroup);
@@ -513,28 +502,16 @@ classdef DR_Checker_exported < matlab.apps.AppBase
             % Create SampleIDEditFieldLabel
             app.SampleIDEditFieldLabel = uilabel(app.DynamicRangeCheckerUIFigure);
             app.SampleIDEditFieldLabel.HorizontalAlignment = 'right';
-            app.SampleIDEditFieldLabel.Position = [32 617 62 22];
+            app.SampleIDEditFieldLabel.Position = [24 600 62 22];
             app.SampleIDEditFieldLabel.Text = 'Sample ID';
 
             % Create SampleIDEditField
             app.SampleIDEditField = uieditfield(app.DynamicRangeCheckerUIFigure, 'text');
-            app.SampleIDEditField.Position = [103 617 163 22];
-
-            % Create PoweredbyTerahertzApplicationsGroupUniversityofCambridgeLabel
-            app.PoweredbyTerahertzApplicationsGroupUniversityofCambridgeLabel = uilabel(app.DynamicRangeCheckerUIFigure);
-            app.PoweredbyTerahertzApplicationsGroupUniversityofCambridgeLabel.FontSize = 11;
-            app.PoweredbyTerahertzApplicationsGroupUniversityofCambridgeLabel.Position = [8 2 336 22];
-            app.PoweredbyTerahertzApplicationsGroupUniversityofCambridgeLabel.Text = 'Powered by Terahertz Applications Group, University of Cambridge';
-
-            % Create AbsorptionspectrumYaxisfittingCheckBox
-            app.AbsorptionspectrumYaxisfittingCheckBox = uicheckbox(app.DynamicRangeCheckerUIFigure);
-            app.AbsorptionspectrumYaxisfittingCheckBox.ValueChangedFcn = createCallbackFcn(app, @AbsorptionspectrumYaxisfittingCheckBoxValueChanged, true);
-            app.AbsorptionspectrumYaxisfittingCheckBox.Text = 'Absorption spectrum Y-axis fitting';
-            app.AbsorptionspectrumYaxisfittingCheckBox.Position = [66 166 200 22];
+            app.SampleIDEditField.Position = [95 600 163 22];
 
             % Create Image
             app.Image = uiimage(app.DynamicRangeCheckerUIFigure);
-            app.Image.Position = [8 645 63 56];
+            app.Image.Position = [15 638 48 49];
             app.Image.ImageSource = fullfile(pathToMLAPP, 'dotTHz_logo.png');
 
             % Show the figure after all components are created

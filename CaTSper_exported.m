@@ -3,19 +3,19 @@ classdef CaTSper_exported < matlab.apps.AppBase
     % Properties that correspond to app components
     properties (Access = public)
         CatsperUIFigure                 matlab.ui.Figure
-        DEPLOYButton                    matlab.ui.control.Button
+        DeployButton                    matlab.ui.control.Button
         Image                           matlab.ui.control.Image
         ProjectsEditField               matlab.ui.control.EditField
         ImportTHzFilesButton            matlab.ui.control.Button
         CaTSperLabel                    matlab.ui.control.Label
-        SAVETDFDDMButton                matlab.ui.control.Button
-        CLEARMEMORYButton               matlab.ui.control.Button
+        SaveTDFDDMButton                matlab.ui.control.Button
+        ClearMemoryButton               matlab.ui.control.Button
         DEBUGMsgLabel                   matlab.ui.control.Label
         SystemStatusLabel               matlab.ui.control.Label
         TabGroup                        matlab.ui.container.TabGroup
         TimeDomainTDTab                 matlab.ui.container.Tab
         PLOTFORCUSTOMISATIONButton_TD   matlab.ui.control.Button
-        CHECKDYNAMICRANGEButton         matlab.ui.control.Button
+        CheckDynamicRangeButton         matlab.ui.control.Button
         ASSIGNButtonTD                  matlab.ui.control.Button
         SaveData_TD                     matlab.ui.control.Button
         LoadData_TD                     matlab.ui.control.Button
@@ -41,9 +41,9 @@ classdef CaTSper_exported < matlab.apps.AppBase
         TimedelaypsEditFieldLabel       matlab.ui.control.Label
         ThicknessmmEditField            matlab.ui.control.NumericEditField
         ThicknessmmEditFieldLabel       matlab.ui.control.Label
-        GRIDOFFButton                   matlab.ui.control.StateButton
-        JETCOLORMAPButton               matlab.ui.control.StateButton
-        LEGENDButton_2                  matlab.ui.control.StateButton
+        GridOffButton_3                 matlab.ui.control.StateButton
+        JetColormapButton_2             matlab.ui.control.StateButton
+        LegenButton                     matlab.ui.control.StateButton
         ButtonGroupTD                   matlab.ui.container.ButtonGroup
         BothButtonTD                    matlab.ui.control.RadioButton
         SampleButtonTD                  matlab.ui.control.RadioButton
@@ -62,13 +62,13 @@ classdef CaTSper_exported < matlab.apps.AppBase
         WindowFunctionLabel             matlab.ui.control.Label
         FFTUpsamplingLabel              matlab.ui.control.Label
         FrequencyrangeLabel             matlab.ui.control.Label
-        AUTOWINDOWButton                matlab.ui.control.StateButton
+        AutoWindowButton                matlab.ui.control.StateButton
         orLabel                         matlab.ui.control.Label
         ZeroFillingpowerofSpinner       matlab.ui.control.Spinner
         ZeroFillingpowerofSpinnerLabel  matlab.ui.control.Label
         ApodizationFunctionDropDown     matlab.ui.control.DropDown
         ApodizationFunctionDropDownLabel  matlab.ui.control.Label
-        TRANSFORMButton                 matlab.ui.control.Button
+        TransformButton                 matlab.ui.control.Button
         at1stinternalreflectionsLabel   matlab.ui.control.Label
         MaxTimeEditField                matlab.ui.control.NumericEditField
         MaxTimeLabel                    matlab.ui.control.Label
@@ -88,11 +88,11 @@ classdef CaTSper_exported < matlab.apps.AppBase
         UIAxes2                         matlab.ui.control.UIAxes
         FrequencyDomainFDTab            matlab.ui.container.Tab
         PLOTFORCUSTOMISATIONButton_FD1  matlab.ui.control.Button
-        GRIDOFFButton_2                 matlab.ui.control.StateButton
+        GridOffButton                   matlab.ui.control.StateButton
         dataManipulationButton          matlab.ui.control.Button
         FDDatatoLabel                   matlab.ui.control.Label
-        JETCOLORMAPButton_2             matlab.ui.control.StateButton
-        LEGENDButton                    matlab.ui.control.StateButton
+        JetColormapButton               matlab.ui.control.StateButton
+        LegendButton                    matlab.ui.control.StateButton
         LoadData_FD                     matlab.ui.control.Button
         SaveData_FD                     matlab.ui.control.Button
         MagPhaseButtonGroup             matlab.ui.container.ButtonGroup
@@ -102,7 +102,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
         linearButton                    matlab.ui.control.RadioButton
         logButton                       matlab.ui.control.RadioButton
         FDDataAnalysisPanel             matlab.ui.container.Panel
-        GRIDOFFButton_3                 matlab.ui.control.StateButton
+        GridOffButton_2                 matlab.ui.control.StateButton
         RealImagButtonGroup             matlab.ui.container.ButtonGroup
         ImaginaryButton                 matlab.ui.control.RadioButton
         RealButton                      matlab.ui.control.RadioButton
@@ -111,13 +111,13 @@ classdef CaTSper_exported < matlab.apps.AppBase
         linearButton_2                  matlab.ui.control.RadioButton
         logButton_2                     matlab.ui.control.RadioButton
         PlotDataButtonGroup             matlab.ui.container.ButtonGroup
-        DIELECTRICCONSTANTButton        matlab.ui.control.ToggleButton
-        REFRACTIVEINDEXButton           matlab.ui.control.ToggleButton
-        ABSORPTIONButton                matlab.ui.control.ToggleButton
-        TRANSMITTANCEButton             matlab.ui.control.ToggleButton
+        DielectricConstantButton        matlab.ui.control.ToggleButton
+        RefractiveIndexButton           matlab.ui.control.ToggleButton
+        AbsorptionButton                matlab.ui.control.ToggleButton
+        TransmittanceButton             matlab.ui.control.ToggleButton
         FDSelectionListBox_2            matlab.ui.control.ListBox
         FDSelectionListBox_2Label       matlab.ui.control.Label
-        CALCULATEOPTICALPARAMATERSButton  matlab.ui.control.Button
+        CalculateOpticalParametersButton  matlab.ui.control.Button
         MultipleReflectionCountPanel    matlab.ui.container.Panel
         SampleNMREditField              matlab.ui.control.NumericEditField
         SampleEditField_2Label          matlab.ui.control.Label
@@ -139,8 +139,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
         PLOT2FDButton_2                 matlab.ui.control.Button
         PLOT1FDButton_2                 matlab.ui.control.Button
         ASSIGNButtonFD                  matlab.ui.control.Button
-        REMOVEALLButton                 matlab.ui.control.Button
-        REMOVEButton                    matlab.ui.control.Button
+        RemoveAllButton                 matlab.ui.control.Button
+        RemoveButton                    matlab.ui.control.Button
         ButtonGroupFD                   matlab.ui.container.ButtonGroup
         BothButtonFD                    matlab.ui.control.RadioButton
         SampleButtonFD                  matlab.ui.control.RadioButton
@@ -172,9 +172,9 @@ classdef CaTSper_exported < matlab.apps.AppBase
         GetDatafromFrequencyTHzEditFieldLabel  matlab.ui.control.Label
         XaxisDataEditField              matlab.ui.control.EditField
         XaxisDataEditFieldLabel         matlab.ui.control.Label
-        PLOTButton_2                    matlab.ui.control.Button
-        REARRANGEDATAButton             matlab.ui.control.Button
-        DISPLAYXLINESButton             matlab.ui.control.Button
+        PlotButton                      matlab.ui.control.Button
+        RearrangeDataButton             matlab.ui.control.Button
+        DisplayXLinesButton             matlab.ui.control.Button
         PeakBaseTab                     matlab.ui.container.Tab
         MinPeakProminenceEditField      matlab.ui.control.NumericEditField
         MinPeakProminenceEditFieldLabel  matlab.ui.control.Label
@@ -197,7 +197,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
         SaveData_DM                     matlab.ui.control.Button
         ASSIGNButtonDM                  matlab.ui.control.Button
         STEP1Panel                      matlab.ui.container.Panel
-        PLOTmeanandrangeButton          matlab.ui.control.Button
+        ImportAllDataInverseSequenceButton  matlab.ui.control.Button
+        PlotmeanandrangeButton          matlab.ui.control.Button
         DPlotFrequencyxaxisPanel        matlab.ui.container.Panel
         DplotdoesnotsupportthebelowextractingfunctionLabel  matlab.ui.control.Label
         data3DDropDown                  matlab.ui.control.DropDown
@@ -208,13 +209,13 @@ classdef CaTSper_exported < matlab.apps.AppBase
         NumberofDataEditFieldLabel      matlab.ui.control.Label
         AvailableDataSetEditField       matlab.ui.control.EditField
         AvailableDataSetEditFieldLabel  matlab.ui.control.Label
-        IMPORTALLDATAButton             matlab.ui.control.Button
-        CALCULATEButton_2               matlab.ui.control.Button
+        ImportAllDataButton             matlab.ui.control.Button
+        CalculateButton                 matlab.ui.control.Button
         CforDropDown                    matlab.ui.control.DropDown
         CforDropDownLabel               matlab.ui.control.Label
         BforDropDown                    matlab.ui.control.DropDown
         BforDropDownLabel               matlab.ui.control.Label
-        PLOTindividualdatasetsButton    matlab.ui.control.Button
+        PlotindividualdatasetsButton    matlab.ui.control.Button
         YaxisDataFormulationEditField   matlab.ui.control.EditField
         YaxisDataFormulationEditFieldLabel  matlab.ui.control.Label
         XaxisDataDropDown               matlab.ui.control.DropDown
@@ -275,10 +276,10 @@ classdef CaTSper_exported < matlab.apps.AppBase
         function TDanalysisUpdate(app,TDindex)
             % extracting the thickness value from the imported time
             % domain data for one measurement
-            thickness = app.TD_data.settings{TDindex}.thickness;
+            thickness = app.TD_data.metadata{TDindex}.thickness;
             % extracting the time delay value from the imported time
             % domain data for one measurement
-            delta_t = app.TD_data.settings{TDindex}.timeDelay;
+            delta_t = app.TD_data.metadata{TDindex}.timeDelay;
             
             % recalculate
             % the following is performed provided the thickness value does not equal to 0
@@ -305,8 +306,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
 
             
             % update information
-            app.TD_data.settings{TDindex}.refractiveIndex = n_eff;
-            app.TD_data.settings{TDindex}.internalReflection = etl_t;
+            app.TD_data.metadata{TDindex}.refractiveIndex = n_eff;
+            app.TD_data.metadata{TDindex}.internalReflection = etl_t;
             
             % display update
             app.RefractiveIndexEditField.Value = n_eff;
@@ -318,7 +319,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
         % when certain conditions are met
         function FDdataDel(app,FDindex)
             app.FD_data.sampleList(FDindex) = [];
-            app.FD_data.settings(FDindex) = [];
+            app.FD_data.metadata(FDindex) = [];
             app.FD_data.frequency(FDindex) = [];
             app.FD_data.ffd_references(FDindex) = [];
             app.FD_data.ffd_samples(FDindex) = [];
@@ -336,10 +337,10 @@ classdef CaTSper_exported < matlab.apps.AppBase
                 app.FD_data.eImag(FDindex) = [];
             end
              
-            % provided the array 'app.FD_data.settings' is not empty,
+            % provided the array 'app.FD_data.metadata' is not empty,
             % empty following data fields
-            if ~isempty(app.FD_data.settings)
-                app.FD_data.settings(FDindex) = [];
+            if ~isempty(app.FD_data.metadata)
+                app.FD_data.metadata(FDindex) = [];
             end
             
         end
@@ -380,8 +381,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             end
             
             % reset 'NO LEGEND', 'JET COLORMAP'
-            app.LEGENDButton_2.Value = 0;
-            app.JETCOLORMAPButton.Value = 0;
+            app.LegenButton.Value = 0;
+            app.JetColormapButton_2.Value = 0;
             
 
             % deleting the legend
@@ -392,10 +393,10 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % as the number of items to be plotted
             colorNum = length(plotList);
             
-            % if 'app.GRIDOFFButton.Value' = 1 (i.e. the button on the app
+            % if 'app.GridOffButton_3.Value' = 1 (i.e. the button on the app
             % is pressed), gridlines on the graph is turned off; otherwise,
             % gridlines are displayed on the graphs
-            if app.GRIDOFFButton.Value
+            if app.GridOffButton_3.Value
                 grid(ax,"off")
             else
                 grid(ax,"on")
@@ -412,7 +413,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % reference only or both sample and reference, depends on what one
             % selects) in time domain
             for idx = plotList
-                refOption = app.TD_data.settings{idx}.refOption;
+                refOption = app.TD_data.metadata{idx}.refOption;
 
                 if isequal(refOption,0)
                     warning('No available reference dataset')
@@ -510,12 +511,12 @@ classdef CaTSper_exported < matlab.apps.AppBase
             ax.ColorOrder = lines(length(plotList));
             
             % reset 'NO LEGEND', 'JET COLORMAP'
-            app.LEGENDButton.Value = 0;
-            app.JETCOLORMAPButton_2.Value = 0;
+            app.LegendButton.Value = 0;
+            app.JetColormapButton.Value = 0;
             
             % if the 'grid off' button is selected, remove gridlines from
             % the plot, otherwise gridlines will be displayed on the plot
-            if app.GRIDOFFButton_2.Value
+            if app.GridOffButton.Value
                 grid(ax,"off")
             else
                 grid(ax,"on")
@@ -611,12 +612,12 @@ classdef CaTSper_exported < matlab.apps.AppBase
             ax.ColorOrder = lines(length(plotList));
             
             % reset 'NO LEGEND', 'JET COLORMAP'
-            app.LEGENDButton.Value = 0;
-            app.JETCOLORMAPButton_2.Value = 0;
+            app.LegendButton.Value = 0;
+            app.JetColormapButton.Value = 0;
 
             % if the 'grid off' button is selected, remove gridlines from
             % the plot, otherwise gridlines will be displayed on the plot
-            if app.GRIDOFFButton_3.Value
+            if app.GridOffButton_2.Value
                 grid(ax,"off")
             else
                 grid(ax,"on")
@@ -702,10 +703,10 @@ classdef CaTSper_exported < matlab.apps.AppBase
         % default, where the absorption, refractive index and dielectric
         % constant functions are inactivated before measurements are added
         function FD_PlotData_reset(app)
-%           app.TRANSMITTANCEButton.Enable = true;
-            app.ABSORPTIONButton.Enable = false;
-            app.REFRACTIVEINDEXButton.Enable = false;
-            app.DIELECTRICCONSTANTButton.Enable = false;
+%           app.TransmittanceButton.Enable = true;
+            app.AbsorptionButton.Enable = false;
+            app.RefractiveIndexButton.Enable = false;
+            app.DielectricConstantButton.Enable = false;
         end
         
         % plotFD_dataNew plots information (four possible options) extracted from terahertz data in
@@ -757,8 +758,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             ax.ColorOrder = flipud(jet(length(plotList)));
             
             % reset 'NO LEGEND', 'JET COLORMAP'
-            app.LEGENDButton.Value = 0;
-            app.JETCOLORMAPButton_2.Value = 0;
+            app.LegendButton.Value = 0;
+            app.JetColormapButton.Value = 0;
     
             % if the size of the first dimension (row) of 'plotType' is 2, join
             % all values on the first row of 'plotType' to form one single
@@ -949,9 +950,9 @@ classdef CaTSper_exported < matlab.apps.AppBase
         % AdvFDbuttonsEnable enables/disables a set of buttons in the
         % frequency domain tab
         function AdvFDbuttonsEnable(app,tf)
-            app.ABSORPTIONButton.Enable = tf;
-            app.REFRACTIVEINDEXButton.Enable = tf;
-            app.DIELECTRICCONSTANTButton.Enable = tf;
+            app.AbsorptionButton.Enable = tf;
+            app.RefractiveIndexButton.Enable = tf;
+            app.DielectricConstantButton.Enable = tf;
             app.dataManipulationButton.Enable = tf;            
         end
              
@@ -981,7 +982,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             TDselected = app.MeasurementListBox.Value;
             % updating thickness value based on input
             app.ThicknessmmEditField.Value = thickness;
-            app.TD_data.settings{TDselected}.thickness = thickness;
+            app.TD_data.metadata{TDselected}.thickness = thickness;
             
             % execute the following if function input 'All' does not equal
             % to zero
@@ -1002,7 +1003,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
                         % measurement
                         samE = app.TD_data.samples{TDindex,2};
                         % extracting time delay value
-                        del_t = app.TD_data.settings{TDindex}.timeDelay;
+                        del_t = app.TD_data.metadata{TDindex}.timeDelay;
                       
                         % substracting the first index of the reference
                         % time that is greater than the time delay by the
@@ -1071,7 +1072,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
                     end
                     
                     % updating thickness
-                    app.TD_data.settings{TDindex}.thickness = thickness;
+                    app.TD_data.metadata{TDindex}.thickness = thickness;
                     TDanalysisUpdate(app,TDindex);
                 end
             end
@@ -1124,7 +1125,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
         % selected measurements
         function updateThickness2(app,thicknesses,updateList)
             for idx = updateList
-                app.TD_data.settings{idx}.thickness = thicknesses(idx);
+                app.TD_data.metadata{idx}.thickness = thicknesses(idx);
                 TDanalysisUpdate(app,idx);
             end
         end
@@ -1146,17 +1147,17 @@ classdef CaTSper_exported < matlab.apps.AppBase
         function MeasurementListBoxValueChanged(app, event)
             % MeasurementListBoxValueChanged extracts and displays relevant values 
             MeasNum = app.MeasurementListBox.Value;
-            delta_t = app.TD_data.settings{MeasNum}.timeDelay;
-            thickness = app.TD_data.settings{MeasNum}.thickness;
-            n_eff = app.TD_data.settings{MeasNum}.refractiveIndex;
-            etl_t = app.TD_data.settings{MeasNum}.internalReflection;
-            refOption = app.TD_data.settings{MeasNum}.refOption;
+            delta_t = app.TD_data.metadata{MeasNum}.timeDelay;
+            thickness = app.TD_data.metadata{MeasNum}.thickness;
+            n_eff = app.TD_data.metadata{MeasNum}.refractiveIndex;
+            etl_t = app.TD_data.metadata{MeasNum}.internalReflection;
+            refOption = app.TD_data.metadata{MeasNum}.refOption;
             refNum = sum(~cellfun("isempty",app.TD_data.references(MeasNum,:)))/2;
             
-            description = app.TD_data.settings{MeasNum}.description;
-            scanTime = app.TD_data.settings{MeasNum}.scanStartDateTime;
-            insModel = app.TD_data.settings{MeasNum}.instrument;
-            refDescription = app.TD_data.settings{MeasNum}.refDescription;
+            description = app.TD_data.metadata{MeasNum}.description;
+            scanTime = app.TD_data.metadata{MeasNum}.scanStartDateTime;
+            insModel = app.TD_data.metadata{MeasNum}.instrument;
+            refDescription = app.TD_data.metadata{MeasNum}.refDescription;
             
             %display measurement setting
             app.DescriptionEditField.Value = description;
@@ -1245,8 +1246,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             
         end
 
-        % Button pushed function: TRANSFORMButton
-        function TRANSFORMButtonPushed(app, event)
+        % Button pushed function: TransformButton
+        function TransformButtonPushed(app, event)
         % TRANSFORMButtonPushed performs fast Fourier transform on the
         % reference and sample measurement, extracts amplitude and phase
         % data in the frequency domain and trims data accordingly. Options
@@ -1260,7 +1261,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % extracting the values that were specified by the user
             ListBoxItem = app.FDListListBox.Items;
             addFDList = app.TD_select;
-            isAutowindow = app.AUTOWINDOWButton.Value;
+            isAutowindow = app.AutoWindowButton.Value;
             min_freq = app.MinFreqEditField.Value;
             max_freq = app.MaxFreqEditField.Value;
             upscale = app.ZeroFillingpowerofSpinner.Value; 
@@ -1273,7 +1274,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
                 % extract the time spacing between logged values
                 TDindex = addFDList(cnt);
 
-                refOption = app.TD_data.settings{TDindex}.refOption;
+                refOption = app.TD_data.metadata{TDindex}.refOption;
                 if isequal(refOption,0)
                     warning('No available reference dataset')
                     return;
@@ -1281,7 +1282,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
                 refIdx = refOption*2-1;                
                 
                 % reference waveform 
-                xSpacing = app.TD_data.settings{TDindex}.xSpacing;
+                xSpacing = app.TD_data.metadata{TDindex}.xSpacing;
                 % convert the time spacing into frequency spacing
                 fs = 1/(xSpacing*10^-12); % obtain sampling frequency based on xSpacing value
                 t_reference = app.TD_data.references{TDindex,refIdx};
@@ -1292,13 +1293,13 @@ classdef CaTSper_exported < matlab.apps.AppBase
                 E_sample = app.TD_data.samples{TDindex,2};
                 
                 % time delay between reference and sample measurement
-                delta_t = app.TD_data.settings{TDindex}.timeDelay;
+                delta_t = app.TD_data.metadata{TDindex}.timeDelay;
                 
                 % windowing
                 % obtaining the time delay for one internal reflection to
                 % occur
                 % this is calulcated in the TDanalysisUpdate function
-                etl_t = app.TD_data.settings{TDindex}.internalReflection;
+                etl_t = app.TD_data.metadata{TDindex}.internalReflection;
                 
                 if isAutowindow
                     % if the auto window function is selected, the upper
@@ -1414,7 +1415,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
                 FDsampleName = strcat(num2str(FDindex),':',sampleID);
                 AddItem = strcat(FDsampleName,FTsetting);
                 app.FD_data.sampleList{FDindex} = FDsampleName;
-                app.FD_data.settings{FDindex} = FTsetting;
+                app.FD_data.metadata{FDindex} = FTsetting;
                 ListBoxItem{FDindex} = AddItem;
                 
                 % calculate the number of etalon oscillations in the data
@@ -1425,15 +1426,15 @@ classdef CaTSper_exported < matlab.apps.AppBase
                 
                 % input FD_data structure
                 sampleID = matlab.lang.makeValidName(sampleID);
-                app.FD_data.settings{FDindex} = ...
-                    app.TD_data.settings{TDindex};
-                app.FD_data.settings{FDindex}.thickness = ...
-                    app.TD_data.settings{TDindex}.thickness;
-                app.FD_data.settings{FDindex}.refThickness = 0;
-                app.FD_data.settings{FDindex}.timeWindow = [td_min td_max];
-                app.FD_data.settings{FDindex}.windowFunction = funcName;
-                app.FD_data.settings{FDindex}.etlNum_ref = etlNum_ref;
-                app.FD_data.settings{FDindex}.etlNum_sam = etlNum_sam;
+                app.FD_data.metadata{FDindex} = ...
+                    app.TD_data.metadata{TDindex};
+                app.FD_data.metadata{FDindex}.thickness = ...
+                    app.TD_data.metadata{TDindex}.thickness;
+                app.FD_data.metadata{FDindex}.refThickness = 0;
+                app.FD_data.metadata{FDindex}.timeWindow = [td_min td_max];
+                app.FD_data.metadata{FDindex}.windowFunction = funcName;
+                app.FD_data.metadata{FDindex}.etlNum_ref = etlNum_ref;
+                app.FD_data.metadata{FDindex}.etlNum_sam = etlNum_sam;
                 
                 % unwrap phase data (calling TDS-unwrap function)
                 % unwrapping phase values for reference and sample
@@ -1505,12 +1506,12 @@ classdef CaTSper_exported < matlab.apps.AppBase
             end
         end
 
-        % Value changed function: AUTOWINDOWButton
-        function AUTOWINDOWButtonValueChanged(app, event)
+        % Value changed function: AutoWindowButton
+        function AutoWindowButtonValueChanged(app, event)
             % AUTOWINDOWButtonValueChanged enables/disables the editing of
             % certain fields based on the deselection/selection of the auto
             % window button
-            value = app.AUTOWINDOWButton.Value;
+            value = app.AutoWindowButton.Value;
             if value
                 app.MaxTimeEditField.Enable = "off";
                 app.MinTimeEditField.Enable = "off";
@@ -1585,8 +1586,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             plotTD_data(app,app.UIAxes2);
         end
 
-        % Button pushed function: REMOVEButton
-        function REMOVEButtonPushed(app, event)
+        % Button pushed function: RemoveButton
+        function RemoveButtonPushed(app, event)
             % REMOVEButtonPushed removes the selected item from the list box,
             % updates the index for the remaining data in the list box, and
             % clears all strings/data stored in the two selection boxes in the
@@ -1797,7 +1798,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             
             % update description
             % and store the description into the data structure
-            app.TD_data.settings{MeasNum}.description = value;
+            app.TD_data.metadata{MeasNum}.description = value;
         end
 
         % Value changed function: ThicknessmmEditField
@@ -1828,7 +1829,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % update thickness
             % and stores the thickness value into the data structure
             TDindex = app.MeasurementListBox.Value;
-            app.TD_data.settings{TDindex}.thickness = value;
+            app.TD_data.metadata{TDindex}.thickness = value;
             
             % update correlated information
             TDanalysisUpdate(app,TDindex);
@@ -1849,8 +1850,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             assignin('base',"FD_data",app.FD_data);
         end
 
-        % Button pushed function: REMOVEALLButton
-        function REMOVEALLButtonPushed(app, event)
+        % Button pushed function: RemoveAllButton
+        function RemoveAllButtonPushed(app, event)
             % REMOVEALLButtonPushed removes all stored frequency domain data,
             % empties data in the frequency domain list/selection boxes and
             % reset the buttons in the FD data analysis section to default
@@ -1919,7 +1920,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
                    TD_data.references{cnt,1} = app.TD_data.references{Idx,1};
                    TD_data.references{cnt,2} = app.TD_data.references{Idx,2};
                    TD_data.sampleList{cnt} = app.TD_data.sampleList{Idx};
-                   TD_data.settings{cnt} = app.TD_data.settings{Idx};
+                   TD_data.metadata{cnt} = app.TD_data.metadata{Idx};
                    %TD_data.analysis{cnt} = app.TD_data.analysis{Idx}; %[Re_max, delta_t, n_eff, elt_t]
                  
                    cnt = cnt + 1;
@@ -1958,11 +1959,11 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.MeasurementListBox.Items = ListItems;
             app.MeasurementListBox.ItemsData = (1:length(ListItems));
             % enable the Fourier transform function
-            app.TRANSFORMButton.Enable = true;
+            app.TransformButton.Enable = true;
             
             % empties the sample list and settings in the frequency domain tab
             app.FD_data.sampleList = {};
-            app.FD_data.settings = {};
+            app.FD_data.metadata = {};
         end
 
         % Button pushed function: SaveData_FD
@@ -2130,14 +2131,14 @@ classdef CaTSper_exported < matlab.apps.AppBase
             idx = app.FDSelectionListBox_2.Value;
             
             % extract the input description
-            description = app.FD_data.settings{idx}.description;
+            description = app.FD_data.metadata{idx}.description;
             
             % extract the input values
-            % thickness->FD_data.settings(idx).thickness=[sam ref]
-            sam_thickness = app.FD_data.settings{idx}.thickness;
-            ref_thickness = app.FD_data.settings{idx}.refThickness;
-            etlNum_ref = app.FD_data.settings{idx}.etlNum_ref;
-            etlNum_sam= app.FD_data.settings{idx}.etlNum_sam;
+            % thickness->FD_data.metadata(idx).thickness=[sam ref]
+            sam_thickness = app.FD_data.metadata{idx}.thickness;
+            ref_thickness = app.FD_data.metadata{idx}.refThickness;
+            etlNum_ref = app.FD_data.metadata{idx}.etlNum_ref;
+            etlNum_sam= app.FD_data.metadata{idx}.etlNum_sam;
                        
             % display in EditTextFields
             app.DescriptionEditField_FD.Value = description;
@@ -2148,8 +2149,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
                         
         end
 
-        % Button pushed function: CALCULATEOPTICALPARAMATERSButton
-        function CALCULATEOPTICALPARAMATERSButtonPushed(app, event)
+        % Button pushed function: CalculateOpticalParametersButton
+        function CalculateOpticalParametersButtonPushed(app, event)
             % CALCULATEButtonPushed calculates the refractive index, the
             % absorption coefficient, extinction coefficient and the dielectric
             % constants of the sample
@@ -2166,12 +2167,12 @@ classdef CaTSper_exported < matlab.apps.AppBase
             for FDindex = app.FD_select_2
                 % calculate the difference between the measured thickness
                 % and the input reference thickness (this is zero if nothing is placed in the reference measurement)
-                t_diff = abs(app.FD_data.settings{FDindex}.thickness -...
-                    app.FD_data.settings{FDindex}.refThickness);
+                t_diff = abs(app.FD_data.metadata{FDindex}.thickness -...
+                    app.FD_data.metadata{FDindex}.refThickness);
                 
                 % if there is no data on the measured thickness, display
                 % error message and do not continue to perform the function
-                if isempty(app.FD_data.settings{FDindex}.thickness)
+                if isempty(app.FD_data.metadata{FDindex}.thickness)
                     fig = app.CatsperUIFigure;
                     ID = app.FD_data.sampleList{FDindex};
                     msg = strcat((ID)," doesn't have the thickness information.");
@@ -2309,7 +2310,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % and replaces the '_' with ' '
             for idx=1:idxNum
                 labels{idx} = strrep(strjoin(app.TD_data.sampleList{idx}),'_',' ');
-                tList =[tList app.TD_data.settings{idx}.refractiveIndex];
+                tList =[tList app.TD_data.metadata{idx}.refractiveIndex];
             end
             
             % on the x-tick, label the plotted values with the
@@ -2320,11 +2321,11 @@ classdef CaTSper_exported < matlab.apps.AppBase
             plot(ax,(1:idxNum),tList,'-o');
         end
 
-        % Value changed function: LEGENDButton_2
-        function LEGENDButton_2ValueChanged(app, event)
+        % Value changed function: LegenButton
+        function LegenButtonValueChanged(app, event)
             % LEGENDButton_2ValueChanged displays or hides legend based on
             % user's specified preference
-            value = app.LEGENDButton_2.Value;
+            value = app.LegenButton.Value;
             if isequal(value,0)
                 legend(app.UIAxes1,"hide");
                 legend(app.UIAxes2,"hide");
@@ -2334,11 +2335,11 @@ classdef CaTSper_exported < matlab.apps.AppBase
             end
         end
 
-        % Value changed function: JETCOLORMAPButton
-        function JETCOLORMAPButtonValueChanged(app, event)
+        % Value changed function: JetColormapButton_2
+        function JetColormapButton_2ValueChanged(app, event)
             % JETCOLORMAPButtonValueChanged applies the jet colormap to the lines in the plot if user
             % selects the jet colormap option, otherwise the lines colormap is applied
-            value = app.JETCOLORMAPButton.Value;
+            value = app.JetColormapButton_2.Value;
             idxNum = length(app.TD_select);
             if isequal(value,1)
                 app.UIAxes1.ColorOrder = flipud(jet(idxNum));
@@ -2349,12 +2350,12 @@ classdef CaTSper_exported < matlab.apps.AppBase
             end
         end
 
-        % Value changed function: LEGENDButton
-        function LEGENDButtonValueChanged(app, event)
+        % Value changed function: LegendButton
+        function LegendButtonValueChanged(app, event)
             % LEGENDButtonValueChanged displays or hides legend based on
             % user's specified preference
 
-            value = app.LEGENDButton.Value;
+            value = app.LegendButton.Value;
              if isequal(value,0)
                 legend(app.UIAxes3,"hide");
                 legend(app.UIAxes4,"hide");
@@ -2365,12 +2366,12 @@ classdef CaTSper_exported < matlab.apps.AppBase
             
         end
 
-        % Value changed function: JETCOLORMAPButton_2
-        function JETCOLORMAPButton_2ValueChanged(app, event)
+        % Value changed function: JetColormapButton
+        function JetColormapButtonValueChanged(app, event)
             % JETCOLORMAPButton_2ValueChanged applies the jet colormap to the lines in the plot if user
             % selects the jet colormap option, otherwise the lines colormap is applied
 
-            value = app.JETCOLORMAPButton_2.Value;
+            value = app.JetColormapButton.Value;
             idxNum = length(app.FD_select_2);
             if isequal(value,1)
                 app.UIAxes3.ColorOrder = flipud(jet(idxNum));
@@ -2381,8 +2382,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             end
         end
 
-        % Button pushed function: CHECKDYNAMICRANGEButton
-        function CHECKDYNAMICRANGEButtonPushed(app, event)
+        % Button pushed function: CheckDynamicRangeButton
+        function CheckDynamicRangeButtonPushed(app, event)
             % CHECKDYNAMICRANGEButtonPushed performs fast fourier transform on the sample measurements,
             % calculates the transmittance and absorption coefficient, and then
             % open the DR checker app together with these values 
@@ -2402,7 +2403,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
 
             % reference waveform
             % extract the time spacing between logged values
-            xSpacing = app.TD_data.settings{measNum}.xSpacing;
+            xSpacing = app.TD_data.metadata{measNum}.xSpacing;
             % convert the time spacing into frequency spacing
             fs = 1/(xSpacing*10^-12); % obtain sampling frequency based on xSpacing value
             t_reference = app.TD_data.references{measNum,1};
@@ -2494,7 +2495,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             c = 299792458; % the speed of light
             n_medium = 1; % refractive index of medium
             n_reference = 1; % refractive indx of the reference
-            thickness = app.TD_data.settings{measNum}.thickness;
+            thickness = app.TD_data.metadata{measNum}.thickness;
             n_sample = c.*transmPha./(2*pi*FD_frequency.*thickness*10^-3) + 1;
             ref_factor = 4*n_medium*n_reference/((n_medium + n_reference).^2);
             sam_factor = 4*n_medium*n_sample/((n_medium + n_sample).^2);
@@ -2508,7 +2509,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             refE = abs(FD_reference);
             samA = absorption;
             sampleID = strjoin(app.TD_data.sampleList{measNum});
-            n_eff = app.TD_data.settings{measNum}.refractiveIndex;
+            n_eff = app.TD_data.metadata{measNum}.refractiveIndex;
             
             % open the DR checker app with the calculated values
             app.DialogApp = DR_Checker(app,refF,refE,samA,n_eff,thickness,sampleID);
@@ -2540,8 +2541,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.TabGroup.SelectedTab = app.TabGroup.Children(3);
         end
 
-        % Button pushed function: IMPORTALLDATAButton
-        function IMPORTALLDATAButtonPushed(app, event)
+        % Button pushed function: ImportAllDataButton
+        function ImportAllDataButtonPushed(app, event)
             % IMPORTALLDATAButtonPushed imports all datasets to the source data
             % set list in the DM tab and makes them available for data manipulation
         
@@ -2549,8 +2550,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.SourceDataSetEditField.Value = num2str(dataList);
         end
 
-        % Button pushed function: CALCULATEButton_2
-        function CALCULATEButton_2Pushed(app, event)
+        % Button pushed function: CalculateButton
+        function CalculateButtonPushed(app, event)
             % CALCULATEButton_2Pushed extracts the relevant data that is
             % specified as A, B and C in DM tab and calculates the specified
             % Y-axis data formulation
@@ -2560,8 +2561,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % extract the number of values
             app.NumberofDataEditField.Value = length(dataList);
             % enable the plotting functions
-            app.PLOTindividualdatasetsButton.Enable = "on";
-            app.PLOTmeanandrangeButton.Enable = "on";
+            app.PlotindividualdatasetsButton.Enable = "on";
+            app.PlotmeanandrangeButton.Enable = "on";
             
             % extract the parameter that is set to be the y-axis
             Func = app.YaxisDataFormulationEditField.Value;
@@ -2592,8 +2593,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             end
         end
 
-        % Button pushed function: PLOTindividualdatasetsButton
-        function PLOTindividualdatasetsButtonPushed(app, event)
+        % Button pushed function: PlotindividualdatasetsButton
+        function PlotindividualdatasetsButtonPushed(app, event)
             % PLOTindividualdatasetsButtonPushed plots the specified data sets
             % individually based on the specified values as x and y data
 
@@ -2640,8 +2641,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             
         end
 
-        % Button pushed function: DISPLAYXLINESButton
-        function DISPLAYXLINESButtonPushed(app, event)
+        % Button pushed function: DisplayXLinesButton
+        function DisplayXLinesButtonPushed(app, event)
             % DISPLAYXLINESButtonPushed plots red dashed lines at specified
             % frequencies on the plot
 
@@ -2658,8 +2659,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             end
         end
 
-        % Button pushed function: REARRANGEDATAButton
-        function REARRANGEDATAButtonPushed(app, event)
+        % Button pushed function: RearrangeDataButton
+        function RearrangeDataButtonPushed(app, event)
             % REARRANGEDATAButtonPushed rearranges the y-axis data formulation
             % value first according to the specified frequncies and then
             % according to data sets
@@ -2723,11 +2724,11 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % stores the list of names of the specified data sets as a matrix
             app.XaxisDataEditField.Value = cell2mat(xtempList);
             % enable graph plotting
-            app.PLOTButton_2.Enable = "on";
+            app.PlotButton.Enable = "on";
         end
 
-        % Button pushed function: PLOTButton_2
-        function PLOTButton_2Pushed(app, event)
+        % Button pushed function: PlotButton
+        function PlotButtonPushed(app, event)
             % PLOTButton_2Pushed plots the y-axis data formulation value
             % against data sets for different specified frequencies
 
@@ -2870,8 +2871,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             ax.XTickLabelRotation= 45;
         end
 
-        % Button pushed function: CLEARMEMORYButton
-        function CLEARMEMORYButtonPushed(app, event)
+        % Button pushed function: ClearMemoryButton
+        function ClearMemoryButtonPushed(app, event)
             % CLEARMEMORYButtonPushed creates a dialouge box to ask if the user
             % would like to clear memory and if the answer is yes, arrays and
             % parameters are emptied
@@ -3043,8 +3044,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             hold(ax,"off");
         end
 
-        % Button pushed function: SAVETDFDDMButton
-        function SAVETDFDDMButtonPushed(app, event)
+        % Button pushed function: SaveTDFDDMButton
+        function SaveTDFDDMButtonPushed(app, event)
             % SAVETDFDDMButtonPushed saves selected or all time domain data,
             % all frequency domain and data manipulation data
 
@@ -3093,7 +3094,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
                    TD_data.references{cnt,1} = app.TD_data.references{Idx,1};
                    TD_data.references{cnt,2} = app.TD_data.references{Idx,2};
                    TD_data.sampleList{cnt} = app.TD_data.sampleList{Idx};
-                   TD_data.settings{cnt} = app.TD_data.settings{Idx};
+                   TD_data.metadata{cnt} = app.TD_data.metadata{Idx};
                  
                    cnt = cnt + 1;
                 end
@@ -3166,8 +3167,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             end
         end
 
-        % Button pushed function: PLOTmeanandrangeButton
-        function PLOTmeanandrangeButtonPushed(app, event)
+        % Button pushed function: PlotmeanandrangeButton
+        function PlotmeanandrangeButtonPushed(app, event)
             % PLOTmeanandrangeButtonPushed caclulates the mean and range for the y axis data formulation values among
             % the data sets at all x-values and then present them on a plot
             
@@ -3288,8 +3289,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
           
         end
 
-        % Button pushed function: DEPLOYButton
-        function DEPLOYButtonPushed(app, event)
+        % Button pushed function: DeployButton
+        function DeployButtonPushed(app, event)
             idxCap = 1;
             % run the TDdataDel function
             TDdataDel(app);
@@ -3383,19 +3384,19 @@ classdef CaTSper_exported < matlab.apps.AppBase
                     % measurement from the dataset or from the attributes
                     allListItems{idxCap+idx-1} = dn(2:end);
                     TD_data.sampleList{idxCap+idx-1}={dn(2:end)};
-                    TD_data.settings{idxCap+idx-1}.sampleName = dn(2:end);
-                    TD_data.settings{idxCap+idx-1}.scanLength = size(ds01,2);
-                    TD_data.settings{idxCap+idx-1}.xSpacing = mean(diff(ds01(1,:)));
-                    TD_data.settings{idxCap+idx-1}.description = h5readatt(fullpath,dn,"description");
-                    TD_data.settings{idxCap+idx-1}.refDescription = h5readatt(fullpath,dn,"ref_description");
-                    TD_data.settings{idxCap+idx-1}.scanStartDateTime = h5readatt(fullpath,dn,"date_time");
-                    TD_data.settings{idxCap+idx-1}.refOption = refOption;
-                    TD_data.settings{idxCap+idx-1}.timeDelay = tDelay;
-                    TD_data.settings{idxCap+idx-1}.refractiveIndex = n_eff;
-                    TD_data.settings{idxCap+idx-1}.internalReflection = etl_t;
-                    TD_data.settings{idxCap+idx-1}.thickness = thickness;
-                    TD_data.settings{idxCap+idx-1}.temperature = h5readatt(fullpath,dn,"temperature");
-                    TD_data.settings{idxCap+idx-1}.concentration = h5readatt(fullpath,dn,"concentration");
+                    TD_data.metadata{idxCap+idx-1}.sampleName = dn(2:end);
+                    TD_data.metadata{idxCap+idx-1}.scanLength = size(ds01,2);
+                    TD_data.metadata{idxCap+idx-1}.xSpacing = mean(diff(ds01(1,:)));
+                    TD_data.metadata{idxCap+idx-1}.description = h5readatt(fullpath,dn,"description");
+                    TD_data.metadata{idxCap+idx-1}.refDescription = h5readatt(fullpath,dn,"ref_description");
+                    TD_data.metadata{idxCap+idx-1}.scanStartDateTime = h5readatt(fullpath,dn,"date_time");
+                    TD_data.metadata{idxCap+idx-1}.refOption = refOption;
+                    TD_data.metadata{idxCap+idx-1}.timeDelay = tDelay;
+                    TD_data.metadata{idxCap+idx-1}.refractiveIndex = n_eff;
+                    TD_data.metadata{idxCap+idx-1}.internalReflection = etl_t;
+                    TD_data.metadata{idxCap+idx-1}.thickness = thickness;
+                    TD_data.metadata{idxCap+idx-1}.temperature = h5readatt(fullpath,dn,"temperature");
+                    TD_data.metadata{idxCap+idx-1}.concentration = h5readatt(fullpath,dn,"concentration");
     
                     % extract the name of the instrument model
                     insModel = extractBefore(h5readatt(fullpath,dn,"instrument"),'/');
@@ -3403,11 +3404,11 @@ classdef CaTSper_exported < matlab.apps.AppBase
                     % if the instrument model is not specified, leave the
                     % corresponding field empty
                     if isequal(insModel,"<missing>")
-                        TD_data.settings{idxCap+idx-1}.instrument = '';
+                        TD_data.metadata{idxCap+idx-1}.instrument = '';
                     % if the instrument model is specified, assign the value to
                     % the corresponding field
                     else
-                        TD_data.settings{idxCap+idx-1}.instrument = insModel;
+                        TD_data.metadata{idxCap+idx-1}.instrument = insModel;
                     end
     
                 end
@@ -3420,11 +3421,11 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.MeasurementListBox.ItemsData = (1:length(allListItems));
 
             % enable the Fourier transform button
-            app.TRANSFORMButton.Enable = true;
+            app.TransformButton.Enable = true;
             
             % empty arrays associated with frequency domain
             app.FD_data.sampleList = {};
-            app.FD_data.settings = {};
+            app.FD_data.metadata = {};
         end
 
         % Button pushed function: PLOTFORCUSTOMISATIONButton_TD
@@ -3440,7 +3441,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
         % Button pushed function: RefSwitchButton
         function RefSwitchButtonPushed(app, event)
             MeasNum = app.MeasurementListBox.Value;
-            refOption = app.TD_data.settings{MeasNum}.refOption;
+            refOption = app.TD_data.metadata{MeasNum}.refOption;
 
             if isequal(refOption,1)
                 refOption = 2;
@@ -3448,7 +3449,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
                 refOption = 1;
             end
 
-            app.TD_data.settings{MeasNum}.refOption = refOption;
+            app.TD_data.metadata{MeasNum}.refOption = refOption;
             MeasurementListBoxValueChanged(app);
             
         end
@@ -3457,7 +3458,19 @@ classdef CaTSper_exported < matlab.apps.AppBase
         function RefDescriptionEditFieldValueChanged(app, event)
             value = app.RefDescriptionEditField.Value;
             MeasNum = app.MeasurementListBox.Value;
-            app.TD_data.settings{MeasNum}.refDescription = value;            
+            app.TD_data.metadata{MeasNum}.refDescription = value;            
+        end
+
+        % Button pushed function: ImportAllDataInverseSequenceButton
+        function ImportAllDataInverseSequenceButtonPushed(app, event)
+            % IMPORTALLDATA (Inverse Sequence) ButtonPushed imports all
+            % datasets to the source data in inverse order
+            % set list in the DM tab and makes them available for data manipulation
+        
+            dataList = app.FD_select_2;
+            dataList = num2str(dataList);
+            dataList = fliplr(dataList);
+            app.SourceDataSetEditField.Value = dataList;
         end
     end
 
@@ -3552,7 +3565,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.PLOT1TDButton = uibutton(app.TimeDomainTDTab, 'push');
             app.PLOT1TDButton.ButtonPushedFcn = createCallbackFcn(app, @PLOT1TDButtonPushed, true);
             app.PLOT1TDButton.Position = [509 631 105 45];
-            app.PLOT1TDButton.Text = 'PLOT1';
+            app.PLOT1TDButton.Text = 'Plot 1';
 
             % Create FFTSettingsPanel
             app.FFTSettingsPanel = uipanel(app.TimeDomainTDTab);
@@ -3610,13 +3623,13 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.at1stinternalreflectionsLabel.Position = [128 138 136 22];
             app.at1stinternalreflectionsLabel.Text = 'at 1st internal reflections';
 
-            % Create TRANSFORMButton
-            app.TRANSFORMButton = uibutton(app.FFTSettingsPanel, 'push');
-            app.TRANSFORMButton.ButtonPushedFcn = createCallbackFcn(app, @TRANSFORMButtonPushed, true);
-            app.TRANSFORMButton.FontWeight = 'bold';
-            app.TRANSFORMButton.Enable = 'off';
-            app.TRANSFORMButton.Position = [19 15 274 37];
-            app.TRANSFORMButton.Text = 'TRANSFORM';
+            % Create TransformButton
+            app.TransformButton = uibutton(app.FFTSettingsPanel, 'push');
+            app.TransformButton.ButtonPushedFcn = createCallbackFcn(app, @TransformButtonPushed, true);
+            app.TransformButton.FontWeight = 'bold';
+            app.TransformButton.Enable = 'off';
+            app.TransformButton.Position = [19 15 274 37];
+            app.TransformButton.Text = 'Transform';
 
             % Create ApodizationFunctionDropDownLabel
             app.ApodizationFunctionDropDownLabel = uilabel(app.FFTSettingsPanel);
@@ -3646,13 +3659,13 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.orLabel.Position = [18 110 25 22];
             app.orLabel.Text = 'or, ';
 
-            % Create AUTOWINDOWButton
-            app.AUTOWINDOWButton = uibutton(app.FFTSettingsPanel, 'state');
-            app.AUTOWINDOWButton.ValueChangedFcn = createCallbackFcn(app, @AUTOWINDOWButtonValueChanged, true);
-            app.AUTOWINDOWButton.Tooltip = {'set the time_max 1st multiple reflection time'};
-            app.AUTOWINDOWButton.Text = 'AUTO WINDOW';
-            app.AUTOWINDOWButton.BackgroundColor = [1 1 1];
-            app.AUTOWINDOWButton.Position = [20 137 103 23];
+            % Create AutoWindowButton
+            app.AutoWindowButton = uibutton(app.FFTSettingsPanel, 'state');
+            app.AutoWindowButton.ValueChangedFcn = createCallbackFcn(app, @AutoWindowButtonValueChanged, true);
+            app.AutoWindowButton.Tooltip = {'set the time_max 1st multiple reflection time'};
+            app.AutoWindowButton.Text = 'Auto Window';
+            app.AutoWindowButton.BackgroundColor = [1 1 1];
+            app.AutoWindowButton.Position = [20 137 103 23];
 
             % Create FrequencyrangeLabel
             app.FrequencyrangeLabel = uilabel(app.FFTSettingsPanel);
@@ -3724,7 +3737,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.PLOT2TDButton = uibutton(app.TimeDomainTDTab, 'push');
             app.PLOT2TDButton.ButtonPushedFcn = createCallbackFcn(app, @PLOT2TDButtonPushed, true);
             app.PLOT2TDButton.Position = [509 578 105 45];
-            app.PLOT2TDButton.Text = 'PLOT2';
+            app.PLOT2TDButton.Text = 'Plot 2';
 
             % Create ALLButton
             app.ALLButton = uibutton(app.TimeDomainTDTab, 'push');
@@ -3752,22 +3765,22 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.BothButtonTD.Position = [11 7 65 22];
             app.BothButtonTD.Value = true;
 
-            % Create LEGENDButton_2
-            app.LEGENDButton_2 = uibutton(app.TimeDomainTDTab, 'state');
-            app.LEGENDButton_2.ValueChangedFcn = createCallbackFcn(app, @LEGENDButton_2ValueChanged, true);
-            app.LEGENDButton_2.Text = 'LEGEND';
-            app.LEGENDButton_2.Position = [1142 9 99 22];
+            % Create LegenButton
+            app.LegenButton = uibutton(app.TimeDomainTDTab, 'state');
+            app.LegenButton.ValueChangedFcn = createCallbackFcn(app, @LegenButtonValueChanged, true);
+            app.LegenButton.Text = 'Legen';
+            app.LegenButton.Position = [1142 8 99 23];
 
-            % Create JETCOLORMAPButton
-            app.JETCOLORMAPButton = uibutton(app.TimeDomainTDTab, 'state');
-            app.JETCOLORMAPButton.ValueChangedFcn = createCallbackFcn(app, @JETCOLORMAPButtonValueChanged, true);
-            app.JETCOLORMAPButton.Text = 'JET COLORMAP';
-            app.JETCOLORMAPButton.Position = [1258 9 107 22];
+            % Create JetColormapButton_2
+            app.JetColormapButton_2 = uibutton(app.TimeDomainTDTab, 'state');
+            app.JetColormapButton_2.ValueChangedFcn = createCallbackFcn(app, @JetColormapButton_2ValueChanged, true);
+            app.JetColormapButton_2.Text = 'Jet Colormap';
+            app.JetColormapButton_2.Position = [1258 8 107 23];
 
-            % Create GRIDOFFButton
-            app.GRIDOFFButton = uibutton(app.TimeDomainTDTab, 'state');
-            app.GRIDOFFButton.Text = 'GRID OFF';
-            app.GRIDOFFButton.Position = [509 684 105 30];
+            % Create GridOffButton_3
+            app.GridOffButton_3 = uibutton(app.TimeDomainTDTab, 'state');
+            app.GridOffButton_3.Text = 'Grid Off';
+            app.GridOffButton_3.Position = [509 684 105 30];
 
             % Create SampleDetailsPanel
             app.SampleDetailsPanel = uipanel(app.TimeDomainTDTab);
@@ -3873,6 +3886,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % Create Ref1Lamp
             app.Ref1Lamp = uilamp(app.SampleDetailsPanel);
             app.Ref1Lamp.Position = [54 151 16 16];
+            app.Ref1Lamp.Color = [0.9412 0.9412 0.9412];
 
             % Create Ref2LampLabel
             app.Ref2LampLabel = uilabel(app.SampleDetailsPanel);
@@ -3883,7 +3897,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % Create Ref2Lamp
             app.Ref2Lamp = uilamp(app.SampleDetailsPanel);
             app.Ref2Lamp.Position = [121 151 16 16];
-            app.Ref2Lamp.Color = [0.651 0.651 0.651];
+            app.Ref2Lamp.Color = [0.9412 0.9412 0.9412];
 
             % Create RefSwitchButton
             app.RefSwitchButton = uibutton(app.SampleDetailsPanel, 'push');
@@ -3898,7 +3912,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.LoadData_TD.FontWeight = 'bold';
             app.LoadData_TD.Tooltip = {'Assign data to variable in the base workspace'};
             app.LoadData_TD.Position = [25 13 111 30];
-            app.LoadData_TD.Text = 'LOAD TD_DATA';
+            app.LoadData_TD.Text = 'Load TD_DATA';
 
             % Create SaveData_TD
             app.SaveData_TD = uibutton(app.TimeDomainTDTab, 'push');
@@ -3907,7 +3921,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.SaveData_TD.FontWeight = 'bold';
             app.SaveData_TD.Tooltip = {'Assign data to variable in the base workspace'};
             app.SaveData_TD.Position = [145 13 111 30];
-            app.SaveData_TD.Text = 'SAVE TD_DATA';
+            app.SaveData_TD.Text = 'Save TD_DATA';
 
             % Create ASSIGNButtonTD
             app.ASSIGNButtonTD = uibutton(app.TimeDomainTDTab, 'push');
@@ -3916,20 +3930,20 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.ASSIGNButtonTD.FontWeight = 'bold';
             app.ASSIGNButtonTD.Tooltip = {'Assign data to variable in the base workspace'};
             app.ASSIGNButtonTD.Position = [265 13 220 30];
-            app.ASSIGNButtonTD.Text = 'ASSIGN TD_DATA IN WORKSPACE';
+            app.ASSIGNButtonTD.Text = 'Assign TD_DATA in Workspace';
 
-            % Create CHECKDYNAMICRANGEButton
-            app.CHECKDYNAMICRANGEButton = uibutton(app.TimeDomainTDTab, 'push');
-            app.CHECKDYNAMICRANGEButton.ButtonPushedFcn = createCallbackFcn(app, @CHECKDYNAMICRANGEButtonPushed, true);
-            app.CHECKDYNAMICRANGEButton.Position = [509 468 105 61];
-            app.CHECKDYNAMICRANGEButton.Text = {'CHECK'; 'DYNAMIC'; 'RANGE'};
+            % Create CheckDynamicRangeButton
+            app.CheckDynamicRangeButton = uibutton(app.TimeDomainTDTab, 'push');
+            app.CheckDynamicRangeButton.ButtonPushedFcn = createCallbackFcn(app, @CheckDynamicRangeButtonPushed, true);
+            app.CheckDynamicRangeButton.Position = [509 468 105 61];
+            app.CheckDynamicRangeButton.Text = {'Check'; 'Dynamic'; 'Range'};
 
             % Create PLOTFORCUSTOMISATIONButton_TD
             app.PLOTFORCUSTOMISATIONButton_TD = uibutton(app.TimeDomainTDTab, 'push');
             app.PLOTFORCUSTOMISATIONButton_TD.ButtonPushedFcn = createCallbackFcn(app, @PLOTFORCUSTOMISATIONButton_TDPushed, true);
             app.PLOTFORCUSTOMISATIONButton_TD.FontSize = 11;
             app.PLOTFORCUSTOMISATIONButton_TD.Position = [509 536 105 35];
-            app.PLOTFORCUSTOMISATIONButton_TD.Text = {'PLOT FOR'; 'CUSTOMISATION'};
+            app.PLOTFORCUSTOMISATIONButton_TD.Text = {'Plot For'; 'Customisation'};
 
             % Create FrequencyDomainFDTab
             app.FrequencyDomainFDTab = uitab(app.TabGroup);
@@ -3969,13 +3983,13 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.PLOT1FDButton = uibutton(app.FrequencyDomainFDTab, 'push');
             app.PLOT1FDButton.ButtonPushedFcn = createCallbackFcn(app, @PLOT1FDButtonPushed, true);
             app.PLOT1FDButton.Position = [515 529 100 40];
-            app.PLOT1FDButton.Text = 'PLOT1';
+            app.PLOT1FDButton.Text = 'Plot 1';
 
             % Create PLOT2FDButton
             app.PLOT2FDButton = uibutton(app.FrequencyDomainFDTab, 'push');
             app.PLOT2FDButton.ButtonPushedFcn = createCallbackFcn(app, @PLOT2FDButtonPushed, true);
             app.PLOT2FDButton.Position = [515 483 100 40];
-            app.PLOT2FDButton.Text = 'PLOT2';
+            app.PLOT2FDButton.Text = 'Plot 2';
 
             % Create FDListListBoxLabel
             app.FDListListBoxLabel = uilabel(app.FrequencyDomainFDTab);
@@ -4037,17 +4051,17 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.BothButtonFD.Text = 'Both';
             app.BothButtonFD.Position = [11 7 65 22];
 
-            % Create REMOVEButton
-            app.REMOVEButton = uibutton(app.FrequencyDomainFDTab, 'push');
-            app.REMOVEButton.ButtonPushedFcn = createCallbackFcn(app, @REMOVEButtonPushed, true);
-            app.REMOVEButton.Position = [27 424 119 30];
-            app.REMOVEButton.Text = 'REMOVE';
+            % Create RemoveButton
+            app.RemoveButton = uibutton(app.FrequencyDomainFDTab, 'push');
+            app.RemoveButton.ButtonPushedFcn = createCallbackFcn(app, @RemoveButtonPushed, true);
+            app.RemoveButton.Position = [27 424 119 30];
+            app.RemoveButton.Text = 'Remove';
 
-            % Create REMOVEALLButton
-            app.REMOVEALLButton = uibutton(app.FrequencyDomainFDTab, 'push');
-            app.REMOVEALLButton.ButtonPushedFcn = createCallbackFcn(app, @REMOVEALLButtonPushed, true);
-            app.REMOVEALLButton.Position = [163 424 119 30];
-            app.REMOVEALLButton.Text = 'REMOVE ALL';
+            % Create RemoveAllButton
+            app.RemoveAllButton = uibutton(app.FrequencyDomainFDTab, 'push');
+            app.RemoveAllButton.ButtonPushedFcn = createCallbackFcn(app, @RemoveAllButtonPushed, true);
+            app.RemoveAllButton.Position = [163 424 119 30];
+            app.RemoveAllButton.Text = 'Remove All';
 
             % Create ASSIGNButtonFD
             app.ASSIGNButtonFD = uibutton(app.FrequencyDomainFDTab, 'push');
@@ -4055,7 +4069,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.ASSIGNButtonFD.FontWeight = 'bold';
             app.ASSIGNButtonFD.Tooltip = {'Assign data to variable in the base workspace'};
             app.ASSIGNButtonFD.Position = [283 12 220 30];
-            app.ASSIGNButtonFD.Text = 'ASSIGN FD_DATA IN WORKSPACE';
+            app.ASSIGNButtonFD.Text = 'Assign FD_DATA in Workspace';
 
             % Create FDDataAnalysisPanel
             app.FDDataAnalysisPanel = uipanel(app.FrequencyDomainFDTab);
@@ -4067,13 +4081,13 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.PLOT1FDButton_2 = uibutton(app.FDDataAnalysisPanel, 'push');
             app.PLOT1FDButton_2.ButtonPushedFcn = createCallbackFcn(app, @PLOT1FDButton_2Pushed, true);
             app.PLOT1FDButton_2.Position = [481 99 109 40];
-            app.PLOT1FDButton_2.Text = 'PLOT1';
+            app.PLOT1FDButton_2.Text = 'Plot 1';
 
             % Create PLOT2FDButton_2
             app.PLOT2FDButton_2 = uibutton(app.FDDataAnalysisPanel, 'push');
             app.PLOT2FDButton_2.ButtonPushedFcn = createCallbackFcn(app, @PLOT2FDButton_2Pushed, true);
             app.PLOT2FDButton_2.Position = [481 55 109 40];
-            app.PLOT2FDButton_2.Text = 'PLOT2';
+            app.PLOT2FDButton_2.Text = 'Plot 2';
 
             % Create MagPhaseButtonGroup_2
             app.MagPhaseButtonGroup_2 = uibuttongroup(app.FDDataAnalysisPanel);
@@ -4167,13 +4181,13 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.SampleNMREditField = uieditfield(app.MultipleReflectionCountPanel, 'numeric');
             app.SampleNMREditField.Position = [83 4 42 22];
 
-            % Create CALCULATEOPTICALPARAMATERSButton
-            app.CALCULATEOPTICALPARAMATERSButton = uibutton(app.FDDataAnalysisPanel, 'push');
-            app.CALCULATEOPTICALPARAMATERSButton.ButtonPushedFcn = createCallbackFcn(app, @CALCULATEOPTICALPARAMATERSButtonPushed, true);
-            app.CALCULATEOPTICALPARAMATERSButton.FontSize = 11;
-            app.CALCULATEOPTICALPARAMATERSButton.FontWeight = 'bold';
-            app.CALCULATEOPTICALPARAMATERSButton.Position = [188 14 146 44];
-            app.CALCULATEOPTICALPARAMATERSButton.Text = {'CALCULATE'; 'OPTICAL PARAMATERS'};
+            % Create CalculateOpticalParametersButton
+            app.CalculateOpticalParametersButton = uibutton(app.FDDataAnalysisPanel, 'push');
+            app.CalculateOpticalParametersButton.ButtonPushedFcn = createCallbackFcn(app, @CalculateOpticalParametersButtonPushed, true);
+            app.CalculateOpticalParametersButton.FontSize = 11;
+            app.CalculateOpticalParametersButton.FontWeight = 'bold';
+            app.CalculateOpticalParametersButton.Position = [188 14 146 44];
+            app.CalculateOpticalParametersButton.Text = {'Calculate'; 'Optical Parameters'};
 
             % Create FDSelectionListBox_2Label
             app.FDSelectionListBox_2Label = uilabel(app.FDDataAnalysisPanel);
@@ -4193,29 +4207,29 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.PlotDataButtonGroup.Title = 'Plot Data';
             app.PlotDataButtonGroup.Position = [344 15 123 267];
 
-            % Create TRANSMITTANCEButton
-            app.TRANSMITTANCEButton = uitogglebutton(app.PlotDataButtonGroup);
-            app.TRANSMITTANCEButton.Text = 'TRANSMITTANCE';
-            app.TRANSMITTANCEButton.Position = [7 193 110 44];
-            app.TRANSMITTANCEButton.Value = true;
+            % Create TransmittanceButton
+            app.TransmittanceButton = uitogglebutton(app.PlotDataButtonGroup);
+            app.TransmittanceButton.Text = 'Transmittance';
+            app.TransmittanceButton.Position = [7 193 110 44];
 
-            % Create ABSORPTIONButton
-            app.ABSORPTIONButton = uitogglebutton(app.PlotDataButtonGroup);
-            app.ABSORPTIONButton.Enable = 'off';
-            app.ABSORPTIONButton.Text = 'ABSORPTION';
-            app.ABSORPTIONButton.Position = [7 133 110 44];
+            % Create AbsorptionButton
+            app.AbsorptionButton = uitogglebutton(app.PlotDataButtonGroup);
+            app.AbsorptionButton.Enable = 'off';
+            app.AbsorptionButton.Text = 'Absorption';
+            app.AbsorptionButton.Position = [7 133 110 44];
 
-            % Create REFRACTIVEINDEXButton
-            app.REFRACTIVEINDEXButton = uitogglebutton(app.PlotDataButtonGroup);
-            app.REFRACTIVEINDEXButton.Enable = 'off';
-            app.REFRACTIVEINDEXButton.Text = {'REFRACTIVE'; 'INDEX'};
-            app.REFRACTIVEINDEXButton.Position = [7 73 110 44];
+            % Create RefractiveIndexButton
+            app.RefractiveIndexButton = uitogglebutton(app.PlotDataButtonGroup);
+            app.RefractiveIndexButton.Enable = 'off';
+            app.RefractiveIndexButton.Text = 'Refractive Index';
+            app.RefractiveIndexButton.Position = [7 73 110 44];
+            app.RefractiveIndexButton.Value = true;
 
-            % Create DIELECTRICCONSTANTButton
-            app.DIELECTRICCONSTANTButton = uitogglebutton(app.PlotDataButtonGroup);
-            app.DIELECTRICCONSTANTButton.Enable = 'off';
-            app.DIELECTRICCONSTANTButton.Text = {'DIELECTRIC'; 'CONSTANT'};
-            app.DIELECTRICCONSTANTButton.Position = [7 14 110 44];
+            % Create DielectricConstantButton
+            app.DielectricConstantButton = uitogglebutton(app.PlotDataButtonGroup);
+            app.DielectricConstantButton.Enable = 'off';
+            app.DielectricConstantButton.Text = 'Dielectric Constant';
+            app.DielectricConstantButton.Position = [4 14 116 44];
 
             % Create YscaleButtonGroup_2
             app.YscaleButtonGroup_2 = uibuttongroup(app.FDDataAnalysisPanel);
@@ -4236,8 +4250,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.PLOTFORCUSTOMISATIONButton_FD2 = uibutton(app.FDDataAnalysisPanel, 'push');
             app.PLOTFORCUSTOMISATIONButton_FD2.ButtonPushedFcn = createCallbackFcn(app, @PLOTFORCUSTOMISATIONButton_FD2Pushed, true);
             app.PLOTFORCUSTOMISATIONButton_FD2.FontSize = 11;
-            app.PLOTFORCUSTOMISATIONButton_FD2.Position = [481 15 109 34];
-            app.PLOTFORCUSTOMISATIONButton_FD2.Text = {'PLOT FOR'; 'CUSTOMISATION'};
+            app.PLOTFORCUSTOMISATIONButton_FD2.Position = [481 14 109 35];
+            app.PLOTFORCUSTOMISATIONButton_FD2.Text = {'Plot For'; 'Customisation'};
 
             % Create RealImagButtonGroup
             app.RealImagButtonGroup = uibuttongroup(app.FDDataAnalysisPanel);
@@ -4255,10 +4269,10 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.ImaginaryButton.Text = 'Imaginary';
             app.ImaginaryButton.Position = [11 2 75 22];
 
-            % Create GRIDOFFButton_3
-            app.GRIDOFFButton_3 = uibutton(app.FDDataAnalysisPanel, 'state');
-            app.GRIDOFFButton_3.Text = 'GRID OFF';
-            app.GRIDOFFButton_3.Position = [481 144 109 25];
+            % Create GridOffButton_2
+            app.GridOffButton_2 = uibutton(app.FDDataAnalysisPanel, 'state');
+            app.GridOffButton_2.Text = 'Grid Off';
+            app.GridOffButton_2.Position = [481 144 109 25];
 
             % Create YscaleButtonGroup
             app.YscaleButtonGroup = uibuttongroup(app.FrequencyDomainFDTab);
@@ -4296,7 +4310,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.SaveData_FD.FontWeight = 'bold';
             app.SaveData_FD.Tooltip = {'Assign data to variable in the base workspace'};
             app.SaveData_FD.Position = [153 12 117 30];
-            app.SaveData_FD.Text = 'SAVE FD_DATA';
+            app.SaveData_FD.Text = 'Save FD_DATA';
 
             % Create LoadData_FD
             app.LoadData_FD = uibutton(app.FrequencyDomainFDTab, 'push');
@@ -4304,19 +4318,19 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.LoadData_FD.FontWeight = 'bold';
             app.LoadData_FD.Tooltip = {'Assign data to variable in the base workspace'};
             app.LoadData_FD.Position = [27 12 116 30];
-            app.LoadData_FD.Text = 'LOAD FD_DATA';
+            app.LoadData_FD.Text = 'Load FD_DATA';
 
-            % Create LEGENDButton
-            app.LEGENDButton = uibutton(app.FrequencyDomainFDTab, 'state');
-            app.LEGENDButton.ValueChangedFcn = createCallbackFcn(app, @LEGENDButtonValueChanged, true);
-            app.LEGENDButton.Text = 'LEGEND';
-            app.LEGENDButton.Position = [1145 9 99 22];
+            % Create LegendButton
+            app.LegendButton = uibutton(app.FrequencyDomainFDTab, 'state');
+            app.LegendButton.ValueChangedFcn = createCallbackFcn(app, @LegendButtonValueChanged, true);
+            app.LegendButton.Text = 'Legend';
+            app.LegendButton.Position = [1145 8 99 23];
 
-            % Create JETCOLORMAPButton_2
-            app.JETCOLORMAPButton_2 = uibutton(app.FrequencyDomainFDTab, 'state');
-            app.JETCOLORMAPButton_2.ValueChangedFcn = createCallbackFcn(app, @JETCOLORMAPButton_2ValueChanged, true);
-            app.JETCOLORMAPButton_2.Text = 'JET COLORMAP';
-            app.JETCOLORMAPButton_2.Position = [1261 9 107 22];
+            % Create JetColormapButton
+            app.JetColormapButton = uibutton(app.FrequencyDomainFDTab, 'state');
+            app.JetColormapButton.ValueChangedFcn = createCallbackFcn(app, @JetColormapButtonValueChanged, true);
+            app.JetColormapButton.Text = 'Jet Colormap';
+            app.JetColormapButton.Position = [1261 8 107 23];
 
             % Create FDDatatoLabel
             app.FDDatatoLabel = uilabel(app.FrequencyDomainFDTab);
@@ -4331,19 +4345,19 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.dataManipulationButton.Enable = 'off';
             app.dataManipulationButton.Tooltip = {'Assign data to variable in the base workspace'};
             app.dataManipulationButton.Position = [97 57 288 26];
-            app.dataManipulationButton.Text = 'DATA MANIPULATION';
+            app.dataManipulationButton.Text = 'Data Manipulation';
 
-            % Create GRIDOFFButton_2
-            app.GRIDOFFButton_2 = uibutton(app.FrequencyDomainFDTab, 'state');
-            app.GRIDOFFButton_2.Text = 'GRID OFF';
-            app.GRIDOFFButton_2.Position = [515 575 100 25];
+            % Create GridOffButton
+            app.GridOffButton = uibutton(app.FrequencyDomainFDTab, 'state');
+            app.GridOffButton.Text = 'Grid Off';
+            app.GridOffButton.Position = [515 575 100 25];
 
             % Create PLOTFORCUSTOMISATIONButton_FD1
             app.PLOTFORCUSTOMISATIONButton_FD1 = uibutton(app.FrequencyDomainFDTab, 'push');
             app.PLOTFORCUSTOMISATIONButton_FD1.ButtonPushedFcn = createCallbackFcn(app, @PLOTFORCUSTOMISATIONButton_FD1Pushed, true);
             app.PLOTFORCUSTOMISATIONButton_FD1.FontSize = 11;
             app.PLOTFORCUSTOMISATIONButton_FD1.Position = [515 436 100 41];
-            app.PLOTFORCUSTOMISATIONButton_FD1.Text = {'PLOT FOR'; 'CUSTOMISATION'};
+            app.PLOTFORCUSTOMISATIONButton_FD1.Text = {'Plot For'; 'Customisation'};
 
             % Create DataManipulationDMTab
             app.DataManipulationDMTab = uitab(app.TabGroup);
@@ -4381,97 +4395,97 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % Create SourceDataSetEditFieldLabel
             app.SourceDataSetEditFieldLabel = uilabel(app.STEP1Panel);
             app.SourceDataSetEditFieldLabel.HorizontalAlignment = 'right';
-            app.SourceDataSetEditFieldLabel.Position = [18 330 94 22];
+            app.SourceDataSetEditFieldLabel.Position = [18 305 94 22];
             app.SourceDataSetEditFieldLabel.Text = 'Source Data Set';
 
             % Create SourceDataSetEditField
             app.SourceDataSetEditField = uieditfield(app.STEP1Panel, 'text');
-            app.SourceDataSetEditField.Position = [129 330 274 22];
+            app.SourceDataSetEditField.Position = [129 305 447 22];
             app.SourceDataSetEditField.Value = 'ex) 1 2 3 4 5';
 
             % Create AforDropDownLabel
             app.AforDropDownLabel = uilabel(app.STEP1Panel);
             app.AforDropDownLabel.HorizontalAlignment = 'right';
-            app.AforDropDownLabel.Position = [117 292 30 22];
+            app.AforDropDownLabel.Position = [117 267 30 22];
             app.AforDropDownLabel.Text = 'A for';
 
             % Create AforDropDown
             app.AforDropDown = uidropdown(app.STEP1Panel);
             app.AforDropDown.Items = {'frequency', 'ref_amplitude', 'ref_phase', 'sam_amplitude', 'sam_phase', 'transmit_amplitude', 'transmit_phase', 'refractiveIndex', 'absorption', 'extinction', 'eReal', 'eImag'};
-            app.AforDropDown.Position = [151 292 113 22];
+            app.AforDropDown.Position = [151 267 113 22];
             app.AforDropDown.Value = 'frequency';
 
             % Create DefinevariablesLabel
             app.DefinevariablesLabel = uilabel(app.STEP1Panel);
-            app.DefinevariablesLabel.Position = [24 291 95 22];
+            app.DefinevariablesLabel.Position = [24 266 95 22];
             app.DefinevariablesLabel.Text = 'Define variables ';
 
             % Create XaxisDataDropDownLabel
             app.XaxisDataDropDownLabel = uilabel(app.STEP1Panel);
             app.XaxisDataDropDownLabel.HorizontalAlignment = 'right';
-            app.XaxisDataDropDownLabel.Position = [25 256 67 22];
+            app.XaxisDataDropDownLabel.Position = [25 231 67 22];
             app.XaxisDataDropDownLabel.Text = 'X-axis Data';
 
             % Create XaxisDataDropDown
             app.XaxisDataDropDown = uidropdown(app.STEP1Panel);
             app.XaxisDataDropDown.Items = {'frequency', 'ref_amplitude', 'ref_phase', 'sam_amplitude', 'sam_phase', 'transmit_amplitude', 'transmit_phase', 'refractiveIndex', 'absorption', 'extinction', 'eReal', 'eImag'};
-            app.XaxisDataDropDown.Position = [151 256 115 22];
+            app.XaxisDataDropDown.Position = [151 231 115 22];
             app.XaxisDataDropDown.Value = 'frequency';
 
             % Create YaxisDataFormulationEditFieldLabel
             app.YaxisDataFormulationEditFieldLabel = uilabel(app.STEP1Panel);
             app.YaxisDataFormulationEditFieldLabel.HorizontalAlignment = 'right';
-            app.YaxisDataFormulationEditFieldLabel.Position = [24 221 133 22];
+            app.YaxisDataFormulationEditFieldLabel.Position = [24 196 133 22];
             app.YaxisDataFormulationEditFieldLabel.Text = 'Y-axis Data Formulation';
 
             % Create YaxisDataFormulationEditField
             app.YaxisDataFormulationEditField = uieditfield(app.STEP1Panel, 'text');
-            app.YaxisDataFormulationEditField.Position = [181 221 382 22];
+            app.YaxisDataFormulationEditField.Position = [181 196 382 22];
             app.YaxisDataFormulationEditField.Value = 'A';
 
-            % Create PLOTindividualdatasetsButton
-            app.PLOTindividualdatasetsButton = uibutton(app.STEP1Panel, 'push');
-            app.PLOTindividualdatasetsButton.ButtonPushedFcn = createCallbackFcn(app, @PLOTindividualdatasetsButtonPushed, true);
-            app.PLOTindividualdatasetsButton.Enable = 'off';
-            app.PLOTindividualdatasetsButton.Position = [341 70 231 30];
-            app.PLOTindividualdatasetsButton.Text = 'PLOT (individual data sets)';
+            % Create PlotindividualdatasetsButton
+            app.PlotindividualdatasetsButton = uibutton(app.STEP1Panel, 'push');
+            app.PlotindividualdatasetsButton.ButtonPushedFcn = createCallbackFcn(app, @PlotindividualdatasetsButtonPushed, true);
+            app.PlotindividualdatasetsButton.Enable = 'off';
+            app.PlotindividualdatasetsButton.Position = [341 70 231 30];
+            app.PlotindividualdatasetsButton.Text = 'Plot (individual data sets)';
 
             % Create BforDropDownLabel
             app.BforDropDownLabel = uilabel(app.STEP1Panel);
             app.BforDropDownLabel.HorizontalAlignment = 'right';
-            app.BforDropDownLabel.Position = [268 292 31 22];
+            app.BforDropDownLabel.Position = [268 267 31 22];
             app.BforDropDownLabel.Text = 'B for';
 
             % Create BforDropDown
             app.BforDropDown = uidropdown(app.STEP1Panel);
             app.BforDropDown.Items = {'frequency', 'ref_amplitude', 'ref_phase', 'sam_amplitude', 'sam_phase', 'transmit_amplitude', 'transmit_phase', 'refractiveIndex', 'absorption', 'extinction', 'eReal', 'eImag'};
-            app.BforDropDown.Position = [303 292 113 22];
+            app.BforDropDown.Position = [303 267 113 22];
             app.BforDropDown.Value = 'frequency';
 
             % Create CforDropDownLabel
             app.CforDropDownLabel = uilabel(app.STEP1Panel);
             app.CforDropDownLabel.HorizontalAlignment = 'right';
-            app.CforDropDownLabel.Position = [417 292 32 22];
+            app.CforDropDownLabel.Position = [417 267 32 22];
             app.CforDropDownLabel.Text = 'C for';
 
             % Create CforDropDown
             app.CforDropDown = uidropdown(app.STEP1Panel);
             app.CforDropDown.Items = {'frequency', 'ref_amplitude', 'ref_phase', 'sam_amplitude', 'sam_phase', 'transmit_amplitude', 'transmit_phase', 'refractiveIndex', 'absorption', 'extinction', 'eReal', 'eImag'};
-            app.CforDropDown.Position = [454 292 113 22];
+            app.CforDropDown.Position = [454 267 113 22];
             app.CforDropDown.Value = 'frequency';
 
-            % Create CALCULATEButton_2
-            app.CALCULATEButton_2 = uibutton(app.STEP1Panel, 'push');
-            app.CALCULATEButton_2.ButtonPushedFcn = createCallbackFcn(app, @CALCULATEButton_2Pushed, true);
-            app.CALCULATEButton_2.BackgroundColor = [1 1 1];
-            app.CALCULATEButton_2.Position = [341 109 231 30];
-            app.CALCULATEButton_2.Text = 'CALCULATE';
+            % Create CalculateButton
+            app.CalculateButton = uibutton(app.STEP1Panel, 'push');
+            app.CalculateButton.ButtonPushedFcn = createCallbackFcn(app, @CalculateButtonPushed, true);
+            app.CalculateButton.BackgroundColor = [1 1 1];
+            app.CalculateButton.Position = [341 109 231 30];
+            app.CalculateButton.Text = 'Calculate';
 
-            % Create IMPORTALLDATAButton
-            app.IMPORTALLDATAButton = uibutton(app.STEP1Panel, 'push');
-            app.IMPORTALLDATAButton.ButtonPushedFcn = createCallbackFcn(app, @IMPORTALLDATAButtonPushed, true);
-            app.IMPORTALLDATAButton.Position = [420 329 152 22];
-            app.IMPORTALLDATAButton.Text = 'IMPORT ALL DATA';
+            % Create ImportAllDataButton
+            app.ImportAllDataButton = uibutton(app.STEP1Panel, 'push');
+            app.ImportAllDataButton.ButtonPushedFcn = createCallbackFcn(app, @ImportAllDataButtonPushed, true);
+            app.ImportAllDataButton.Position = [129 333 209 23];
+            app.ImportAllDataButton.Text = 'Import All Data';
 
             % Create AvailableDataSetEditFieldLabel
             app.AvailableDataSetEditFieldLabel = uilabel(app.STEP1Panel);
@@ -4487,17 +4501,17 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % Create NumberofDataEditFieldLabel
             app.NumberofDataEditFieldLabel = uilabel(app.STEP1Panel);
             app.NumberofDataEditFieldLabel.HorizontalAlignment = 'right';
-            app.NumberofDataEditFieldLabel.Position = [26 167 91 22];
+            app.NumberofDataEditFieldLabel.Position = [26 142 91 22];
             app.NumberofDataEditFieldLabel.Text = 'Number of Data';
 
             % Create NumberofDataEditField
             app.NumberofDataEditField = uieditfield(app.STEP1Panel, 'numeric');
             app.NumberofDataEditField.Editable = 'off';
-            app.NumberofDataEditField.Position = [131 167 71 22];
+            app.NumberofDataEditField.Position = [131 142 71 22];
 
             % Create exABABCetcLabel
             app.exABABCetcLabel = uilabel(app.STEP1Panel);
-            app.exABABCetcLabel.Position = [182 198 129 22];
+            app.exABABCetcLabel.Position = [182 173 129 22];
             app.exABABCetcLabel.Text = 'ex) A./B , (A+B).*C, etc';
 
             % Create DPlotFrequencyxaxisPanel
@@ -4508,8 +4522,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % Create PLOT1_3DButton
             app.PLOT1_3DButton = uibutton(app.DPlotFrequencyxaxisPanel, 'push');
             app.PLOT1_3DButton.ButtonPushedFcn = createCallbackFcn(app, @PLOT1_3DButtonPushed, true);
-            app.PLOT1_3DButton.Position = [174 23 110 22];
-            app.PLOT1_3DButton.Text = '3D PLOT 1';
+            app.PLOT1_3DButton.Position = [174 22 110 23];
+            app.PLOT1_3DButton.Text = '3D Plot 1';
 
             % Create dataDropDownLabel
             app.dataDropDownLabel = uilabel(app.DPlotFrequencyxaxisPanel);
@@ -4529,12 +4543,18 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.DplotdoesnotsupportthebelowextractingfunctionLabel.Position = [41 3 249 22];
             app.DplotdoesnotsupportthebelowextractingfunctionLabel.Text = '*3D plot doesnot support the below extracting function.';
 
-            % Create PLOTmeanandrangeButton
-            app.PLOTmeanandrangeButton = uibutton(app.STEP1Panel, 'push');
-            app.PLOTmeanandrangeButton.ButtonPushedFcn = createCallbackFcn(app, @PLOTmeanandrangeButtonPushed, true);
-            app.PLOTmeanandrangeButton.Enable = 'off';
-            app.PLOTmeanandrangeButton.Position = [341 32 231 30];
-            app.PLOTmeanandrangeButton.Text = 'PLOT (mean and range)';
+            % Create PlotmeanandrangeButton
+            app.PlotmeanandrangeButton = uibutton(app.STEP1Panel, 'push');
+            app.PlotmeanandrangeButton.ButtonPushedFcn = createCallbackFcn(app, @PlotmeanandrangeButtonPushed, true);
+            app.PlotmeanandrangeButton.Enable = 'off';
+            app.PlotmeanandrangeButton.Position = [341 32 231 30];
+            app.PlotmeanandrangeButton.Text = 'Plot (mean and range)';
+
+            % Create ImportAllDataInverseSequenceButton
+            app.ImportAllDataInverseSequenceButton = uibutton(app.STEP1Panel, 'push');
+            app.ImportAllDataInverseSequenceButton.ButtonPushedFcn = createCallbackFcn(app, @ImportAllDataInverseSequenceButtonPushed, true);
+            app.ImportAllDataInverseSequenceButton.Position = [348 333 209 23];
+            app.ImportAllDataInverseSequenceButton.Text = 'Import All Data (Inverse Sequence)';
 
             % Create ASSIGNButtonDM
             app.ASSIGNButtonDM = uibutton(app.DataManipulationDMTab, 'push');
@@ -4542,7 +4562,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.ASSIGNButtonDM.FontWeight = 'bold';
             app.ASSIGNButtonDM.Tooltip = {'Assign data to variable in the base workspace'};
             app.ASSIGNButtonDM.Position = [148 13 220 30];
-            app.ASSIGNButtonDM.Text = 'ASSIGN DM_DATA IN WORKSPACE';
+            app.ASSIGNButtonDM.Text = 'Assign DM_DATA in Workspace';
 
             % Create SaveData_DM
             app.SaveData_DM = uibutton(app.DataManipulationDMTab, 'push');
@@ -4550,7 +4570,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.SaveData_DM.FontWeight = 'bold';
             app.SaveData_DM.Tooltip = {'Assign data to variable in the base workspace'};
             app.SaveData_DM.Position = [27 13 113 30];
-            app.SaveData_DM.Text = 'SAVE DM_DATA';
+            app.SaveData_DM.Text = 'Save DM_DATA';
 
             % Create DMTabGroup
             app.DMTabGroup = uitabgroup(app.DataManipulationDMTab);
@@ -4560,25 +4580,25 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.FrequencyBaseTab = uitab(app.DMTabGroup);
             app.FrequencyBaseTab.Title = 'Frequency Base';
 
-            % Create DISPLAYXLINESButton
-            app.DISPLAYXLINESButton = uibutton(app.FrequencyBaseTab, 'push');
-            app.DISPLAYXLINESButton.ButtonPushedFcn = createCallbackFcn(app, @DISPLAYXLINESButtonPushed, true);
-            app.DISPLAYXLINESButton.Position = [462 234 115 22];
-            app.DISPLAYXLINESButton.Text = 'DISPLAY X LINES';
+            % Create DisplayXLinesButton
+            app.DisplayXLinesButton = uibutton(app.FrequencyBaseTab, 'push');
+            app.DisplayXLinesButton.ButtonPushedFcn = createCallbackFcn(app, @DisplayXLinesButtonPushed, true);
+            app.DisplayXLinesButton.Position = [462 233 115 23];
+            app.DisplayXLinesButton.Text = 'Display X Lines';
 
-            % Create REARRANGEDATAButton
-            app.REARRANGEDATAButton = uibutton(app.FrequencyBaseTab, 'push');
-            app.REARRANGEDATAButton.ButtonPushedFcn = createCallbackFcn(app, @REARRANGEDATAButtonPushed, true);
-            app.REARRANGEDATAButton.BackgroundColor = [1 1 1];
-            app.REARRANGEDATAButton.Position = [104 202 473 21];
-            app.REARRANGEDATAButton.Text = 'REARRANGE DATA';
+            % Create RearrangeDataButton
+            app.RearrangeDataButton = uibutton(app.FrequencyBaseTab, 'push');
+            app.RearrangeDataButton.ButtonPushedFcn = createCallbackFcn(app, @RearrangeDataButtonPushed, true);
+            app.RearrangeDataButton.BackgroundColor = [1 1 1];
+            app.RearrangeDataButton.Position = [104 200 473 23];
+            app.RearrangeDataButton.Text = 'Re-arrange Data';
 
-            % Create PLOTButton_2
-            app.PLOTButton_2 = uibutton(app.FrequencyBaseTab, 'push');
-            app.PLOTButton_2.ButtonPushedFcn = createCallbackFcn(app, @PLOTButton_2Pushed, true);
-            app.PLOTButton_2.Enable = 'off';
-            app.PLOTButton_2.Position = [329 12 231 30];
-            app.PLOTButton_2.Text = 'PLOT';
+            % Create PlotButton
+            app.PlotButton = uibutton(app.FrequencyBaseTab, 'push');
+            app.PlotButton.ButtonPushedFcn = createCallbackFcn(app, @PlotButtonPushed, true);
+            app.PlotButton.Enable = 'off';
+            app.PlotButton.Position = [329 12 231 30];
+            app.PlotButton.Text = 'Plot';
 
             % Create XaxisDataEditFieldLabel
             app.XaxisDataEditFieldLabel = uilabel(app.FrequencyBaseTab);
@@ -4751,8 +4771,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % Create JETCOLORMAPButton_DM
             app.JETCOLORMAPButton_DM = uibutton(app.DataManipulationDMTab, 'state');
             app.JETCOLORMAPButton_DM.ValueChangedFcn = createCallbackFcn(app, @JETCOLORMAPButton_DMValueChanged, true);
-            app.JETCOLORMAPButton_DM.Text = 'JET COLORMAP';
-            app.JETCOLORMAPButton_DM.Position = [511 13 107 22];
+            app.JETCOLORMAPButton_DM.Text = 'Jet Colormap';
+            app.JETCOLORMAPButton_DM.Position = [511 12 107 23];
 
             % Create SystemStatusLabel
             app.SystemStatusLabel = uilabel(app.CatsperUIFigure);
@@ -4765,19 +4785,19 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.DEBUGMsgLabel.Position = [1060 924 347 22];
             app.DEBUGMsgLabel.Text = '';
 
-            % Create CLEARMEMORYButton
-            app.CLEARMEMORYButton = uibutton(app.CatsperUIFigure, 'push');
-            app.CLEARMEMORYButton.ButtonPushedFcn = createCallbackFcn(app, @CLEARMEMORYButtonPushed, true);
-            app.CLEARMEMORYButton.FontWeight = 'bold';
-            app.CLEARMEMORYButton.Position = [1196 889 112 29];
-            app.CLEARMEMORYButton.Text = 'CLEAR MEMORY';
+            % Create ClearMemoryButton
+            app.ClearMemoryButton = uibutton(app.CatsperUIFigure, 'push');
+            app.ClearMemoryButton.ButtonPushedFcn = createCallbackFcn(app, @ClearMemoryButtonPushed, true);
+            app.ClearMemoryButton.FontWeight = 'bold';
+            app.ClearMemoryButton.Position = [1196 889 112 29];
+            app.ClearMemoryButton.Text = 'Clear Memory';
 
-            % Create SAVETDFDDMButton
-            app.SAVETDFDDMButton = uibutton(app.CatsperUIFigure, 'push');
-            app.SAVETDFDDMButton.ButtonPushedFcn = createCallbackFcn(app, @SAVETDFDDMButtonPushed, true);
-            app.SAVETDFDDMButton.FontWeight = 'bold';
-            app.SAVETDFDDMButton.Position = [1314 889 109 29];
-            app.SAVETDFDDMButton.Text = 'SAVE TD/FD/DM';
+            % Create SaveTDFDDMButton
+            app.SaveTDFDDMButton = uibutton(app.CatsperUIFigure, 'push');
+            app.SaveTDFDDMButton.ButtonPushedFcn = createCallbackFcn(app, @SaveTDFDDMButtonPushed, true);
+            app.SaveTDFDDMButton.FontWeight = 'bold';
+            app.SaveTDFDDMButton.Position = [1314 889 109 29];
+            app.SaveTDFDDMButton.Text = 'Save TD/FD/DM';
 
             % Create CaTSperLabel
             app.CaTSperLabel = uilabel(app.CatsperUIFigure);
@@ -4807,14 +4827,14 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.Image.Position = [24 893 58 58];
             app.Image.ImageSource = fullfile(pathToMLAPP, 'dotTHz_logo.png');
 
-            % Create DEPLOYButton
-            app.DEPLOYButton = uibutton(app.CatsperUIFigure, 'push');
-            app.DEPLOYButton.ButtonPushedFcn = createCallbackFcn(app, @DEPLOYButtonPushed, true);
-            app.DEPLOYButton.BackgroundColor = [1 1 1];
-            app.DEPLOYButton.FontSize = 13;
-            app.DEPLOYButton.FontWeight = 'bold';
-            app.DEPLOYButton.Position = [1069 889 120 29];
-            app.DEPLOYButton.Text = 'DEPLOY';
+            % Create DeployButton
+            app.DeployButton = uibutton(app.CatsperUIFigure, 'push');
+            app.DeployButton.ButtonPushedFcn = createCallbackFcn(app, @DeployButtonPushed, true);
+            app.DeployButton.BackgroundColor = [1 1 1];
+            app.DeployButton.FontSize = 13;
+            app.DeployButton.FontWeight = 'bold';
+            app.DeployButton.Position = [1069 889 120 29];
+            app.DeployButton.Text = 'Deploy';
 
             % Show the figure after all components are created
             app.CatsperUIFigure.Visible = 'on';
