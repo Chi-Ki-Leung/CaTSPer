@@ -614,9 +614,9 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % if the size of the first dimension (row) of 'plotType' is 2, join
             % all values on the first row of 'plotType' to form one single
             % string
-            if size(plotType,1) == 2;
-                plotType = strjoin(plotType(1));
-            end
+            % if size(plotType,1) == 2;
+            %     plotType = strjoin(plotType(1));
+            % end
             
                        
             for idx = plotList
@@ -641,16 +641,16 @@ classdef CaTSper_exported < matlab.apps.AppBase
                 switch plotType
                     % plotting amplitude/phase (depending on choice)
                     % against frequency
-                    case 'TRANSMITTANCE'
+                    case "Transmittance"
                       plot(ax,fd_base,fd_transmit,'linewidth',1);
                       title(ax,'Transmittance');
                     % plotting absorption coefficient against frequency
-                    case 'ABSORPTION'
+                    case "Absorption"
                       fd_absorption = app.FD_data.absorption{idx};
                       plot(ax,fd_base,fd_absorption,'linewidth',1);
                       ylabel(ax,'Absorption coefficient (cm^{-1})');
                       title(ax,'Absorption');
-                    case 'REFRACTIVE'
+                    case "Refractive Index"
                       % plotting real part of refractive index against frequency
                       if isequal(realImag,'Real')
                           fd_refIdx = app.FD_data.refractiveIndex{idx};
@@ -2246,25 +2246,26 @@ classdef CaTSper_exported < matlab.apps.AppBase
             
             % extract the value of the selected button
             selectedButton = app.PlotDataButtonGroup.SelectedObject.Text;
+            selectedButton
             
-            % catenate strings into one
-            if size(selectedButton,1) == 2;
-                selectedButton = strjoin(selectedButton(1));
-            end
+            % % catenate strings into one
+            % if size(selectedButton,1) == 2;
+            %     selectedButton = strjoin(selectedButton(1));
+            % end
             
             % based on the selected options, enable/disable the options of
             % linear/log y-scale, plotting magnitude/phase, real/imaginary
             % values
             switch selectedButton
                 % for transmittance, options include plotting linear/log y-scale and magnitude/phase
-                case 'TRANSMITTANCE'
+                case "Transmittance"
                     app.YscaleButtonGroup_2.Visible = true;
                     app.MagPhaseButtonGroup_2.Visible = true;
                     app.RealImagButtonGroup.Visible = false;
 
                     % for dielectric constant, options include plotting
                     % real/imaginary values                
-                case 'DIELECTRIC'
+                case "Dielectric Constant"
                     app.linearButton_2.Value = true;
                     app.YscaleButtonGroup_2.Visible = false;
                     app.MagPhaseButtonGroup_2.Visible = false;
@@ -2272,7 +2273,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
 
                     % for refractive index, options include plotting
                     % real/imaginary values                        
-                case 'REFRACTIVE'
+                case "Refractive Index"
                     app.linearButton_2.Value = true;
                     app.YscaleButtonGroup_2.Visible = false;
                     app.MagPhaseButtonGroup_2.Visible = false;
@@ -3908,7 +3909,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.UITable_MeasDetail = uitable(app.TimeDomainTDTab);
             app.UITable_MeasDetail.BackgroundColor = [0.9412 0.9412 0.9412];
             app.UITable_MeasDetail.ColumnName = '';
-            app.UITable_MeasDetail.ColumnWidth = {80};
+            app.UITable_MeasDetail.ColumnWidth = {90, 'auto'};
             app.UITable_MeasDetail.RowName = {};
             app.UITable_MeasDetail.RowStriping = 'off';
             app.UITable_MeasDetail.CellEditCallback = createCallbackFcn(app, @UITable_MeasDetailCellEdit, true);
@@ -3966,7 +3967,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.UIAxes3.ZTickLabelRotation = 0;
             app.UIAxes3.LineWidth = 1;
             app.UIAxes3.Box = 'on';
-            app.UIAxes3.Position = [639 435 750 390];
+            app.UIAxes3.Position = [644 435 750 390];
 
             % Create UIAxes4
             app.UIAxes4 = uiaxes(app.FrequencyDomainFDTab);
@@ -3981,7 +3982,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.UIAxes4.ZTickLabelRotation = 0;
             app.UIAxes4.LineWidth = 1;
             app.UIAxes4.Box = 'on';
-            app.UIAxes4.Position = [639 40 750 390];
+            app.UIAxes4.Position = [644 40 750 390];
 
             % Create PLOT1FDButton
             app.PLOT1FDButton = uibutton(app.FrequencyDomainFDTab, 'push');
@@ -4079,23 +4080,23 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.FDDataAnalysisPanel = uipanel(app.FrequencyDomainFDTab);
             app.FDDataAnalysisPanel.Title = 'FD Data Analysis';
             app.FDDataAnalysisPanel.FontWeight = 'bold';
-            app.FDDataAnalysisPanel.Position = [17 93 603 319];
+            app.FDDataAnalysisPanel.Position = [12 93 613 319];
 
             % Create PLOT1FDButton_2
             app.PLOT1FDButton_2 = uibutton(app.FDDataAnalysisPanel, 'push');
             app.PLOT1FDButton_2.ButtonPushedFcn = createCallbackFcn(app, @PLOT1FDButton_2Pushed, true);
-            app.PLOT1FDButton_2.Position = [481 99 109 40];
+            app.PLOT1FDButton_2.Position = [489 99 109 40];
             app.PLOT1FDButton_2.Text = 'Plot 1';
 
             % Create PLOT2FDButton_2
             app.PLOT2FDButton_2 = uibutton(app.FDDataAnalysisPanel, 'push');
             app.PLOT2FDButton_2.ButtonPushedFcn = createCallbackFcn(app, @PLOT2FDButton_2Pushed, true);
-            app.PLOT2FDButton_2.Position = [481 55 109 40];
+            app.PLOT2FDButton_2.Position = [489 55 109 40];
             app.PLOT2FDButton_2.Text = 'Plot 2';
 
             % Create MagPhaseButtonGroup_2
             app.MagPhaseButtonGroup_2 = uibuttongroup(app.FDDataAnalysisPanel);
-            app.MagPhaseButtonGroup_2.Position = [482 176 100 50];
+            app.MagPhaseButtonGroup_2.Position = [490 176 100 50];
 
             % Create AmplitudeButton_2
             app.AmplitudeButton_2 = uiradiobutton(app.MagPhaseButtonGroup_2);
@@ -4138,17 +4139,17 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % Create ThicknessmmPanel
             app.ThicknessmmPanel = uipanel(app.FDDataAnalysisPanel);
             app.ThicknessmmPanel.Title = 'Thickness(mm)';
-            app.ThicknessmmPanel.Position = [191 149 143 83];
+            app.ThicknessmmPanel.Position = [191 155 143 80];
 
             % Create RefEditFieldLabel
             app.RefEditFieldLabel = uilabel(app.ThicknessmmPanel);
             app.RefEditFieldLabel.HorizontalAlignment = 'right';
-            app.RefEditFieldLabel.Position = [10 36 28 22];
+            app.RefEditFieldLabel.Position = [10 33 28 22];
             app.RefEditFieldLabel.Text = 'Ref.';
 
             % Create RefEditField
             app.RefEditField = uieditfield(app.ThicknessmmPanel, 'numeric');
-            app.RefEditField.Position = [83 36 42 22];
+            app.RefEditField.Position = [83 33 42 22];
 
             % Create SampleEditFieldLabel
             app.SampleEditFieldLabel = uilabel(app.ThicknessmmPanel);
@@ -4163,7 +4164,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % Create MultipleReflectionCountPanel
             app.MultipleReflectionCountPanel = uipanel(app.FDDataAnalysisPanel);
             app.MultipleReflectionCountPanel.Title = 'Multiple Reflection Count';
-            app.MultipleReflectionCountPanel.Position = [191 64 144 74];
+            app.MultipleReflectionCountPanel.Position = [191 77 144 74];
 
             % Create RefEditField_2Label
             app.RefEditField_2Label = uilabel(app.MultipleReflectionCountPanel);
@@ -4190,7 +4191,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.CalculateOpticalParametersButton.ButtonPushedFcn = createCallbackFcn(app, @CalculateOpticalParametersButtonPushed, true);
             app.CalculateOpticalParametersButton.FontSize = 11;
             app.CalculateOpticalParametersButton.FontWeight = 'bold';
-            app.CalculateOpticalParametersButton.Position = [188 14 146 44];
+            app.CalculateOpticalParametersButton.Position = [193 18 140 50];
             app.CalculateOpticalParametersButton.Text = {'Calculate'; 'Optical Parameters'};
 
             % Create FDSelectionListBox_2Label
@@ -4209,35 +4210,35 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.PlotDataButtonGroup = uibuttongroup(app.FDDataAnalysisPanel);
             app.PlotDataButtonGroup.SelectionChangedFcn = createCallbackFcn(app, @PlotDataButtonGroupSelectionChanged, true);
             app.PlotDataButtonGroup.Title = 'Plot Data';
-            app.PlotDataButtonGroup.Position = [344 15 123 267];
+            app.PlotDataButtonGroup.Position = [344 15 129 267];
 
             % Create TransmittanceButton
             app.TransmittanceButton = uitogglebutton(app.PlotDataButtonGroup);
             app.TransmittanceButton.Text = 'Transmittance';
-            app.TransmittanceButton.Position = [7 193 110 44];
+            app.TransmittanceButton.Position = [8 193 113 44];
 
             % Create AbsorptionButton
             app.AbsorptionButton = uitogglebutton(app.PlotDataButtonGroup);
             app.AbsorptionButton.Enable = 'off';
             app.AbsorptionButton.Text = 'Absorption';
-            app.AbsorptionButton.Position = [7 133 110 44];
+            app.AbsorptionButton.Position = [8 133 113 44];
 
             % Create RefractiveIndexButton
             app.RefractiveIndexButton = uitogglebutton(app.PlotDataButtonGroup);
             app.RefractiveIndexButton.Enable = 'off';
             app.RefractiveIndexButton.Text = 'Refractive Index';
-            app.RefractiveIndexButton.Position = [7 73 110 44];
+            app.RefractiveIndexButton.Position = [8 73 113 44];
             app.RefractiveIndexButton.Value = true;
 
             % Create DielectricConstantButton
             app.DielectricConstantButton = uitogglebutton(app.PlotDataButtonGroup);
             app.DielectricConstantButton.Enable = 'off';
             app.DielectricConstantButton.Text = 'Dielectric Constant';
-            app.DielectricConstantButton.Position = [4 14 116 44];
+            app.DielectricConstantButton.Position = [8 14 113 44];
 
             % Create YscaleButtonGroup_2
             app.YscaleButtonGroup_2 = uibuttongroup(app.FDDataAnalysisPanel);
-            app.YscaleButtonGroup_2.Position = [482 231 100 50];
+            app.YscaleButtonGroup_2.Position = [490 231 100 50];
 
             % Create logButton_2
             app.logButton_2 = uiradiobutton(app.YscaleButtonGroup_2);
@@ -4254,13 +4255,13 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.PLOTFORCUSTOMISATIONButton_FD2 = uibutton(app.FDDataAnalysisPanel, 'push');
             app.PLOTFORCUSTOMISATIONButton_FD2.ButtonPushedFcn = createCallbackFcn(app, @PLOTFORCUSTOMISATIONButton_FD2Pushed, true);
             app.PLOTFORCUSTOMISATIONButton_FD2.FontSize = 11;
-            app.PLOTFORCUSTOMISATIONButton_FD2.Position = [481 14 109 35];
+            app.PLOTFORCUSTOMISATIONButton_FD2.Position = [489 14 109 35];
             app.PLOTFORCUSTOMISATIONButton_FD2.Text = {'Plot For'; 'Customisation'};
 
             % Create RealImagButtonGroup
             app.RealImagButtonGroup = uibuttongroup(app.FDDataAnalysisPanel);
             app.RealImagButtonGroup.Visible = 'off';
-            app.RealImagButtonGroup.Position = [482 175 100 50];
+            app.RealImagButtonGroup.Position = [490 175 100 50];
 
             % Create RealButton
             app.RealButton = uiradiobutton(app.RealImagButtonGroup);
@@ -4276,7 +4277,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % Create GridOffButton_2
             app.GridOffButton_2 = uibutton(app.FDDataAnalysisPanel, 'state');
             app.GridOffButton_2.Text = 'Grid Off';
-            app.GridOffButton_2.Position = [481 144 109 25];
+            app.GridOffButton_2.Position = [489 144 109 25];
 
             % Create YscaleButtonGroup
             app.YscaleButtonGroup = uibuttongroup(app.FrequencyDomainFDTab);
