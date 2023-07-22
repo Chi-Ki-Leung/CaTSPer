@@ -1,4 +1,4 @@
-# CaTSPer
+# CaTSper
 Cambridge Terahertz Spectrum Analyser (CaTSper)
 
 Installation guide
