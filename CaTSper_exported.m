@@ -1782,7 +1782,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             end
         end
 
-        % Callback function: not associated with a component
+        % Callback function
         function DescriptionEditFieldValueChanged(app, event)
             % DescriptionEditFieldValueChanged extracts the input of the
             % description value, corresponds it to the selected item, and
@@ -1804,7 +1804,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.TD_data.metadata{MeasNum}.description = value;
         end
 
-        % Callback function: not associated with a component
+        % Callback function
         function ThicknessmmEditFieldValueChanged(app, event)
              % ThicknessmmEditFieldValueChanged extracts the input of the
             % thickness value, corresponds it to the selected item, and
@@ -2246,7 +2246,6 @@ classdef CaTSper_exported < matlab.apps.AppBase
             
             % extract the value of the selected button
             selectedButton = app.PlotDataButtonGroup.SelectedObject.Text;
-            selectedButton
             
             % % catenate strings into one
             % if size(selectedButton,1) == 2;
@@ -3498,7 +3497,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             
         end
 
-        % Callback function: not associated with a component
+        % Callback function
         function DatasetDescriptionEditFieldValueChanged(app, event)
             value = app.DatasetDescriptionEditField.Value;
             MeasNum = app.MeasurementListBox.Value;
