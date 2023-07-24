@@ -36,33 +36,39 @@ classdef CaTSper_exported < matlab.apps.AppBase
         ALLButton                       matlab.ui.control.Button
         PLOT2TDButton                   matlab.ui.control.Button
         FFTSettingsPanel                matlab.ui.container.Panel
-        MoreDetailedInformationinListNameCheckBox  matlab.ui.control.CheckBox
+        THzLabel_5                      matlab.ui.control.Label
+        ToEpolFreqEditField             matlab.ui.control.NumericEditField
+        ToEditFieldLabel_2              matlab.ui.control.Label
+        FromEpolFreqEditField           matlab.ui.control.NumericEditField
+        FromEditFieldLabel_2            matlab.ui.control.Label
+        ExtrapolationFrequencyRangeLabel  matlab.ui.control.Label
+        DetailedInformationinListNameCheckBox  matlab.ui.control.CheckBox
         UnwrappingLabel                 matlab.ui.control.Label
         StartFrequencyTHzEditField      matlab.ui.control.NumericEditField
         StartFrequencyTHzEditFieldLabel  matlab.ui.control.Label
         SpectralResolutionTHzLabel      matlab.ui.control.Label
         Label                           matlab.ui.control.Label
-        MinTimeEditField                matlab.ui.control.NumericEditField
-        MinTimeEditFieldLabel           matlab.ui.control.Label
+        FromTimeEditField               matlab.ui.control.NumericEditField
+        FromEditFieldLabel              matlab.ui.control.Label
         psLabel_4                       matlab.ui.control.Label
         WindowFunctionLabel             matlab.ui.control.Label
         FFTUpsamplingLabel              matlab.ui.control.Label
-        FrequencyrangeLabel             matlab.ui.control.Label
+        FrequencyRangeLabel             matlab.ui.control.Label
         AutoWindowButton                matlab.ui.control.StateButton
-        ManualLabel                     matlab.ui.control.Label
+        ManualWindowLabel               matlab.ui.control.Label
         ZeroFillingpowerofSpinner       matlab.ui.control.Spinner
         ZeroFillingpowerofSpinnerLabel  matlab.ui.control.Label
         ApodisationFunctionDropDown     matlab.ui.control.DropDown
         ApodisationFunctionDropDownLabel  matlab.ui.control.Label
         TransformButton                 matlab.ui.control.Button
-        excluding1stetalonLabel         matlab.ui.control.Label
-        MaxTimeEditField                matlab.ui.control.NumericEditField
+        truncatebefore1stetalonLabel    matlab.ui.control.Label
+        ToTimeEditField                 matlab.ui.control.NumericEditField
         MaxTimeLabel                    matlab.ui.control.Label
         THzLabel_4                      matlab.ui.control.Label
-        MaxFreqEditField                matlab.ui.control.NumericEditField
-        MaxFreqEditFieldLabel           matlab.ui.control.Label
-        MinFreqEditField                matlab.ui.control.NumericEditField
-        MinFreqEditFieldLabel           matlab.ui.control.Label
+        ToFreqEditField                 matlab.ui.control.NumericEditField
+        ToEditFieldLabel                matlab.ui.control.Label
+        FromFreqEditField               matlab.ui.control.NumericEditField
+        FromEditField_2Label            matlab.ui.control.Label
         PLOT1TDButton                   matlab.ui.control.Button
         SelectionListBox                matlab.ui.control.ListBox
         SelectionListBoxLabel           matlab.ui.control.Label
@@ -842,8 +848,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             pData = [pData3 pData1];
             
             % correction for lower frequency region(0 to 0.1THz) with extrapolation
-            epol_srtFreq = 0.05 * 1e12;
-            epol_endFreq = 0.4 * 1e12;
+            epol_srtFreq = app.FromEpolFreqEditField.Value * 1e12;
+            epol_endFreq = app.ToEpolFreqEditField.Value * 1e12;
             % find the index of the first element in 'freq' that has a value
             % greater than 'epol_srtFreq'
             epol_srtLoc = find(freq > epol_srtFreq,1);
@@ -1264,8 +1270,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             ListBoxItem = app.FDListListBox.Items;
             addFDList = app.TD_select;
             isAutowindow = app.AutoWindowButton.Value;
-            min_freq = app.MinFreqEditField.Value;
-            max_freq = app.MaxFreqEditField.Value;
+            min_freq = app.FromFreqEditField.Value;
+            max_freq = app.ToFreqEditField.Value;
             upscale = app.ZeroFillingpowerofSpinner.Value; 
             funcName = app.ApodisationFunctionDropDown.Value; %window function
             
@@ -1319,8 +1325,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
                 else
                     % maximum and minimum time delay values are defined
                     % by the user
-                    td_max = app.MaxTimeEditField.Value;
-                    td_min = app.MinTimeEditField.Value;
+                    td_max = app.ToTimeEditField.Value;
+                    td_min = app.FromTimeEditField.Value;
                 end
                 
                 % finding the first index that has a time equal or greater than the
@@ -1405,7 +1411,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
                 FDindex = cnt + FDindexNum;
                 
                 % FTsetting description - more detailed or simpler
-                if app.MoreDetailedInformationinListNameCheckBox.Value
+                if app.DetailedInformationinListNameCheckBox.Value
                     FTsetting = strcat(' (',num2str(td_min,3),'-',num2str(td_max,3),'ps,'...
                         ,num2str(min_freq,3),'-',num2str(max_freq,3),'THz,'...
                         ,(funcName),',',num2str(upscale),'upscale,','Ref.',num2str(refOption),')');
@@ -1516,11 +1522,11 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % window button
             value = app.AutoWindowButton.Value;
             if value
-                app.MaxTimeEditField.Enable = "off";
-                app.MinTimeEditField.Enable = "off";
+                app.ToTimeEditField.Enable = "off";
+                app.FromTimeEditField.Enable = "off";
             else
-                app.MaxTimeEditField.Enable = "on";
-                app.MinTimeEditField.Enable = "on";
+                app.ToTimeEditField.Enable = "on";
+                app.FromTimeEditField.Enable = "on";
             end
         end
 
@@ -2393,8 +2399,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
 
             % extract input value            
             measNum = app.SelectionListBox.Value;
-            td_max = app.MaxTimeEditField.Value;
-            td_min = app.MinTimeEditField.Value;
+            td_max = app.ToTimeEditField.Value;
+            td_min = app.FromTimeEditField.Value;
             upscale = app.ZeroFillingpowerofSpinner.Value; 
 
             % display warning message if no items are selected
@@ -3549,6 +3555,36 @@ classdef CaTSper_exported < matlab.apps.AppBase
                     app.UITable_MeasDetail.Data = cell2table(app.Tcell_measDetails);
             end
         end
+
+        % Value changed function: ToEpolFreqEditField
+        function ToEpolFreqEditFieldValueChanged(app, event)
+            value = app.ToEpolFreqEditField.Value;
+            epolStartFreq = app.FromEpolFreqEditField.Value;
+            fig = app.CatsperUIFigure;
+
+            if le(value,epolStartFreq)
+                msg = strcat("Invalid value, input value should be larger than the start frequency.");
+                uialert(fig,msg,'Warning');
+                app.ToEpolFreqEditField.Value = 0.5;
+                return;
+            end
+            
+        end
+
+        % Value changed function: FromEpolFreqEditField
+        function FromEpolFreqEditFieldValueChanged(app, event)
+            value = app.FromEpolFreqEditField.Value;
+            epolEndFreq = app.ToEpolFreqEditField.Value;
+            fig = app.CatsperUIFigure;            
+
+            if ge(value,epolEndFreq)
+                msg = strcat("Invalid value, input value should be smaller than the end frequency.");
+                uialert(fig,msg,'Warning');
+                app.FromEpolFreqEditField.Value = 0.04;
+                return;
+            end
+            
+        end
     end
 
     % Component initialization
@@ -3648,93 +3684,93 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.FFTSettingsPanel = uipanel(app.TimeDomainTDTab);
             app.FFTSettingsPanel.Title = 'FFT Settings';
             app.FFTSettingsPanel.FontWeight = 'bold';
-            app.FFTSettingsPanel.Position = [336 59 287 358];
+            app.FFTSettingsPanel.Position = [329 57 296 368];
 
-            % Create MinFreqEditFieldLabel
-            app.MinFreqEditFieldLabel = uilabel(app.FFTSettingsPanel);
-            app.MinFreqEditFieldLabel.HorizontalAlignment = 'right';
-            app.MinFreqEditFieldLabel.Position = [23 289 59 23];
-            app.MinFreqEditFieldLabel.Text = 'Min. Freq.';
+            % Create FromEditField_2Label
+            app.FromEditField_2Label = uilabel(app.FFTSettingsPanel);
+            app.FromEditField_2Label.HorizontalAlignment = 'right';
+            app.FromEditField_2Label.Position = [68 301 59 23];
+            app.FromEditField_2Label.Text = 'From ';
 
-            % Create MinFreqEditField
-            app.MinFreqEditField = uieditfield(app.FFTSettingsPanel, 'numeric');
-            app.MinFreqEditField.Limits = [0 5];
-            app.MinFreqEditField.ValueDisplayFormat = '%.1f';
-            app.MinFreqEditField.Position = [84 290 45 22];
-            app.MinFreqEditField.Value = 0.2;
+            % Create FromFreqEditField
+            app.FromFreqEditField = uieditfield(app.FFTSettingsPanel, 'numeric');
+            app.FromFreqEditField.Limits = [0 5];
+            app.FromFreqEditField.ValueDisplayFormat = '%.1f';
+            app.FromFreqEditField.Position = [129 302 45 22];
+            app.FromFreqEditField.Value = 0.2;
 
-            % Create MaxFreqEditFieldLabel
-            app.MaxFreqEditFieldLabel = uilabel(app.FFTSettingsPanel);
-            app.MaxFreqEditFieldLabel.HorizontalAlignment = 'right';
-            app.MaxFreqEditFieldLabel.Position = [132 289 63 23];
-            app.MaxFreqEditFieldLabel.Text = 'Max. Freq.';
+            % Create ToEditFieldLabel
+            app.ToEditFieldLabel = uilabel(app.FFTSettingsPanel);
+            app.ToEditFieldLabel.HorizontalAlignment = 'right';
+            app.ToEditFieldLabel.Position = [174 301 23 23];
+            app.ToEditFieldLabel.Text = 'To';
 
-            % Create MaxFreqEditField
-            app.MaxFreqEditField = uieditfield(app.FFTSettingsPanel, 'numeric');
-            app.MaxFreqEditField.Limits = [1 10];
-            app.MaxFreqEditField.ValueDisplayFormat = '%.1f';
-            app.MaxFreqEditField.Position = [196 290 45 22];
-            app.MaxFreqEditField.Value = 2.8;
+            % Create ToFreqEditField
+            app.ToFreqEditField = uieditfield(app.FFTSettingsPanel, 'numeric');
+            app.ToFreqEditField.Limits = [1 10];
+            app.ToFreqEditField.ValueDisplayFormat = '%.1f';
+            app.ToFreqEditField.Position = [202 302 45 22];
+            app.ToFreqEditField.Value = 2.8;
 
             % Create THzLabel_4
             app.THzLabel_4 = uilabel(app.FFTSettingsPanel);
-            app.THzLabel_4.Position = [246 289 27 22];
+            app.THzLabel_4.Position = [252 301 27 22];
             app.THzLabel_4.Text = 'THz';
 
             % Create MaxTimeLabel
             app.MaxTimeLabel = uilabel(app.FFTSettingsPanel);
             app.MaxTimeLabel.HorizontalAlignment = 'right';
-            app.MaxTimeLabel.Position = [150 132 62 23];
-            app.MaxTimeLabel.Text = 'Max.Time';
+            app.MaxTimeLabel.Position = [186 107 22 23];
+            app.MaxTimeLabel.Text = 'To';
 
-            % Create MaxTimeEditField
-            app.MaxTimeEditField = uieditfield(app.FFTSettingsPanel, 'numeric');
-            app.MaxTimeEditField.Limits = [0 100];
-            app.MaxTimeEditField.ValueDisplayFormat = '%.2f';
-            app.MaxTimeEditField.Tooltip = {'set the maximum value of the sample waveform(s)'};
-            app.MaxTimeEditField.Position = [216 133 45 22];
-            app.MaxTimeEditField.Value = 20;
+            % Create ToTimeEditField
+            app.ToTimeEditField = uieditfield(app.FFTSettingsPanel, 'numeric');
+            app.ToTimeEditField.Limits = [0 100];
+            app.ToTimeEditField.ValueDisplayFormat = '%.2f';
+            app.ToTimeEditField.Tooltip = {'set the maximum value of the sample waveform(s)'};
+            app.ToTimeEditField.Position = [212 108 45 22];
+            app.ToTimeEditField.Value = 20;
 
-            % Create excluding1stetalonLabel
-            app.excluding1stetalonLabel = uilabel(app.FFTSettingsPanel);
-            app.excluding1stetalonLabel.Position = [117 159 136 22];
-            app.excluding1stetalonLabel.Text = ',excluding 1st etalon';
+            % Create truncatebefore1stetalonLabel
+            app.truncatebefore1stetalonLabel = uilabel(app.FFTSettingsPanel);
+            app.truncatebefore1stetalonLabel.Position = [122 132 149 22];
+            app.truncatebefore1stetalonLabel.Text = '(truncate before 1st etalon)';
 
             % Create TransformButton
             app.TransformButton = uibutton(app.FFTSettingsPanel, 'push');
             app.TransformButton.ButtonPushedFcn = createCallbackFcn(app, @TransformButtonPushed, true);
             app.TransformButton.FontWeight = 'bold';
             app.TransformButton.Enable = 'off';
-            app.TransformButton.Position = [20 13 247 37];
+            app.TransformButton.Position = [20 9 257 30];
             app.TransformButton.Text = 'Transform';
 
             % Create ApodisationFunctionDropDownLabel
             app.ApodisationFunctionDropDownLabel = uilabel(app.FFTSettingsPanel);
-            app.ApodisationFunctionDropDownLabel.Position = [12 104 119 23];
+            app.ApodisationFunctionDropDownLabel.Position = [18 81 119 23];
             app.ApodisationFunctionDropDownLabel.Text = 'Apodisation Function';
 
             % Create ApodisationFunctionDropDown
             app.ApodisationFunctionDropDown = uidropdown(app.FFTSettingsPanel);
             app.ApodisationFunctionDropDown.Items = {'Boxcar', 'Hamming', 'Bartlett', 'Blackman', 'Hann', 'Taylor', 'Triang'};
             app.ApodisationFunctionDropDown.ItemsData = {'Boxcar', 'hamming', 'bartlett', 'blackman', 'rectwin', 'hann', 'taylorwin', 'triang'};
-            app.ApodisationFunctionDropDown.Position = [133 105 137 22];
+            app.ApodisationFunctionDropDown.Position = [139 82 137 22];
             app.ApodisationFunctionDropDown.Value = 'Boxcar';
 
             % Create ZeroFillingpowerofSpinnerLabel
             app.ZeroFillingpowerofSpinnerLabel = uilabel(app.FFTSettingsPanel);
-            app.ZeroFillingpowerofSpinnerLabel.Position = [54 244 129 23];
+            app.ZeroFillingpowerofSpinnerLabel.Position = [60 257 129 23];
             app.ZeroFillingpowerofSpinnerLabel.Text = 'Zero Filling, + power of';
 
             % Create ZeroFillingpowerofSpinner
             app.ZeroFillingpowerofSpinner = uispinner(app.FFTSettingsPanel);
             app.ZeroFillingpowerofSpinner.Limits = [1 4];
-            app.ZeroFillingpowerofSpinner.Position = [192 245 65 22];
+            app.ZeroFillingpowerofSpinner.Position = [198 258 65 22];
             app.ZeroFillingpowerofSpinner.Value = 2;
 
-            % Create ManualLabel
-            app.ManualLabel = uilabel(app.FFTSettingsPanel);
-            app.ManualLabel.Position = [16 133 51 22];
-            app.ManualLabel.Text = 'Manual: ';
+            % Create ManualWindowLabel
+            app.ManualWindowLabel = uilabel(app.FFTSettingsPanel);
+            app.ManualWindowLabel.Position = [20 108 97 22];
+            app.ManualWindowLabel.Text = 'Manual Window: ';
 
             % Create AutoWindowButton
             app.AutoWindowButton = uibutton(app.FFTSettingsPanel, 'state');
@@ -3742,78 +3778,117 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.AutoWindowButton.Tooltip = {'set the time_max 1st multiple reflection time'};
             app.AutoWindowButton.Text = 'Auto Window';
             app.AutoWindowButton.BackgroundColor = [1 1 1];
-            app.AutoWindowButton.Position = [9 158 103 23];
+            app.AutoWindowButton.Position = [15 130 103 23];
 
-            % Create FrequencyrangeLabel
-            app.FrequencyrangeLabel = uilabel(app.FFTSettingsPanel);
-            app.FrequencyrangeLabel.FontWeight = 'bold';
-            app.FrequencyrangeLabel.Position = [9 312 102 22];
-            app.FrequencyrangeLabel.Text = 'Frequency range';
+            % Create FrequencyRangeLabel
+            app.FrequencyRangeLabel = uilabel(app.FFTSettingsPanel);
+            app.FrequencyRangeLabel.FontWeight = 'bold';
+            app.FrequencyRangeLabel.Position = [15 322 106 22];
+            app.FrequencyRangeLabel.Text = 'Frequency Range';
 
             % Create FFTUpsamplingLabel
             app.FFTUpsamplingLabel = uilabel(app.FFTSettingsPanel);
             app.FFTUpsamplingLabel.FontWeight = 'bold';
-            app.FFTUpsamplingLabel.Position = [10 266 99 22];
+            app.FFTUpsamplingLabel.Position = [16 278 99 22];
             app.FFTUpsamplingLabel.Text = 'FFT Upsampling';
 
             % Create WindowFunctionLabel
             app.WindowFunctionLabel = uilabel(app.FFTSettingsPanel);
             app.WindowFunctionLabel.FontWeight = 'bold';
-            app.WindowFunctionLabel.Position = [9 184 105 22];
+            app.WindowFunctionLabel.Position = [15 154 105 22];
             app.WindowFunctionLabel.Text = 'Window Function';
 
             % Create psLabel_4
             app.psLabel_4 = uilabel(app.FFTSettingsPanel);
-            app.psLabel_4.Position = [265 132 16 22];
+            app.psLabel_4.Position = [261 110 16 22];
             app.psLabel_4.Text = 'ps';
 
-            % Create MinTimeEditFieldLabel
-            app.MinTimeEditFieldLabel = uilabel(app.FFTSettingsPanel);
-            app.MinTimeEditFieldLabel.HorizontalAlignment = 'right';
-            app.MinTimeEditFieldLabel.Position = [59 133 54 22];
-            app.MinTimeEditFieldLabel.Text = 'Min.Time';
+            % Create FromEditFieldLabel
+            app.FromEditFieldLabel = uilabel(app.FFTSettingsPanel);
+            app.FromEditFieldLabel.HorizontalAlignment = 'right';
+            app.FromEditFieldLabel.Position = [113 108 33 22];
+            app.FromEditFieldLabel.Text = 'From';
 
-            % Create MinTimeEditField
-            app.MinTimeEditField = uieditfield(app.FFTSettingsPanel, 'numeric');
-            app.MinTimeEditField.Limits = [-30 50];
-            app.MinTimeEditField.ValueDisplayFormat = '%.2f';
-            app.MinTimeEditField.Tooltip = {'Set the minimum value of the sample waveform(s)'};
-            app.MinTimeEditField.Position = [117 133 37 22];
-            app.MinTimeEditField.Value = -10;
+            % Create FromTimeEditField
+            app.FromTimeEditField = uieditfield(app.FFTSettingsPanel, 'numeric');
+            app.FromTimeEditField.Limits = [-30 50];
+            app.FromTimeEditField.ValueDisplayFormat = '%.2f';
+            app.FromTimeEditField.Tooltip = {'Set the minimum value of the sample waveform(s)'};
+            app.FromTimeEditField.Position = [150 108 37 22];
+            app.FromTimeEditField.Value = -10;
 
             % Create Label
             app.Label = uilabel(app.FFTSettingsPanel);
-            app.Label.Position = [157 80 51 22];
+            app.Label.Position = [168 61 51 22];
             app.Label.Text = '0';
 
             % Create SpectralResolutionTHzLabel
             app.SpectralResolutionTHzLabel = uilabel(app.FFTSettingsPanel);
-            app.SpectralResolutionTHzLabel.Position = [12 80 143 22];
-            app.SpectralResolutionTHzLabel.Text = 'Spectral Resolution(THz):';
+            app.SpectralResolutionTHzLabel.Position = [18 61 146 22];
+            app.SpectralResolutionTHzLabel.Text = 'Spectral Resolution (THz):';
 
             % Create StartFrequencyTHzEditFieldLabel
             app.StartFrequencyTHzEditFieldLabel = uilabel(app.FFTSettingsPanel);
             app.StartFrequencyTHzEditFieldLabel.HorizontalAlignment = 'right';
-            app.StartFrequencyTHzEditFieldLabel.Position = [44 205 124 22];
+            app.StartFrequencyTHzEditFieldLabel.Position = [50 217 124 22];
             app.StartFrequencyTHzEditFieldLabel.Text = 'Start Frequency (THz)';
 
             % Create StartFrequencyTHzEditField
             app.StartFrequencyTHzEditField = uieditfield(app.FFTSettingsPanel, 'numeric');
             app.StartFrequencyTHzEditField.Limits = [0.2 1.5];
             app.StartFrequencyTHzEditField.ValueDisplayFormat = '%5.1f';
-            app.StartFrequencyTHzEditField.Position = [192 205 41 22];
+            app.StartFrequencyTHzEditField.Position = [198 217 41 22];
             app.StartFrequencyTHzEditField.Value = 0.8;
 
             % Create UnwrappingLabel
             app.UnwrappingLabel = uilabel(app.FFTSettingsPanel);
             app.UnwrappingLabel.FontWeight = 'bold';
-            app.UnwrappingLabel.Position = [9 222 75 22];
+            app.UnwrappingLabel.Position = [15 236 75 22];
             app.UnwrappingLabel.Text = 'Unwrapping';
 
-            % Create MoreDetailedInformationinListNameCheckBox
-            app.MoreDetailedInformationinListNameCheckBox = uicheckbox(app.FFTSettingsPanel);
-            app.MoreDetailedInformationinListNameCheckBox.Text = 'More Detailed Information in List Name';
-            app.MoreDetailedInformationinListNameCheckBox.Position = [24 56 232 22];
+            % Create DetailedInformationinListNameCheckBox
+            app.DetailedInformationinListNameCheckBox = uicheckbox(app.FFTSettingsPanel);
+            app.DetailedInformationinListNameCheckBox.Text = 'Detailed Information in List Name';
+            app.DetailedInformationinListNameCheckBox.Position = [25 40 200 22];
+
+            % Create ExtrapolationFrequencyRangeLabel
+            app.ExtrapolationFrequencyRangeLabel = uilabel(app.FFTSettingsPanel);
+            app.ExtrapolationFrequencyRangeLabel.FontWeight = 'bold';
+            app.ExtrapolationFrequencyRangeLabel.Position = [14 196 186 22];
+            app.ExtrapolationFrequencyRangeLabel.Text = 'Extrapolation Frequency Range';
+
+            % Create FromEditFieldLabel_2
+            app.FromEditFieldLabel_2 = uilabel(app.FFTSettingsPanel);
+            app.FromEditFieldLabel_2.HorizontalAlignment = 'right';
+            app.FromEditFieldLabel_2.Position = [88 173 33 22];
+            app.FromEditFieldLabel_2.Text = 'From';
+
+            % Create FromEpolFreqEditField
+            app.FromEpolFreqEditField = uieditfield(app.FFTSettingsPanel, 'numeric');
+            app.FromEpolFreqEditField.Limits = [0 5];
+            app.FromEpolFreqEditField.ValueDisplayFormat = '%5.2f';
+            app.FromEpolFreqEditField.ValueChangedFcn = createCallbackFcn(app, @FromEpolFreqEditFieldValueChanged, true);
+            app.FromEpolFreqEditField.Position = [126 173 45 22];
+            app.FromEpolFreqEditField.Value = 0.05;
+
+            % Create ToEditFieldLabel_2
+            app.ToEditFieldLabel_2 = uilabel(app.FFTSettingsPanel);
+            app.ToEditFieldLabel_2.HorizontalAlignment = 'right';
+            app.ToEditFieldLabel_2.Position = [171 172 25 22];
+            app.ToEditFieldLabel_2.Text = 'To';
+
+            % Create ToEpolFreqEditField
+            app.ToEpolFreqEditField = uieditfield(app.FFTSettingsPanel, 'numeric');
+            app.ToEpolFreqEditField.Limits = [0 5];
+            app.ToEpolFreqEditField.ValueDisplayFormat = '%5.2f';
+            app.ToEpolFreqEditField.ValueChangedFcn = createCallbackFcn(app, @ToEpolFreqEditFieldValueChanged, true);
+            app.ToEpolFreqEditField.Position = [203 172 45 22];
+            app.ToEpolFreqEditField.Value = 0.4;
+
+            % Create THzLabel_5
+            app.THzLabel_5 = uilabel(app.FFTSettingsPanel);
+            app.THzLabel_5.Position = [253 172 27 22];
+            app.THzLabel_5.Text = 'THz';
 
             % Create PLOT2TDButton
             app.PLOT2TDButton = uibutton(app.TimeDomainTDTab, 'push');
