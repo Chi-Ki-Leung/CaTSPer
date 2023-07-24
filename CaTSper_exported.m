@@ -21,9 +21,9 @@ classdef CaTSper_exported < matlab.apps.AppBase
         Ref1LampLabel                   matlab.ui.control.Label
         RefSwitchButton                 matlab.ui.control.Button
         UITable_MeasDetail              matlab.ui.control.Table
-        PLOTFORCUSTOMISATIONButton_TD   matlab.ui.control.Button
+        PlotForCustomisationButton_TD   matlab.ui.control.Button
         CheckDynamicRangeButton         matlab.ui.control.Button
-        ASSIGNButtonTD                  matlab.ui.control.Button
+        AssignTD_DataButton             matlab.ui.control.Button
         SaveData_TD                     matlab.ui.control.Button
         LoadData_TD                     matlab.ui.control.Button
         GridOffButton_3                 matlab.ui.control.StateButton
@@ -34,7 +34,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
         SampleButtonTD                  matlab.ui.control.RadioButton
         ReferenceButtonTD               matlab.ui.control.RadioButton
         ALLButton                       matlab.ui.control.Button
-        PLOT2TDButton                   matlab.ui.control.Button
+        Plot2TDButton                   matlab.ui.control.Button
         FFTSettingsPanel                matlab.ui.container.Panel
         THzLabel_5                      matlab.ui.control.Label
         ToEpolFreqEditField             matlab.ui.control.NumericEditField
@@ -69,7 +69,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
         ToEditFieldLabel                matlab.ui.control.Label
         FromFreqEditField               matlab.ui.control.NumericEditField
         FromEditField_2Label            matlab.ui.control.Label
-        PLOT1TDButton                   matlab.ui.control.Button
+        Plot1TDButton                   matlab.ui.control.Button
         SelectionListBox                matlab.ui.control.ListBox
         SelectionListBoxLabel           matlab.ui.control.Label
         DELButton                       matlab.ui.control.Button
@@ -79,9 +79,9 @@ classdef CaTSper_exported < matlab.apps.AppBase
         UIAxes1                         matlab.ui.control.UIAxes
         UIAxes2                         matlab.ui.control.UIAxes
         FrequencyDomainFDTab            matlab.ui.container.Tab
-        PLOTFORCUSTOMISATIONButton_FD1  matlab.ui.control.Button
+        PlotForCustomisationButton_FD1  matlab.ui.control.Button
         GridOffButton                   matlab.ui.control.StateButton
-        dataManipulationButton          matlab.ui.control.Button
+        DataManipulationButton          matlab.ui.control.Button
         FDDatatoLabel                   matlab.ui.control.Label
         JetColormapButton               matlab.ui.control.StateButton
         LegendButton                    matlab.ui.control.StateButton
@@ -98,7 +98,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
         RealImagButtonGroup             matlab.ui.container.ButtonGroup
         ImaginaryButton                 matlab.ui.control.RadioButton
         RealButton                      matlab.ui.control.RadioButton
-        PLOTFORCUSTOMISATIONButton_FD2  matlab.ui.control.Button
+        PlotForCustomisationButton_FD2  matlab.ui.control.Button
         YscaleButtonGroup_2             matlab.ui.container.ButtonGroup
         linearButton_2                  matlab.ui.control.RadioButton
         logButton_2                     matlab.ui.control.RadioButton
@@ -128,9 +128,9 @@ classdef CaTSper_exported < matlab.apps.AppBase
         MagPhaseButtonGroup_2           matlab.ui.container.ButtonGroup
         PhaseButton_2                   matlab.ui.control.RadioButton
         AmplitudeButton_2               matlab.ui.control.RadioButton
-        PLOT2FDButton_2                 matlab.ui.control.Button
-        PLOT1FDButton_2                 matlab.ui.control.Button
-        ASSIGNButtonFD                  matlab.ui.control.Button
+        Plot2FDButton_2                 matlab.ui.control.Button
+        Plot1FDButton_2                 matlab.ui.control.Button
+        AssignFD_DataButton             matlab.ui.control.Button
         RemoveAllButton                 matlab.ui.control.Button
         RemoveButton                    matlab.ui.control.Button
         ButtonGroupFD                   matlab.ui.container.ButtonGroup
@@ -144,12 +144,12 @@ classdef CaTSper_exported < matlab.apps.AppBase
         ALLFDButton                     matlab.ui.control.Button
         FDListListBox                   matlab.ui.control.ListBox
         FDListListBoxLabel              matlab.ui.control.Label
-        PLOT2FDButton                   matlab.ui.control.Button
-        PLOT1FDButton                   matlab.ui.control.Button
+        Plot2FDButton                   matlab.ui.control.Button
+        Plot1FDButton                   matlab.ui.control.Button
         UIAxes4                         matlab.ui.control.UIAxes
         UIAxes3                         matlab.ui.control.UIAxes
         DataManipulationDMTab           matlab.ui.container.Tab
-        JETCOLORMAPButton_DM            matlab.ui.control.StateButton
+        JetColormapButton_DM            matlab.ui.control.StateButton
         DMTabGroup                      matlab.ui.container.TabGroup
         FrequencyBaseTab                matlab.ui.container.Tab
         MeasurementEditField            matlab.ui.control.EditField
@@ -184,10 +184,10 @@ classdef CaTSper_exported < matlab.apps.AppBase
         LowerLimitTHzEditFieldLabel     matlab.ui.control.Label
         PeakNumSpinner                  matlab.ui.control.Spinner
         PeakNumSpinnerLabel             matlab.ui.control.Label
-        PLOTButton_3                    matlab.ui.control.Button
-        REARRANGEDATAButton_2           matlab.ui.control.Button
+        PlotButton_2                    matlab.ui.control.Button
+        RearrangeDataButton_2           matlab.ui.control.Button
         SaveData_DM                     matlab.ui.control.Button
-        ASSIGNButtonDM                  matlab.ui.control.Button
+        AssignDM_DataButton             matlab.ui.control.Button
         STEP1Panel                      matlab.ui.container.Panel
         ImportAllDataInverseSequenceButton  matlab.ui.control.Button
         PlotmeanandrangeButton          matlab.ui.control.Button
@@ -195,7 +195,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
         DplotdoesnotsupportthebelowextractingfunctionLabel  matlab.ui.control.Label
         data3DDropDown                  matlab.ui.control.DropDown
         dataDropDownLabel               matlab.ui.control.Label
-        PLOT1_3DButton                  matlab.ui.control.Button
+        Plot1_3DButton                  matlab.ui.control.Button
         exABABCetcLabel                 matlab.ui.control.Label
         NumberofDataEditField           matlab.ui.control.NumericEditField
         NumberofDataEditFieldLabel      matlab.ui.control.Label
@@ -947,7 +947,7 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.AbsorptionButton.Enable = tf;
             app.RefractiveIndexButton.Enable = tf;
             app.DielectricConstantButton.Enable = tf;
-            app.dataManipulationButton.Enable = tf;            
+            app.DataManipulationButton.Enable = tf;            
         end
              
         
@@ -1085,43 +1085,6 @@ classdef CaTSper_exported < matlab.apps.AppBase
         % updateFreqRange updates the list of data sets selected for the
         % FD Data Analysis section in the frequency domain tab and empties
         % certain data from matrices
-        function updateFreqRange(app,limitFreq,all)
-            FDindex = app.FDSelectionListBox_2.Value;
-            filterList = FDindex;
-            
-            % if 'all' is selected (i.e. all = 1), filter list becomes the
-            % same as the first selection in the frequency domain tab (FD List)
-            if all
-                filterList = app.FD_select_2;
-            end
-                
-            % if only certain data sets are selected, execute the following
-            for FDindex = filterList
-                % find limitFreq location
-                freq = app.FD_data.frequency{FDindex};
-                % find the number of cells in 'freq' that has a value less
-                % than 'limitFreq'
-                limitLoc = sum(freq < (limitFreq * 10^12));
-                
-                % update FD_data
-                % reducing the data stored in matrices, by removing
-                % data from 'limitLoc' to end
-                app.FD_data.ffd_references{FDindex}(limitLoc:end) = [];
-                app.FD_data.ffd_samples{FDindex}(limitLoc:end) = [];
-                app.FD_data.ref_amplitude{FDindex}(limitLoc:end) = [];
-                app.FD_data.ref_phase{FDindex}(limitLoc:end) = [];
-                app.FD_data.sam_amplitude{FDindex}(limitLoc:end) = [];
-                app.FD_data.sam_phase{FDindex}(limitLoc:end) = [];
-                app.FD_data.transmit_amplitude{FDindex}(limitLoc:end) = [];
-                app.FD_data.transmit_phase{FDindex}(limitLoc:end) = [];
-                app.FD_data.refractiveIndex{FDindex}(limitLoc:end) = [];
-                app.FD_data.absorption{FDindex}(limitLoc:end) = [];    
-                app.FD_data.frequency{FDindex}(limitLoc:end) = [];
-                app.FD_data.extinction{FDindex}(limitLoc:end) = [];
-                app.FD_data.eReal{FDindex}(limitLoc:end) = [];
-                app.FD_data.eImag{FDindex}(limitLoc:end) = [];
-            end 
-        end
         
         % updateThickness2 calculates and updates sample thickness of
         % selected measurements
@@ -1487,32 +1450,19 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.FDListListBox.ItemsData = (1:FDindex);
         end
 
-        % Button pushed function: PLOT1TDButton
-        function PLOT1TDButtonPushed(app, event)
+        % Button pushed function: Plot1TDButton
+        function Plot1TDButtonPushed(app, event)
             plotTD_data(app,app.UIAxes1);
         end
 
-        % Button pushed function: PLOT1FDButton
-        function PLOT1FDButtonPushed(app, event)
+        % Button pushed function: Plot1FDButton
+        function Plot1FDButtonPushed(app, event)
             plotFD_data(app,app.UIAxes3);     
         end
 
-        % Button pushed function: PLOT2FDButton
-        function PLOT2FDButtonPushed(app, event)
+        % Button pushed function: Plot2FDButton
+        function Plot2FDButtonPushed(app, event)
             plotFD_data(app,app.UIAxes4);
-        end
-
-        % Callback function
-        function YscaleButtonGroupSelectionChanged(app, event)
-            % YscaleButtonGroupSelectionChanged updates the y-scale of the plot
-            % when a different option on the y-scale is selected
-            selectedButton = app.YscaleButtonGroup.SelectedObject;
-            
-            if selectedButton == "logarithm"
-                app.UIAxes1.YScale = "log";
-            else
-                app.UIAxes1.YScale = "linear";
-            end
         end
 
         % Value changed function: AutoWindowButton
@@ -1590,8 +1540,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.SelectionListBox.Items = ListBoxItems;
         end
 
-        % Button pushed function: PLOT2TDButton
-        function PLOT2TDButtonPushed(app, event)
+        % Button pushed function: Plot2TDButton
+        function Plot2TDButtonPushed(app, event)
             plotTD_data(app,app.UIAxes2);
         end
 
@@ -1788,72 +1738,15 @@ classdef CaTSper_exported < matlab.apps.AppBase
             end
         end
 
-        % Callback function
-        function DescriptionEditFieldValueChanged(app, event)
-            % DescriptionEditFieldValueChanged extracts the input of the
-            % description value, corresponds it to the selected item, and
-            % stores the value into the data structure
-            
-            % extract the description input value            
-            value = app.DescriptionEditField.Value;
-            % extract the value of the selected item
-            MeasNum = app.MeasurementListBox.Value;
-            
-            % if there are no items selected, do not continue to perform
-            % the the function
-            if isempty(MeasNum)
-                return;
-            end
-            
-            % update description
-            % and store the description into the data structure
-            app.TD_data.metadata{MeasNum}.description = value;
-        end
-
-        % Callback function
-        function ThicknessmmEditFieldValueChanged(app, event)
-             % ThicknessmmEditFieldValueChanged extracts the input of the
-            % thickness value, corresponds it to the selected item, and
-            % stores the value into the data structure
-            
-            % extract the description input value
-            value = app.ThicknessmmEditField.Value;
-            
-            % if a thickness value of <= 0 is input, display error message
-            if value <= 0
-                fig = app.CatsperUIFigure;
-                uialert(fig,'Please input a valid thickness','Invalid Thickness');
-                return;
-            end
-            
-            % extract the value of the selected item
-            Update = app.MeasurementListBox.Value;
-            
-            % if no item in the measurement list is selected, do not
-            % continue to perform the function
-            if isempty(Update)
-                return;
-            end
-
-            % update thickness
-            % and stores the thickness value into the data structure
-            TDindex = app.MeasurementListBox.Value;
-            app.TD_data.metadata{TDindex}.thickness = value;
-            
-            % update correlated information
-            TDanalysisUpdate(app,TDindex);
-            
-        end
-
-        % Button pushed function: ASSIGNButtonTD
-        function ASSIGNButtonTDPushed(app, event)
+        % Button pushed function: AssignTD_DataButton
+        function AssignTD_DataButtonPushed(app, event)
             % ASSIGNButtonTDPushed assigns the values in 'app.TD_data' to the
             % variable 'TD_data' in the 'base' workspace
             assignin('base',"TD_data",app.TD_data);
         end
 
-        % Button pushed function: ASSIGNButtonFD
-        function ASSIGNButtonFDPushed(app, event)
+        % Button pushed function: AssignFD_DataButton
+        function AssignFD_DataButtonPushed(app, event)
             % ASSIGNButtonFDPushed assigns the values in 'app.FD_data' to the
             % variable 'FD_data' in the 'base' workspace
             assignin('base',"FD_data",app.FD_data);
@@ -2234,13 +2127,13 @@ classdef CaTSper_exported < matlab.apps.AppBase
             AdvFDbuttonsEnable(app,1);
         end
 
-        % Button pushed function: PLOT1FDButton_2
-        function PLOT1FDButton_2Pushed(app, event)
+        % Button pushed function: Plot1FDButton_2
+        function Plot1FDButton_2Pushed(app, event)
             plotFD_data2(app,app.UIAxes3);
         end
 
-        % Button pushed function: PLOT2FDButton_2
-        function PLOT2FDButton_2Pushed(app, event)
+        % Button pushed function: Plot2FDButton_2
+        function Plot2FDButton_2Pushed(app, event)
             plotFD_data2(app,app.UIAxes4);
         end
 
@@ -2292,42 +2185,6 @@ classdef CaTSper_exported < matlab.apps.AppBase
                     app.RealImagButtonGroup.Visible = false;
             end
             
-        end
-
-        % Callback function
-        function PLOTREFRACTIVEINDICESButtonPushed(app, event)
-            % PLOTREFRACTIVEINDICESButtonPushed plots the time domain refractive indices of
-            % different measurements
-            
-            % Create UIFigure and hide until all components are created
-            fig = uifigure('Visible', 'on');
-            fig.Position = [100 100 1100 600];
-            fig.Name = 'EFFECTIVE REFRACTIVE INDEX';
-
-            % Create UIAxes
-            ax = uiaxes(fig);
-            title(ax, 'REFRACTIVE INDEX')
-            xlabel(ax, 'SAMPLE LIST')
-            ylabel(ax, 'REFRACTIVE INDEX (n)')
-            ax.Position = [20 10 1065 550];
-
-            labels= {};
-            idxNum = app.TD_data.totalMeasNum;
-            tList = [];
-            
-            % extract the strings of the names for each sample measurement,
-            % and replaces the '_' with ' '
-            for idx=1:idxNum
-                labels{idx} = strrep(strjoin(app.TD_data.sampleList{idx}),'_',' ');
-                tList =[tList app.TD_data.metadata{idx}.refractiveIndex];
-            end
-            
-            % on the x-tick, label the plotted values with the
-            % corresponding measurement name
-            ax.XTick = (1:idxNum);
-            ax.XTickLabel = labels;
-            ax.XTickLabelRotation= 45;
-            plot(ax,(1:idxNum),tList,'-o');
         end
 
         % Value changed function: LegenButton
@@ -2524,13 +2381,13 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.DialogApp = DR_Checker(app,refF,refE,samA,n_eff,thickness,sampleID);
         end
 
-        % Button pushed function: PLOTFORCUSTOMISATIONButton_FD2
-        function PLOTFORCUSTOMISATIONButton_FD2Pushed(app, event)
+        % Button pushed function: PlotForCustomisationButton_FD2
+        function PlotForCustomisationButton_FD2Pushed(app, event)
             plotFD_dataNew(app);
         end
 
-        % Button pushed function: dataManipulationButton
-        function dataManipulationButtonPushed(app, event)
+        % Button pushed function: DataManipulationButton
+        function DataManipulationButtonPushed(app, event)
             % dataManipulationButtonPushed extracts values and arrays in the
             % frequency domain tab to the data manipulation tab, and sets up th
             % drop down menu
@@ -2776,16 +2633,16 @@ classdef CaTSper_exported < matlab.apps.AppBase
             hold(ax,"off")
         end
 
-        % Button pushed function: ASSIGNButtonDM
-        function ASSIGNButtonDMPushed(app, event)
+        % Button pushed function: AssignDM_DataButton
+        function AssignDM_DataButtonPushed(app, event)
             % ASSIGNButtonDMPushed assigns the values in app.DM_data to the
             % variable 'DM_data' to the base workspace
 
             assignin('base',"DM_data",app.DM_data);
         end
 
-        % Button pushed function: REARRANGEDATAButton_2
-        function REARRANGEDATAButton_2Pushed(app, event)
+        % Button pushed function: RearrangeDataButton_2
+        function RearrangeDataButton_2Pushed(app, event)
             % REARRANGEDATAButton_2Pushed calls the findDMPeaks function,
             % extracts and stores both the common name for the set of data and
             % the individual measurement identifiers
@@ -2820,30 +2677,6 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.XaxisDataEditField_2.Value = cell2mat(xtempList);
         end
 
-        % Callback function
-        function MinPeakProminenceSliderValueChanged(app, event)
-            % MinPeakProminenceSliderValueChanged detects the value change by
-            % the minimum peak prominence slider and displays the same value on
-            % the minimum peak prominence edit field, and finally calls the
-            % findDMPeaks function
-
-            value = app.MinPeakProminenceSlider.Value;
-            app.MinPeakProminenceEditField.Value = value;
-            findDMPeaks(app);
-        end
-
-        % Callback function
-        function EditFieldValueChanged(app, event)
-            % EditFieldValueChanged detects the value change by
-            % the minimum peak prominence edit field and displays the same value on
-            % the minimum peak prominence slider, and finally calls the
-            % findDMPeaks function    
-
-            value = app.MinPeakProminenceEditField.Value;
-            app.MinPeakProminenceSlider.Value = value;
-            findDMPeaks(app);
-        end
-
         % Value changed function: LowerLimitTHzEditField
         function LowerLimitTHzEditFieldValueChanged(app, event)
             % LowerLimitTHzEditFieldValueChanged extracts the updated value in
@@ -2852,8 +2685,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             findDMPeaks(app);
         end
 
-        % Button pushed function: PLOTButton_3
-        function PLOTButton_3Pushed(app, event)
+        % Button pushed function: PlotButton_2
+        function PlotButton_2Pushed(app, event)
             % PLOTButton_3Pushed plots specified frequency values 
             % against individual data sets
 
@@ -2911,34 +2744,6 @@ classdef CaTSper_exported < matlab.apps.AppBase
             end
         end
 
-        % Callback function
-        function SwitchValueChanged(app, event)
-            % this function is not implemented in the app
-            % SwitchValueChanged extracts new values which are changed from the
-            % slider and updates the corredponing edit fields with the new
-            % values, then runds the updateCFPlot function
-
-            value = app.Switch.Value;
-            % if the swtich is activated
-            if value == "On"
-                % extracts the new value which is changed from the slider
-                B = app.BSlider.Value;
-                % updates the edit field with the new value
-                app.BEditField.Value = B;
-                % extracts the new value which is changed from the slider
-                b = app.bSlider.Value;
-                % updates the edit field with the new value
-                app.GAAdjustbEditField.Value = b;
-                % runs the updateCFPlot function
-                updateCFPlot(app);
-            end
-        end
-
-        % Callback function
-        function ContantCEditFieldValueChanged(app, event)
-            updateCFPlot(app);
-        end
-
         % Value changed function: MinPeakProminenceEditField
         function MinPeakProminenceEditFieldValueChanged(app, event)
             findDMPeaks(app);
@@ -2981,15 +2786,15 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.FDSelectionListBox_2.ItemsData = (1:length(ListItems));
         end
 
-        % Value changed function: JETCOLORMAPButton_DM
-        function JETCOLORMAPButton_DMValueChanged(app, event)
+        % Value changed function: JetColormapButton_DM
+        function JetColormapButton_DMValueChanged(app, event)
             % JETCOLORMAPButton_DMValueChanged plots data sets using the jet
             % colormap or the lines colormap based on the selection by user
             
             % extracts the selection by user, if the jet colormap button is
             % clicked, the value is one, otherwise the value is zero
             
-            value = app.JETCOLORMAPButton_DM.Value;
+            value = app.JetColormapButton_DM.Value;
             % converts the value from a string to number
             dataList = str2num(app.SourceDataSetEditField.Value);
             % extract the number of data sets
@@ -3005,8 +2810,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             end
         end
 
-        % Button pushed function: PLOT1_3DButton
-        function PLOT1_3DButtonPushed(app, event)
+        % Button pushed function: Plot1_3DButton
+        function Plot1_3DButtonPushed(app, event)
             % PLOT1_3DButtonPushed plots a 3D plot for the specified data set
         
             ax = app.UIAxes9;
@@ -3156,25 +2961,6 @@ classdef CaTSper_exported < matlab.apps.AppBase
             DM_data = app.DM_data;
             % save data manipulation data
             save(fullfile,'DM_data');
-        end
-
-        % Callback function
-        function ANALYSERButtonPushed(app, event)
-            % this function is not implemented in the app
-            yList = app.DM_data.freq;
-            Values = app.DM_data.values;
-            tempList = app.DM_data.tempList;
-                       
-            app.DialogApp = DM_Analyser(app,yList,Values,tempList);
-        end
-
-        % Callback function
-        function AlgorithmDropDownValueChanged(app, event)
-            % this function is not implemented in the app
-            value = app.AlgorithmDropDown.Value;
-            if isequal(value,'c')
-                PLOTALLButtonPushed(app,event);
-            end
         end
 
         % Button pushed function: PlotmeanandrangeButton
@@ -3477,13 +3263,13 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.FD_data.metadata = {};
         end
 
-        % Button pushed function: PLOTFORCUSTOMISATIONButton_TD
-        function PLOTFORCUSTOMISATIONButton_TDPushed(app, event)
+        % Button pushed function: PlotForCustomisationButton_TD
+        function PlotForCustomisationButton_TDPushed(app, event)
             plotTD_data(app,"NEW");
         end
 
-        % Button pushed function: PLOTFORCUSTOMISATIONButton_FD1
-        function PLOTFORCUSTOMISATIONButton_FD1Pushed(app, event)
+        % Button pushed function: PlotForCustomisationButton_FD1
+        function PlotForCustomisationButton_FD1Pushed(app, event)
             plotFD_data(app,"NEW");
         end
 
@@ -3503,13 +3289,6 @@ classdef CaTSper_exported < matlab.apps.AppBase
             
         end
 
-        % Callback function
-        function DatasetDescriptionEditFieldValueChanged(app, event)
-            value = app.DatasetDescriptionEditField.Value;
-            MeasNum = app.MeasurementListBox.Value;
-            app.TD_data.metadata{MeasNum}.dsDescription = value;            
-        end
-
         % Button pushed function: ImportAllDataInverseSequenceButton
         function ImportAllDataInverseSequenceButtonPushed(app, event)
             % IMPORTALLDATA (Inverse Sequence) ButtonPushed imports all
@@ -3517,8 +3296,8 @@ classdef CaTSper_exported < matlab.apps.AppBase
             % set list in the DM tab and makes them available for data manipulation
         
             dataList = app.FD_select_2;
-            dataList = num2str(dataList);
             dataList = fliplr(dataList);
+            dataList = num2str(dataList);
             app.SourceDataSetEditField.Value = dataList;
         end
 
@@ -3674,11 +3453,11 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.SelectionListBox.Position = [334 436 171 365];
             app.SelectionListBox.Value = {};
 
-            % Create PLOT1TDButton
-            app.PLOT1TDButton = uibutton(app.TimeDomainTDTab, 'push');
-            app.PLOT1TDButton.ButtonPushedFcn = createCallbackFcn(app, @PLOT1TDButtonPushed, true);
-            app.PLOT1TDButton.Position = [519 631 105 45];
-            app.PLOT1TDButton.Text = 'Plot 1';
+            % Create Plot1TDButton
+            app.Plot1TDButton = uibutton(app.TimeDomainTDTab, 'push');
+            app.Plot1TDButton.ButtonPushedFcn = createCallbackFcn(app, @Plot1TDButtonPushed, true);
+            app.Plot1TDButton.Position = [519 631 105 45];
+            app.Plot1TDButton.Text = 'Plot 1';
 
             % Create FFTSettingsPanel
             app.FFTSettingsPanel = uipanel(app.TimeDomainTDTab);
@@ -3890,11 +3669,11 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.THzLabel_5.Position = [253 172 27 22];
             app.THzLabel_5.Text = 'THz';
 
-            % Create PLOT2TDButton
-            app.PLOT2TDButton = uibutton(app.TimeDomainTDTab, 'push');
-            app.PLOT2TDButton.ButtonPushedFcn = createCallbackFcn(app, @PLOT2TDButtonPushed, true);
-            app.PLOT2TDButton.Position = [519 578 105 45];
-            app.PLOT2TDButton.Text = 'Plot 2';
+            % Create Plot2TDButton
+            app.Plot2TDButton = uibutton(app.TimeDomainTDTab, 'push');
+            app.Plot2TDButton.ButtonPushedFcn = createCallbackFcn(app, @Plot2TDButtonPushed, true);
+            app.Plot2TDButton.Position = [519 578 105 45];
+            app.Plot2TDButton.Text = 'Plot 2';
 
             % Create ALLButton
             app.ALLButton = uibutton(app.TimeDomainTDTab, 'push');
@@ -3957,14 +3736,14 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.SaveData_TD.Position = [145 13 111 30];
             app.SaveData_TD.Text = 'Save TD_DATA';
 
-            % Create ASSIGNButtonTD
-            app.ASSIGNButtonTD = uibutton(app.TimeDomainTDTab, 'push');
-            app.ASSIGNButtonTD.ButtonPushedFcn = createCallbackFcn(app, @ASSIGNButtonTDPushed, true);
-            app.ASSIGNButtonTD.BackgroundColor = [0.9412 0.9412 0.9412];
-            app.ASSIGNButtonTD.FontWeight = 'bold';
-            app.ASSIGNButtonTD.Tooltip = {'Assign data to variable in the base workspace'};
-            app.ASSIGNButtonTD.Position = [265 13 220 30];
-            app.ASSIGNButtonTD.Text = 'Assign TD_DATA in Workspace';
+            % Create AssignTD_DataButton
+            app.AssignTD_DataButton = uibutton(app.TimeDomainTDTab, 'push');
+            app.AssignTD_DataButton.ButtonPushedFcn = createCallbackFcn(app, @AssignTD_DataButtonPushed, true);
+            app.AssignTD_DataButton.BackgroundColor = [0.9412 0.9412 0.9412];
+            app.AssignTD_DataButton.FontWeight = 'bold';
+            app.AssignTD_DataButton.Tooltip = {'Assign data to variable in the base workspace'};
+            app.AssignTD_DataButton.Position = [265 13 220 30];
+            app.AssignTD_DataButton.Text = 'Assign TD_DATA in Workspace';
 
             % Create CheckDynamicRangeButton
             app.CheckDynamicRangeButton = uibutton(app.TimeDomainTDTab, 'push');
@@ -3972,12 +3751,12 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.CheckDynamicRangeButton.Position = [519 468 105 61];
             app.CheckDynamicRangeButton.Text = {'Check'; 'Dynamic'; 'Range'};
 
-            % Create PLOTFORCUSTOMISATIONButton_TD
-            app.PLOTFORCUSTOMISATIONButton_TD = uibutton(app.TimeDomainTDTab, 'push');
-            app.PLOTFORCUSTOMISATIONButton_TD.ButtonPushedFcn = createCallbackFcn(app, @PLOTFORCUSTOMISATIONButton_TDPushed, true);
-            app.PLOTFORCUSTOMISATIONButton_TD.FontSize = 11;
-            app.PLOTFORCUSTOMISATIONButton_TD.Position = [519 536 105 35];
-            app.PLOTFORCUSTOMISATIONButton_TD.Text = {'Plot For'; 'Customisation'};
+            % Create PlotForCustomisationButton_TD
+            app.PlotForCustomisationButton_TD = uibutton(app.TimeDomainTDTab, 'push');
+            app.PlotForCustomisationButton_TD.ButtonPushedFcn = createCallbackFcn(app, @PlotForCustomisationButton_TDPushed, true);
+            app.PlotForCustomisationButton_TD.FontSize = 11;
+            app.PlotForCustomisationButton_TD.Position = [519 536 105 35];
+            app.PlotForCustomisationButton_TD.Text = {'Plot For'; 'Customisation'};
 
             % Create UITable_MeasDetail
             app.UITable_MeasDetail = uitable(app.TimeDomainTDTab);
@@ -4058,17 +3837,17 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.UIAxes4.Box = 'on';
             app.UIAxes4.Position = [644 40 750 390];
 
-            % Create PLOT1FDButton
-            app.PLOT1FDButton = uibutton(app.FrequencyDomainFDTab, 'push');
-            app.PLOT1FDButton.ButtonPushedFcn = createCallbackFcn(app, @PLOT1FDButtonPushed, true);
-            app.PLOT1FDButton.Position = [515 529 100 40];
-            app.PLOT1FDButton.Text = 'Plot 1';
+            % Create Plot1FDButton
+            app.Plot1FDButton = uibutton(app.FrequencyDomainFDTab, 'push');
+            app.Plot1FDButton.ButtonPushedFcn = createCallbackFcn(app, @Plot1FDButtonPushed, true);
+            app.Plot1FDButton.Position = [515 529 100 40];
+            app.Plot1FDButton.Text = 'Plot 1';
 
-            % Create PLOT2FDButton
-            app.PLOT2FDButton = uibutton(app.FrequencyDomainFDTab, 'push');
-            app.PLOT2FDButton.ButtonPushedFcn = createCallbackFcn(app, @PLOT2FDButtonPushed, true);
-            app.PLOT2FDButton.Position = [515 483 100 40];
-            app.PLOT2FDButton.Text = 'Plot 2';
+            % Create Plot2FDButton
+            app.Plot2FDButton = uibutton(app.FrequencyDomainFDTab, 'push');
+            app.Plot2FDButton.ButtonPushedFcn = createCallbackFcn(app, @Plot2FDButtonPushed, true);
+            app.Plot2FDButton.Position = [515 483 100 40];
+            app.Plot2FDButton.Text = 'Plot 2';
 
             % Create FDListListBoxLabel
             app.FDListListBoxLabel = uilabel(app.FrequencyDomainFDTab);
@@ -4142,13 +3921,13 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.RemoveAllButton.Position = [163 424 119 30];
             app.RemoveAllButton.Text = 'Remove All';
 
-            % Create ASSIGNButtonFD
-            app.ASSIGNButtonFD = uibutton(app.FrequencyDomainFDTab, 'push');
-            app.ASSIGNButtonFD.ButtonPushedFcn = createCallbackFcn(app, @ASSIGNButtonFDPushed, true);
-            app.ASSIGNButtonFD.FontWeight = 'bold';
-            app.ASSIGNButtonFD.Tooltip = {'Assign data to variable in the base workspace'};
-            app.ASSIGNButtonFD.Position = [283 12 220 30];
-            app.ASSIGNButtonFD.Text = 'Assign FD_DATA in Workspace';
+            % Create AssignFD_DataButton
+            app.AssignFD_DataButton = uibutton(app.FrequencyDomainFDTab, 'push');
+            app.AssignFD_DataButton.ButtonPushedFcn = createCallbackFcn(app, @AssignFD_DataButtonPushed, true);
+            app.AssignFD_DataButton.FontWeight = 'bold';
+            app.AssignFD_DataButton.Tooltip = {'Assign data to variable in the base workspace'};
+            app.AssignFD_DataButton.Position = [283 12 220 30];
+            app.AssignFD_DataButton.Text = 'Assign FD_DATA in Workspace';
 
             % Create FDDataAnalysisPanel
             app.FDDataAnalysisPanel = uipanel(app.FrequencyDomainFDTab);
@@ -4156,17 +3935,17 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.FDDataAnalysisPanel.FontWeight = 'bold';
             app.FDDataAnalysisPanel.Position = [12 93 613 319];
 
-            % Create PLOT1FDButton_2
-            app.PLOT1FDButton_2 = uibutton(app.FDDataAnalysisPanel, 'push');
-            app.PLOT1FDButton_2.ButtonPushedFcn = createCallbackFcn(app, @PLOT1FDButton_2Pushed, true);
-            app.PLOT1FDButton_2.Position = [489 99 109 40];
-            app.PLOT1FDButton_2.Text = 'Plot 1';
+            % Create Plot1FDButton_2
+            app.Plot1FDButton_2 = uibutton(app.FDDataAnalysisPanel, 'push');
+            app.Plot1FDButton_2.ButtonPushedFcn = createCallbackFcn(app, @Plot1FDButton_2Pushed, true);
+            app.Plot1FDButton_2.Position = [489 99 109 40];
+            app.Plot1FDButton_2.Text = 'Plot 1';
 
-            % Create PLOT2FDButton_2
-            app.PLOT2FDButton_2 = uibutton(app.FDDataAnalysisPanel, 'push');
-            app.PLOT2FDButton_2.ButtonPushedFcn = createCallbackFcn(app, @PLOT2FDButton_2Pushed, true);
-            app.PLOT2FDButton_2.Position = [489 55 109 40];
-            app.PLOT2FDButton_2.Text = 'Plot 2';
+            % Create Plot2FDButton_2
+            app.Plot2FDButton_2 = uibutton(app.FDDataAnalysisPanel, 'push');
+            app.Plot2FDButton_2.ButtonPushedFcn = createCallbackFcn(app, @Plot2FDButton_2Pushed, true);
+            app.Plot2FDButton_2.Position = [489 55 109 40];
+            app.Plot2FDButton_2.Text = 'Plot 2';
 
             % Create MagPhaseButtonGroup_2
             app.MagPhaseButtonGroup_2 = uibuttongroup(app.FDDataAnalysisPanel);
@@ -4325,12 +4104,12 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.linearButton_2.Text = 'linear';
             app.linearButton_2.Position = [11 2 51 22];
 
-            % Create PLOTFORCUSTOMISATIONButton_FD2
-            app.PLOTFORCUSTOMISATIONButton_FD2 = uibutton(app.FDDataAnalysisPanel, 'push');
-            app.PLOTFORCUSTOMISATIONButton_FD2.ButtonPushedFcn = createCallbackFcn(app, @PLOTFORCUSTOMISATIONButton_FD2Pushed, true);
-            app.PLOTFORCUSTOMISATIONButton_FD2.FontSize = 11;
-            app.PLOTFORCUSTOMISATIONButton_FD2.Position = [489 14 109 35];
-            app.PLOTFORCUSTOMISATIONButton_FD2.Text = {'Plot For'; 'Customisation'};
+            % Create PlotForCustomisationButton_FD2
+            app.PlotForCustomisationButton_FD2 = uibutton(app.FDDataAnalysisPanel, 'push');
+            app.PlotForCustomisationButton_FD2.ButtonPushedFcn = createCallbackFcn(app, @PlotForCustomisationButton_FD2Pushed, true);
+            app.PlotForCustomisationButton_FD2.FontSize = 11;
+            app.PlotForCustomisationButton_FD2.Position = [489 14 109 35];
+            app.PlotForCustomisationButton_FD2.Text = {'Plot For'; 'Customisation'};
 
             % Create RealImagButtonGroup
             app.RealImagButtonGroup = uibuttongroup(app.FDDataAnalysisPanel);
@@ -4417,26 +4196,26 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.FDDatatoLabel.Position = [27 59 69 22];
             app.FDDatatoLabel.Text = 'FD Data to ';
 
-            % Create dataManipulationButton
-            app.dataManipulationButton = uibutton(app.FrequencyDomainFDTab, 'push');
-            app.dataManipulationButton.ButtonPushedFcn = createCallbackFcn(app, @dataManipulationButtonPushed, true);
-            app.dataManipulationButton.FontWeight = 'bold';
-            app.dataManipulationButton.Enable = 'off';
-            app.dataManipulationButton.Tooltip = {'Assign data to variable in the base workspace'};
-            app.dataManipulationButton.Position = [97 57 288 26];
-            app.dataManipulationButton.Text = 'Data Manipulation';
+            % Create DataManipulationButton
+            app.DataManipulationButton = uibutton(app.FrequencyDomainFDTab, 'push');
+            app.DataManipulationButton.ButtonPushedFcn = createCallbackFcn(app, @DataManipulationButtonPushed, true);
+            app.DataManipulationButton.FontWeight = 'bold';
+            app.DataManipulationButton.Enable = 'off';
+            app.DataManipulationButton.Tooltip = {'Assign data to variable in the base workspace'};
+            app.DataManipulationButton.Position = [97 57 288 26];
+            app.DataManipulationButton.Text = 'Data Manipulation';
 
             % Create GridOffButton
             app.GridOffButton = uibutton(app.FrequencyDomainFDTab, 'state');
             app.GridOffButton.Text = 'Grid Off';
             app.GridOffButton.Position = [515 575 100 25];
 
-            % Create PLOTFORCUSTOMISATIONButton_FD1
-            app.PLOTFORCUSTOMISATIONButton_FD1 = uibutton(app.FrequencyDomainFDTab, 'push');
-            app.PLOTFORCUSTOMISATIONButton_FD1.ButtonPushedFcn = createCallbackFcn(app, @PLOTFORCUSTOMISATIONButton_FD1Pushed, true);
-            app.PLOTFORCUSTOMISATIONButton_FD1.FontSize = 11;
-            app.PLOTFORCUSTOMISATIONButton_FD1.Position = [515 436 100 41];
-            app.PLOTFORCUSTOMISATIONButton_FD1.Text = {'Plot For'; 'Customisation'};
+            % Create PlotForCustomisationButton_FD1
+            app.PlotForCustomisationButton_FD1 = uibutton(app.FrequencyDomainFDTab, 'push');
+            app.PlotForCustomisationButton_FD1.ButtonPushedFcn = createCallbackFcn(app, @PlotForCustomisationButton_FD1Pushed, true);
+            app.PlotForCustomisationButton_FD1.FontSize = 11;
+            app.PlotForCustomisationButton_FD1.Position = [515 436 100 41];
+            app.PlotForCustomisationButton_FD1.Text = {'Plot For'; 'Customisation'};
 
             % Create DataManipulationDMTab
             app.DataManipulationDMTab = uitab(app.TabGroup);
@@ -4598,11 +4377,11 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.DPlotFrequencyxaxisPanel.Title = '3D Plot (Frequency x-axis)';
             app.DPlotFrequencyxaxisPanel.Position = [22 37 300 71];
 
-            % Create PLOT1_3DButton
-            app.PLOT1_3DButton = uibutton(app.DPlotFrequencyxaxisPanel, 'push');
-            app.PLOT1_3DButton.ButtonPushedFcn = createCallbackFcn(app, @PLOT1_3DButtonPushed, true);
-            app.PLOT1_3DButton.Position = [174 22 110 23];
-            app.PLOT1_3DButton.Text = '3D Plot 1';
+            % Create Plot1_3DButton
+            app.Plot1_3DButton = uibutton(app.DPlotFrequencyxaxisPanel, 'push');
+            app.Plot1_3DButton.ButtonPushedFcn = createCallbackFcn(app, @Plot1_3DButtonPushed, true);
+            app.Plot1_3DButton.Position = [174 22 110 23];
+            app.Plot1_3DButton.Text = '3D Plot 1';
 
             % Create dataDropDownLabel
             app.dataDropDownLabel = uilabel(app.DPlotFrequencyxaxisPanel);
@@ -4635,13 +4414,13 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.ImportAllDataInverseSequenceButton.Position = [348 333 209 23];
             app.ImportAllDataInverseSequenceButton.Text = 'Import All Data (Inverse Sequence)';
 
-            % Create ASSIGNButtonDM
-            app.ASSIGNButtonDM = uibutton(app.DataManipulationDMTab, 'push');
-            app.ASSIGNButtonDM.ButtonPushedFcn = createCallbackFcn(app, @ASSIGNButtonDMPushed, true);
-            app.ASSIGNButtonDM.FontWeight = 'bold';
-            app.ASSIGNButtonDM.Tooltip = {'Assign data to variable in the base workspace'};
-            app.ASSIGNButtonDM.Position = [148 13 220 30];
-            app.ASSIGNButtonDM.Text = 'Assign DM_DATA in Workspace';
+            % Create AssignDM_DataButton
+            app.AssignDM_DataButton = uibutton(app.DataManipulationDMTab, 'push');
+            app.AssignDM_DataButton.ButtonPushedFcn = createCallbackFcn(app, @AssignDM_DataButtonPushed, true);
+            app.AssignDM_DataButton.FontWeight = 'bold';
+            app.AssignDM_DataButton.Tooltip = {'Assign data to variable in the base workspace'};
+            app.AssignDM_DataButton.Position = [148 13 220 30];
+            app.AssignDM_DataButton.Text = 'Assign DM_DATA in Workspace';
 
             % Create SaveData_DM
             app.SaveData_DM = uibutton(app.DataManipulationDMTab, 'push');
@@ -4745,18 +4524,18 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.PeakBaseTab = uitab(app.DMTabGroup);
             app.PeakBaseTab.Title = 'Peak Base';
 
-            % Create REARRANGEDATAButton_2
-            app.REARRANGEDATAButton_2 = uibutton(app.PeakBaseTab, 'push');
-            app.REARRANGEDATAButton_2.ButtonPushedFcn = createCallbackFcn(app, @REARRANGEDATAButton_2Pushed, true);
-            app.REARRANGEDATAButton_2.BackgroundColor = [1 1 1];
-            app.REARRANGEDATAButton_2.Position = [103 195 471 22];
-            app.REARRANGEDATAButton_2.Text = 'REARRANGE DATA';
+            % Create RearrangeDataButton_2
+            app.RearrangeDataButton_2 = uibutton(app.PeakBaseTab, 'push');
+            app.RearrangeDataButton_2.ButtonPushedFcn = createCallbackFcn(app, @RearrangeDataButton_2Pushed, true);
+            app.RearrangeDataButton_2.BackgroundColor = [1 1 1];
+            app.RearrangeDataButton_2.Position = [103 194 471 23];
+            app.RearrangeDataButton_2.Text = 'Re-arrange Data';
 
-            % Create PLOTButton_3
-            app.PLOTButton_3 = uibutton(app.PeakBaseTab, 'push');
-            app.PLOTButton_3.ButtonPushedFcn = createCallbackFcn(app, @PLOTButton_3Pushed, true);
-            app.PLOTButton_3.Position = [329 12 231 30];
-            app.PLOTButton_3.Text = 'PLOT';
+            % Create PlotButton_2
+            app.PlotButton_2 = uibutton(app.PeakBaseTab, 'push');
+            app.PlotButton_2.ButtonPushedFcn = createCallbackFcn(app, @PlotButton_2Pushed, true);
+            app.PlotButton_2.Position = [329 12 231 30];
+            app.PlotButton_2.Text = 'Plot';
 
             % Create PeakNumSpinnerLabel
             app.PeakNumSpinnerLabel = uilabel(app.PeakBaseTab);
@@ -4847,11 +4626,11 @@ classdef CaTSper_exported < matlab.apps.AppBase
             app.MinPeakProminenceEditField.ValueChangedFcn = createCallbackFcn(app, @MinPeakProminenceEditFieldValueChanged, true);
             app.MinPeakProminenceEditField.Position = [178 229 74 22];
 
-            % Create JETCOLORMAPButton_DM
-            app.JETCOLORMAPButton_DM = uibutton(app.DataManipulationDMTab, 'state');
-            app.JETCOLORMAPButton_DM.ValueChangedFcn = createCallbackFcn(app, @JETCOLORMAPButton_DMValueChanged, true);
-            app.JETCOLORMAPButton_DM.Text = 'Jet Colormap';
-            app.JETCOLORMAPButton_DM.Position = [511 12 107 23];
+            % Create JetColormapButton_DM
+            app.JetColormapButton_DM = uibutton(app.DataManipulationDMTab, 'state');
+            app.JetColormapButton_DM.ValueChangedFcn = createCallbackFcn(app, @JetColormapButton_DMValueChanged, true);
+            app.JetColormapButton_DM.Text = 'Jet Colormap';
+            app.JetColormapButton_DM.Position = [511 12 107 23];
 
             % Create SystemStatusLabel
             app.SystemStatusLabel = uilabel(app.CatsperUIFigure);
